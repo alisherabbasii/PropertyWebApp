@@ -1,0 +1,40 @@
+.navbar{
+    height: 50px;
+    background: #33a137 !important;
+
+}
+
+.navbar-brand{
+    color: white;
+    
+}
+a:hover{
+    color: white !important;
+}
+/* Styles for wrapping the search box */
+.font-17{
+    font-size: 17px;
+}
+.main {
+    width: 50%;
+    align-self: center !important;
+    height: 30px;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    height: 30px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}

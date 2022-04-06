@@ -1,4 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.navbar{
+    justify-content: start !important;
+    align-items: inherit !important;
+}
 .p-card-title{
     font-size: 0.93rem !important;
 }
