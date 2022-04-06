@@ -1,0 +1,31 @@
+
+
+p{
+    font-size: 13px;
+}
+.heading{
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+}
+
+ul{
+    list-style-type:none;
+}
+
+a{
+    cursor: pointer;
+    font-size: 0.66rem;
+    color: #4a606a !important;
+}
+a:hover{
+    text-decoration: underline !important;   
+
+}
+.redirect{
+    cursor: pointer;
+    font-size: 0.66rem;
+}
+.display-6{
+    font-size: 18px;
+}
