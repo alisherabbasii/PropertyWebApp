@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import { BodyComponent } from './body/body.component';
 import {CardModule} from 'primeng/card';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent
+    BodyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
