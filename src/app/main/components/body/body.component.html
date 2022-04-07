@@ -1,3 +1,52 @@
+<section class=" mb-5">
+  <h1 class="text-dark heading">
+    Discover New Locations
+  </h1>
+  <div  class="container">
+    <p-carousel [value]="products" [showIndicators]="false" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+
+      <ng-template let-product pTemplate="item">
+          <div class="product-item">
+              <div class="product-item-content">
+                  <div class="mb-3">
+                      <img src="{{product.image}}" alt="sample" class="product-image" />
+                  </div>
+                  <div>
+                      <h4 class="mb-1">{{product.name}}</h4>
+                      <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.description}}</span>
+                      
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+  </div>
+
+</section>
+
+<section class="mb-5">
+  <h1 class="text-dark heading">
+    Titanium Agencies
+  </h1>
+  <div  class="container ">
+    <p-carousel [value]="products" [showIndicators]="false" [numScroll]="1" [autoplayInterval]="1500" [numVisible]="5"  [circular]="true" [responsiveOptions]="responsiveOptions">
+
+      <ng-template let-product pTemplate="item">
+          <div class="product-item">
+              <div>
+                  <div class="mb-3">
+                      <img src="{{product.image}}" alt="sample" class="product-image1" />
+                  </div>
+                </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+  </div>
+
+</section>
+
+
+
 <section>
     <h1 class="text-dark heading">
         Popular Locations
