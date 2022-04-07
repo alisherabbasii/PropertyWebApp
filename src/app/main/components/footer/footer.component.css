@@ -1,0 +1,196 @@
+
+/*FOOTER*/
+
+footer {
+    background: #1f1f1f;
+    background: -webkit-linear-gradient(59deg, #3A6073, #1f1f1f);
+    background: linear-gradient(59deg, #1f1f1f, #16222A);
+    color: white;
+    margin-top:100px;
+    padding-bottom: 2rem ;
+  }
+  
+  footer a {
+    color: #fff;
+    font-size: 14px;
+    transition-duration: 0.2s;
+  }
+  
+  footer a:hover {
+    color: #FA944B;
+    text-decoration: none;
+  }
+  
+  .copy {
+    margin-top:5rem;
+    font-size: 12px;
+    padding: 10px;
+    border-top: 1px solid #FFFFFF;
+  }
+  
+  .footer-middle {
+    padding-top: 2em;
+    color: white;
+  }
+  
+  
+  /*SOCİAL İCONS*/
+  
+  /* footer social icons */
+  
+  ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+  }
+  
+  ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+  }
+  
+  
+  /* footer social icons */
+  
+  .social-network a.icoFacebook:hover {
+    background-color: #3B5998;
+  }
+  
+  .social-network a.icoLinkedin:hover {
+    background-color: #007bb7;
+  }
+  
+  .social-network a.icoInstagram:hover {
+    background-color: #cd486b;
+  }
+  .social-network a.icoYoutube:hover {
+    background-color: #c4302b;
+  }
+  .social-network a.icoTwitter:hover {
+    background-color: #00acee;
+  }
+  .social-network a.icoTwitter:hover i,
+  .social-network a.icoInstagram:hover i ,
+  .social-network a.icoFacebook:hover i,
+  .social-network a.icoLinkedin:hover i {
+    color: #fff;
+  }
+  
+  .social-network a.icoYoutube:hover i {
+    color: #fff;
+  }
+
+  .social-network a.socialIcon:hover,
+  .socialHoverClass {
+    color: #44BCDD;
+  }
+  
+  .social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  
+  .social-circle li i {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+  }
+  
+  .social-circle li a:hover i,
+  .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  .social-circle i {
+    color: #595959;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+  }
+  
+  .social-network a {
+    background-color: #F9F9F9;
+  }
+  .Headers {
+    font-size: 1.22rem;
+    color: #bdbdbd;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}  
+
+
+.mainDiv {
+    width: inherit;
+    min-width: 24%;
+    max-width: 26%;
+}
+
+.widthSetting {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+
+
+.imageMain {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 3.2rem;
+}
+
+.imgRoshanDigital {
+    width: 3rem;
+    height: 3.4rem;
+}
+
+.roshanDigitalTxt {
+    font-size: 1rem;
+    line-height: 1.2;
+    color: #bdbdbd;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-left: 1.6rem;
+}
+
+/* getConnected */
+.getConnectedDiv {
+    font-size: 1.22rem;
+    color: #bdbdbd;
+    font-weight: 700;
+} 
+
+
+ul li {
+	/* display: -webkit-box; */
+	/* display: -ms-flexbox; */
+	display: flex;
+	font-size: 1.4rem;
+	line-height: 1.7rem;
+	margin-bottom: 0.58rem;
+	color: #bdbdbd;
+	text-transform: capitalize;
+}

@@ -10,6 +10,8 @@ import {CardModule} from 'primeng/card';
 import { ControlsComponent } from './components/controls/controls.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderWithLogoComponent } from './components/header-with-logo/header-with-logo.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     BodyComponent,
     ControlsComponent,
+    FooterComponent,
+    HeaderWithLogoComponent,
   ],
   imports: [
     MainRoutingModule,
