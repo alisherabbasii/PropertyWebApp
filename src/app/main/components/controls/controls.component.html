@@ -1,48 +1,60 @@
-<h3>Search properties for sale in Pakistan</h3>
-<div class="row">
-    <div class="col-lg-4">
-        <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true"
-            filterBy="name" [showClear]="true" placeholder="Select a City">
-            <ng-template pTemplate="selectedItem">
-                <div class="country-item country-item-value" *ngIf="selectedCountry">
-                    <div>{{selectedCountry.name}}</div>
-                </div>
-            </ng-template>
-            <ng-template let-country pTemplate="item">
-                <div class="country-item">
-                    <div>{{country.name}}</div>
-                </div>
-            </ng-template>
-        </p-dropdown>
+<div 
+style=
+"background: url('https://www.zameen.com/assets/imageBackgroundLarge.7adb4fdaad0b367c3b62aa50589323dc.webp');
+background-size: cover;
+height: 475px;
+padding-top: 130px;"
+>
+<div style="background: rgba(34,34,34,.85);">
+    <h4 class="text-white d-flex justify-content-center  pt-3">Search properties for sale in Pakistan</h4>
+    <div class="row d-flex justify-content-center pt-2">
+        <div class="col-sm-2">
+            <p-dropdown [options]="countries" [style]="{'width':'100%'}" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true"
+                filterBy="name" [showClear]="true" placeholder="Select a City">
+                <ng-template pTemplate="selectedItem">
+                    <div class="country-item country-item-value" *ngIf="selectedCountry">
+                        <div>{{selectedCountry.name}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                        <div>{{country.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        <div class="col-sm-4">
+            <p-dropdown placeholder="Location" [style]="{'width':'100%'}" [options]="cities" [(ngModel)]="selectedCity2" [editable]="true" optionLabel="name"></p-dropdown> 
+        </div>
+        <div class="col-sm-2">
+            <button pButton pRipple type="button" [style]="{'width':'100%'}" label="Find" class="p-button-success"></button>
+        </div>
+    
     </div>
-    <div class="col-lg-4">
-        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" [editable]="true" optionLabel="name"></p-dropdown> 
+    
+    <br>
+    <div class="row d-flex justify-content-center pb-3">
+        <div class="col-sm-2">
+            <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="PROPERTY TYPE" [virtualScroll]="true"
+                [itemSize]="31" [filter]="false"></p-dropdown>
+        </div>
+        <div class="col-sm-2">
+            <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="PRICE (PKR)" [virtualScroll]="true"
+                [itemSize]="31" [filter]="false"></p-dropdown>
+        </div>
+        <div class="col-sm-2">
+            <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="AREA (MARLA)" [virtualScroll]="true"
+                [itemSize]="31" [filter]="false"></p-dropdown>
+        </div>
+        <div class="col-sm-2">
+            <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="BEDS" [virtualScroll]="true"
+                [itemSize]="31" [filter]="false"></p-dropdown>
+        </div>
     </div>
-    <div class="col-lg-4">
-        <button pButton pRipple type="button" label="Success" class="p-button-success"></button>
-    </div>
-
+</div>
 </div>
 
-<br>
-<div class="row">
-    <div class="col-lg-3">
-        <p-dropdown [options]="items" [(ngModel)]="item" placeholder="PROPERTY TYPE" [virtualScroll]="true"
-            [itemSize]="31" [filter]="false"></p-dropdown>
-    </div>
-    <div class="col-lg-3">
-        <p-dropdown [options]="items" [(ngModel)]="item" placeholder="PRICE (PKR)" [virtualScroll]="true"
-            [itemSize]="31" [filter]="false"></p-dropdown>
-    </div>
-    <div class="col-lg-3">
-        <p-dropdown [options]="items" [(ngModel)]="item" placeholder="AREA (MARLA)" [virtualScroll]="true"
-            [itemSize]="31" [filter]="false"></p-dropdown>
-    </div>
-    <div class="col-lg-3">
-        <p-dropdown [options]="items" [(ngModel)]="item" placeholder="BEDS" [virtualScroll]="true"
-            [itemSize]="31" [filter]="false"></p-dropdown>
-    </div>
-</div>
+
 
 <!-- 
 <h5>Group</h5>
