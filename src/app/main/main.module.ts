@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { BodyComponent } from './components/body/body.component';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import {CarouselModule} from 'primeng/carousel';
+import { ProductService } from '../services/productservice';
+import { HttpClientModule } from '@angular/common/http';
 import { ControlsComponent } from './components/controls/controls.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +31,10 @@ import { HeaderWithLogoComponent } from './components/header-with-logo/header-wi
     CardModule,
     DropdownModule,
     FormsModule,
-    CommonModule
-  ]
+    CommonModule,
+    CarouselModule,
+    HttpClientModule
+  ],
+  providers: [ProductService],
 })
 export class MainModule { }

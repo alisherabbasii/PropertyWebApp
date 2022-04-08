@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import { ProductService } from './services/productservice';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DropdownModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ProductService],
   exports: [
   ],
   bootstrap: [AppComponent]
