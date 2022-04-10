@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderWithLogoComponent implements OnInit {
 
+  showBuyOptions:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  expandHome(){
+   this.showBuyOptions = !this.showBuyOptions;
+  }
 }

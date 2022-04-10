@@ -2,24 +2,44 @@
     <div class="d-flex w-100 justify-content-between">
     <div class="d-flex">
     <a class="navbar-brand" href="#">
-       <span>Company's Logo</span> 
+       <img src="/assets/images/logo.png" height="20px">
     </a>
-    <span class="navbar-brand font-15  headerText">BUY</span>
+    <span (click)="expandHome()" class="navbar-brand font-15  headerText">BUY 
+        <i *ngIf="!showBuyOptions" class="pi pi-angle-right" style="font-size: 1rem; color: #848484 !important;"></i>
+        <i *ngIf="showBuyOptions" class="pi pi-angle-left" style="font-size: 1rem; color: #848484 !important;"></i>
+    
+        <!-- <span> | </span> -->
+    </span>
+    
+    <ng-container *ngIf="showBuyOptions">
     <a class="navbar-brand font-15 headerText" href="#">
        HOMES
+       <span> | </span>
     </a>
+   
+   
+
     <a class="navbar-brand font-15 headerText"  href="#">
        PLOTS
+       <span> | </span>
     </a>
+   
     <a class="navbar-brand font-15 headerText" [routerLink]="['blogs']">
       COMMERCIALS
+      <span> | </span>
     </a>
+    
+</ng-container>
     <a class="navbar-brand font-15 headerText"  href="#">
         RENT
+        <span> | </span>
     </a>
+    
     <a class="navbar-brand font-15 headerText" href="#">
         AGENTS
+        <span> | </span>
     </a>
+    
     <a class="navbar-brand font-15 headerText" href="#">
         NEW PROJECTS
     </a>
