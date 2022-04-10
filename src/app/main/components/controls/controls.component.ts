@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {SelectItem} from 'primeng/api';
 import {SelectItemGroup} from 'primeng/api';
-
+// import * as $ from 'jquery';
 interface City {
     name: string,
     code: string
 }
+declare var $: any;
 
 @Component({
   selector: 'app-controls',
@@ -16,7 +17,36 @@ interface City {
 export class ControlsComponent implements OnInit {
 
   ngOnInit(): void {
+
+    $('.dropdown-menu.ddRange')
+    .click(function(e) {
+      e.stopPropagation();
+    });
+
+  
+
+this.setuinvestRangeDropDownList(
+  $('.investRange .min_value'),
+  $('.investRange .max_value'),
+  $('.investRange .freeformPrice .min_input'),
+  $('.investRange .freeformPrice .max_input'),
+  $('.investRange .btnClear'),
+  $('.investRange .dropdown-toggle'));
+
+
+  this.setuinvestRangeDropDownListArea(
+    $('.marlaRange .min_value'),
+    $('.marlaRange .max_value'),
+    $('.marlaRange .freeformPrice .min_input'),
+    $('.marlaRange .freeformPrice .max_input'),
+    $('.marlaRange .btnClear'),
+    $('.marlaRange .dropdown-toggle'));
+
+
   }
+
+ 
+    
 
       
   cities: City[];
@@ -94,5 +124,200 @@ export class ControlsComponent implements OnInit {
           {name: 'United States', code: 'US'}
       ];
   }
+
+
+
+
+
+
+
+
+ disableDropDownRangeOptions(max_values:any, minValue:any) {
+  if (max_values) {
+    max_values.each(function() {
+      var maxValue = $(this).attr("value");
+
+      if (parseInt(maxValue) < parseInt(minValue)) {
+        $(this).addClass('disabled');
+      } else {
+        $(this).removeClass('disabled');
+      }
+    });
+  }
+}
+
+ setuinvestRangeDropDownList(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
+  min_values.click(function() {
+    var minValue = $(this).attr('value');
+    min_input.val(minValue);
+    document.getElementById('price_range1').innerHTML = minValue;
+
+   this.disableDropDownRangeOptions(max_values, minValue);
+
+    validateDropDownInputs();
+  });
+
+  max_values.click(function() {
+    var maxValue = $(this).attr('value');
+    max_input.val(maxValue);
+    document.getElementById('price_range2').innerHTML = maxValue;
+
+    toggleDropDown();
+  });
+
+  clearLink.click(function() {
+    min_input.val('');
+    max_input.val('');
+
+    this.disableDropDownRangeOptions(max_values);
+
+    validateDropDownInputs();
+  });
+
+  min_input.on('input',
+    function() {
+      var minValue = min_input.val();
+
+      this.disableDropDownRangeOptions(max_values, minValue);
+      validateDropDownInputs();
+    });
+
+  max_input.on('input', validateDropDownInputs);
+
+  max_input.blur('input',
+    function() {
+      toggleDropDown();
+    });
+
+  function validateDropDownInputs() {
+    var minValue = parseInt(min_input.val());
+    var maxValue = parseInt(max_input.val());
+
+    if (maxValue > 0 && minValue > 0 && maxValue < minValue) {
+      min_input.addClass('inputError');
+      max_input.addClass('inputError');
+
+      return false;
+    } else {
+      min_input.removeClass('inputError');
+      max_input.removeClass('inputError');
+
+      return true;
+    }
+  }
+
+
+
+  
+  function toggleDropDown() {
+    if (validateDropDownInputs() &&
+      parseInt(min_input.val()) > 0 &&
+      parseInt(max_input.val()) > 0) {
+
+      // auto close if two values are valid
+      dropDownControl.dropdown('toggle');
+    }
+  }
+}
+
+
+
+
+setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
+    min_values.click(function() {
+      var minValue = $(this).attr('value');
+      min_input.val(minValue);
+      document.getElementById('min_marla').innerHTML = minValue;
+  
+     this.disableDropDownRangeOptionsArea(max_values, minValue);
+  
+      validateDropDownInputs();
+    });
+  
+    max_values.click(function() {
+      var maxValue = $(this).attr('value');
+      max_input.val(maxValue);
+      document.getElementById('max_marla').innerHTML = maxValue;
+  
+      toggleDropDown();
+    });
+  
+    clearLink.click(function() {
+      min_input.val('');
+      max_input.val('');
+  
+      this.disableDropDownRangeOptionsArea(max_values);
+  
+      validateDropDownInputs();
+    });
+  
+    min_input.on('input',
+      function() {
+        var minValue = min_input.val();
+  
+        this.disableDropDownRangeOptionsArea(max_values, minValue);
+        validateDropDownInputs();
+      });
+  
+    max_input.on('input', validateDropDownInputs);
+  
+    max_input.blur('input',
+      function() {
+        toggleDropDown();
+      });
+  
+    function validateDropDownInputs() {
+      var minValue = parseInt(min_input.val());
+      var maxValue = parseInt(max_input.val());
+  
+      if (maxValue > 0 && minValue > 0 && maxValue < minValue) {
+        min_input.addClass('inputError');
+        max_input.addClass('inputError');
+  
+        return false;
+      } else {
+        min_input.removeClass('inputError');
+        max_input.removeClass('inputError');
+  
+        return true;
+      }
+    }
+  
+    function toggleDropDown() {
+      if (validateDropDownInputs() &&
+        parseInt(min_input.val()) > 0 &&
+        parseInt(max_input.val()) > 0) {
+  
+        // auto close if two values are valid
+        dropDownControl.dropdown('toggle');
+      }
+    }
+  }
+
+
+  disableDropDownRangeOptionsArea(max_values:any, minValue:any) {
+    if (max_values) {
+      max_values.each(function() {
+        var maxValue = $(this).attr("value");
+  
+        if (parseInt(maxValue) < parseInt(minValue)) {
+          $(this).addClass('disabled');
+        } else {
+          $(this).removeClass('disabled');
+        }
+      });
+    }
+  }
+// setuinvestRangeDropDownList(
+//   $('.investRange .min_value'),
+//   $('.investRange .max_value'),
+//   $('.investRange .freeformPrice .min_input'),
+//   $('.investRange .freeformPrice .max_input'),
+//   $('.investRange .btnClear'),
+//   $('.investRange .dropdown-toggle'));
+
+
+
+
 
 }

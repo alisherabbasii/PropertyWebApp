@@ -1,6 +1,6 @@
 .navbar{
     height: 50px;
-    background: #d2e7d3 !important;
+    background: #ffffff !important;
 
 }
 
@@ -19,21 +19,25 @@
     
 }
 a:hover{
-    color: white !important;
+    color: #848484 !important;
 }
 /* Styles for wrapping the search box */
 .font-13{
     font-size: 13px;
-    color:white !important;
+   
     font-weight: 700;
     align-self: center;
 }
 
 .font-15{
     font-size: 15px;
-    color:white !important;
-    font-weight: 700;
+    font-weight: 400;
     align-self: center;
+    color: #848484 !important;
+	cursor: pointer;
+	line-height: 1;
+	text-transform: uppercase;
+	padding: 0 0.5rem;
 }
 
 .main {
