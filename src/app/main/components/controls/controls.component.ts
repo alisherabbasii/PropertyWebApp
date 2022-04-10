@@ -67,6 +67,7 @@ this.setuinvestRangeDropDownList(
 
   item!: string;
 
+  toggle:Boolean= true;
   constructor() {
       this.items = [];
       for (let i = 0; i < 10000; i++) {
@@ -128,6 +129,14 @@ this.setuinvestRangeDropDownList(
 
 
 
+  show(value: any) {
+    debugger;
+  if (value == 'more') {
+    this.toggle = true;
+  } else {
+    this.toggle = false;
+  }
+}
 
 
 
