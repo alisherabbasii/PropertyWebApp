@@ -29,3 +29,14 @@
     height: 150px;
     width: 150px;
 }
+
+.p-dropdown {
+    border-radius: 0px !important;
+}
+
+.p-dropdown-label.p-placeholder {
+    padding-top: 0px !important;
+    font-size: 12px;
+    height: 3rem;
+}
+
