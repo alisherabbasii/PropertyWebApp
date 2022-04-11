@@ -16,6 +16,7 @@ declare var $: any;
 })
 export class ControlsComponent implements OnInit {
 
+  toggle:Boolean= true;
   ngOnInit(): void {
 
     $('.dropdown-menu.ddRange')
@@ -126,6 +127,14 @@ this.setuinvestRangeDropDownList(
   }
 
 
+  show(value: any) {
+    debugger;
+  if (value == 'more') {
+    this.toggle = true;
+  } else {
+    this.toggle = false;
+  }
+}
 
 
 
