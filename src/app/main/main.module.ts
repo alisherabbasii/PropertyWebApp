@@ -15,6 +15,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderWithLogoComponent } from './components/header-with-logo/header-with-logo.component';
+import { PriceRangeComponent } from './components/controls/price-range/price-range.component';
+import { SingleColumnDropDownComponent } from './components/controls/single-column-drop-down/single-column-drop-down.component';
+import { PropertyTypeComponent } from './components/controls/property-type/property-type.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { HeaderWithLogoComponent } from './components/header-with-logo/header-wi
     ControlsComponent,
     FooterComponent,
     HeaderWithLogoComponent,
+    PriceRangeComponent,
+    SingleColumnDropDownComponent,
+    PropertyTypeComponent,
   ],
   imports: [
     MainRoutingModule,
