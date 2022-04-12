@@ -17,30 +17,7 @@
   <div style="background: rgba(34, 34, 34, 0.85)">
     <div class="row d-flex justify-content-center pt-2">
       <div class="col-sm-2">
-        <p-dropdown
-          [options]="countries"
-          [style]="{ width: '100%' }"
-          [(ngModel)]="selectedCountry"
-          optionLabel="name"
-          [filter]="true"
-          filterBy="name"
-          [showClear]="true"
-          placeholder="SELECT A CITY"
-        >
-          <ng-template pTemplate="selectedItem">
-            <div
-              class="country-item country-item-value"
-              *ngIf="selectedCountry"
-            >
-              <div>{{ selectedCountry.name }}</div>
-            </div>
-          </ng-template>
-          <ng-template let-country pTemplate="item">
-            <div class="country-item">
-              <div>{{ country.name }}</div>
-            </div>
-          </ng-template>
-        </p-dropdown>
+  <app-city></app-city>
       </div>
       <div class="col-sm-4">
         <p-dropdown
@@ -52,8 +29,10 @@
           [filter]="true"
           filterBy="name"
           [showClear]="true"
+          [editable]="true"
 
         ></p-dropdown>
+
 
 
       </div>
@@ -65,6 +44,7 @@
           [style]="{ width: '100%' }"
           label="FIND"
           class="p-button-success"
+          (click)="find()"
         ></button>
       </div>
     </div>
@@ -677,15 +657,7 @@
         <!-- custom dropdown End -->
       </div>
       <div class="col-sm-2">
-        <p-dropdown
-          [options]="items"
-          [(ngModel)]="item"
-          [style]="{ width: '100%' }"
-          placeholder="BEDS"
-          [virtualScroll]="true"
-          [itemSize]="31"
-          [filter]="false"
-        ></p-dropdown>
+<app-beds></app-beds>
       </div>
       <span
         *ngIf="toggle"
