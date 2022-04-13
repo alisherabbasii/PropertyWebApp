@@ -1,5 +1,7 @@
 
-
+body{
+    overflow-x: hidden;
+}
 .navbar{
     justify-content: start !important;
     align-items: inherit !important;

@@ -18,6 +18,10 @@ import { HeaderWithLogoComponent } from './components/header-with-logo/header-wi
 import { PriceRangeComponent } from './components/controls/price-range/price-range.component';
 import { SingleColumnDropDownComponent } from './components/controls/single-column-drop-down/single-column-drop-down.component';
 import { PropertyTypeComponent } from './components/controls/property-type/property-type.component';
+import { BedsComponent } from './components/controls/beds/beds.component';
+import { CityComponent } from './components/controls/city/city.component';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { LocationSearchComponent } from './components/controls/location-search/location-search.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { PropertyTypeComponent } from './components/controls/property-type/prope
     PriceRangeComponent,
     SingleColumnDropDownComponent,
     PropertyTypeComponent,
+    BedsComponent,
+    CityComponent,
+    LocationSearchComponent
   ],
   imports: [
     MainRoutingModule,
@@ -39,7 +46,8 @@ import { PropertyTypeComponent } from './components/controls/property-type/prope
     FormsModule,
     CommonModule,
     CarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    AutoCompleteModule
   ],
   providers: [ProductService],
 })
