@@ -11,5 +11,7 @@ export class ExtendedSerachComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  find(){
+    
+  }
 }
