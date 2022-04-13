@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {MenuItem} from 'primeng/api';
 import {SelectItem} from 'primeng/api';
 import {SelectItemGroup} from 'primeng/api';
@@ -46,9 +47,6 @@ this.setuinvestRangeDropDownList(
 
   }
 
- 
-    
-
       
   cities: City[];
 
@@ -60,20 +58,12 @@ this.setuinvestRangeDropDownList(
 
   selectedCountry!: City;
 
-  countries: any[];
-
   groupedCities: SelectItemGroup[];
 
-  items: SelectItem[];
+  selectedCity:City;
 
-  item!: string;
-
-  toggle:Boolean= true;
+  // toggle:Boolean= true;
   constructor() {
-      this.items = [];
-      for (let i = 0; i < 10000; i++) {
-          this.items.push({label: 'Item ' + i, value: 'Item ' + i});
-      }
 
       this.cities = [
           {name: 'New York', code: 'NY'},
@@ -113,18 +103,7 @@ this.setuinvestRangeDropDownList(
           }
       ];
 
-      this.countries = [
-          {name: 'Australia', code: 'AU'},
-          {name: 'Brazil', code: 'BR'},
-          {name: 'China', code: 'CN'},
-          {name: 'Egypt', code: 'EG'},
-          {name: 'France', code: 'FR'},
-          {name: 'Germany', code: 'DE'},
-          {name: 'India', code: 'IN'},
-          {name: 'Japan', code: 'JP'},
-          {name: 'Spain', code: 'ES'},
-          {name: 'United States', code: 'US'}
-      ];
+
   }
 
 
@@ -138,14 +117,6 @@ this.setuinvestRangeDropDownList(
 }
 
 
-  show(value: any) {
-    debugger;
-  if (value == 'more') {
-    this.toggle = true;
-  } else {
-    this.toggle = false;
-  }
-}
 
 
 
@@ -325,6 +296,10 @@ setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, cl
         }
       });
     }
+  }
+
+  find(){
+
   }
 // setuinvestRangeDropDownList(
 //   $('.investRange .min_value'),
