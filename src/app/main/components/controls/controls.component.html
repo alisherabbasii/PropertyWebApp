@@ -4,14 +4,25 @@
       </h4>
       <div class="row d-flex justify-content-center mt-2 mb-2">
           <div class="col-sm-1">
-              <button style="border: 1px solid white;" pButton pRipple type="button" label="Buy" class="p-button-raised p-button-secondary p-button-text text-white"></button>
+              <button
+              (click)="changeBtn('Buy')"
+             
+              style="border: 1px solid white;"  pButton pRipple type="button" label="Buy"
+              [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white']"
+              class="p-button-raised p-button-secondary p-button-text  "></button>
           </div>
           <div class="col-sm-1">
-              <button style="border: 1px solid white;" pButton pRipple type="button" label="Rent" class="p-button-raised p-button-secondary p-button-text text-white"></button>
+              <button 
+              (click)="changeBtn('Rent')"
+              [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white']"
+              style="border: 1px solid white;" pButton pRipple type="button" label="Rent" class="p-button-raised p-button-secondary p-button-text "></button>
   
           </div>
           <div class="col-sm-1">
-              <button style="border: 1px solid white;" pButton pRipple type="button" label="Projects" class="p-button-raised p-button-secondary p-button-text text-white"></button>
+              <button 
+              (click)="changeBtn('Projects')"
+              [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white']"
+              style="border: 1px solid white;" pButton pRipple type="button" label="Projects" class="p-button-raised p-button-secondary p-button-text"></button>
           </div>
       </div>
   <div style="background: rgba(34, 34, 34, 0.85)">
@@ -20,7 +31,7 @@
   <app-city></app-city>
       </div>
       <div class="col-sm-4">
-        <p-dropdown
+        <!-- <p-dropdown
           placeholder="LOCATION"
           [style]="{ width: '100%' }"
           [options]="cities"
@@ -28,11 +39,12 @@
           optionLabel="name"
           [filter]="true"
           filterBy="name"
-          [showClear]="true"
+          [showClear]="false"
           [editable]="true"
 
-        ></p-dropdown>
+        ></p-dropdown> -->
 
+        <app-location-search></app-location-search>
 
 
       </div>
@@ -85,15 +97,12 @@
               >
                 <div class="row d-flex justify-content-around ml-2 mb-3">
                   <div class="col-sm-3">
-                    <button
+                    <span
                       style="height: 30px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
+                     
                     >
                       HOME
-                    </button>
+                  </span>
                   </div>
                   <div class="col-sm-3">
                     <button
