@@ -30,8 +30,8 @@ export class ControlsComponent implements OnInit {
   
 
 this.setuinvestRangeDropDownList(
-  $('.investRange .min_value'),
-  $('.investRange .max_value'),
+  $('.investRange .min_val_marla'),
+  $('.investRange .max_val_marla'),
   $('.investRange .freeformPrice .min_input'),
   $('.investRange .freeformPrice .max_input'),
   $('.investRange .btnClear'),
@@ -145,19 +145,29 @@ this.setuinvestRangeDropDownList(
   }
 }
 
- setuinvestRangeDropDownList(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
-  min_values.click(function() {
+ setuinvestRangeDropDownList(min_val_marla, max_val_marla, min_input, max_input, clearLink, dropDownControl) {
+  min_val_marla.click(function() {
+    var temp=this;
     var minValue = $(this).attr('value');
+    $(".min_val_marla").css('background-color', 'white');
+    $(".min_val_marla").css('color', 'black');
+    $(this).css('background-color', '#007bff');
+    $(this).css('color', 'white');
     min_input.val(minValue);
     document.getElementById('price_range1').innerHTML = minValue;
 
-   this.disableDropDownRangeOptions(max_values, minValue);
+   this.disableDropDownRangeOptions(max_val_marla, minValue);
 
     validateDropDownInputs();
   });
 
-  max_values.click(function() {
+  max_val_marla.click(function() {
+    var temp=this;
     var maxValue = $(this).attr('value');
+    $(".max_val_marla").css('background-color', 'white');
+    $(".max_val_marla").css('color', 'black');
+    $(this).css('background-color', '#007bff');
+    $(this).css('color', 'white');
     max_input.val(maxValue);
     document.getElementById('price_range2').innerHTML = maxValue;
 
@@ -168,7 +178,7 @@ this.setuinvestRangeDropDownList(
     min_input.val('');
     max_input.val('');
 
-    this.disableDropDownRangeOptions(max_values);
+    this.disableDropDownRangeOptions(max_val_marla);
 
     validateDropDownInputs();
   });
@@ -177,7 +187,7 @@ this.setuinvestRangeDropDownList(
     function() {
       var minValue = min_input.val();
 
-      this.disableDropDownRangeOptions(max_values, minValue);
+      this.disableDropDownRangeOptions(max_val_marla, minValue);
       validateDropDownInputs();
     });
 
@@ -224,9 +234,16 @@ this.setuinvestRangeDropDownList(
 
 setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
     min_values.click(function() {
+      var temp=this;
       var minValue = $(this).attr('value');
+      $(".min_value").css('background-color', 'white');
+      $(".min_value").css('color', 'black');
+      $(this).css('background-color', '#007bff');
+      $(this).css('color', 'white');
+
       min_input.val(minValue);
       document.getElementById('min_marla').innerHTML = minValue;
+      
   
      this.disableDropDownRangeOptionsArea(max_values, minValue);
   
@@ -235,6 +252,14 @@ setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, cl
   
     max_values.click(function() {
       var maxValue = $(this).attr('value');
+      
+      var temp=this;
+      $(".max_value").css('background-color', 'white');
+      $(".max_value").css('color', 'black');
+      $(this).css('background-color', '#007bff');
+      $(this).css('color', 'white');
+
+
       max_input.val(maxValue);
       document.getElementById('max_marla').innerHTML = maxValue;
   
