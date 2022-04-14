@@ -22,6 +22,7 @@ import { BedsComponent } from './components/controls/beds/beds.component';
 import { CityComponent } from './components/controls/city/city.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { LocationSearchComponent } from './components/controls/location-search/location-search.component';
+import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LocationSearchComponent } from './components/controls/location-search/l
     PropertyTypeComponent,
     BedsComponent,
     CityComponent,
-    LocationSearchComponent
+    LocationSearchComponent,
+    ExtendedSerachComponent
   ],
   imports: [
     MainRoutingModule,

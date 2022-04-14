@@ -36,6 +36,12 @@ body{
     border-radius: 0px !important;
 }
 
+.p-inputtext{
+    border-radius: 0px !important;
+    width:92% !important;
+    margin-left: 1.1rem !important;
+}
+
 .p-dropdown-label.p-placeholder {
     padding-top: 0px !important;
     font-size: 12px;
