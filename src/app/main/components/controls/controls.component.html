@@ -56,6 +56,7 @@
           label="FIND"
           class="p-button-success"
           (click)="find()"
+          routerLink="expandedSearch"
         ></button>
       </div>
     </div>
@@ -97,40 +98,41 @@
                 <div class="row d-flex justify-content-around ml-2 mb-3">
                   <div class="col-sm-3">
                     <span
-                      style="height: 30px"
-                     
+                    (click)="changeSpan('Home')"
+                    style="font-size: 13px; cursor: pointer;"
+                    [ngClass]="[selectedSpan=='Home' ? 'horiLine' : '']"
                     >
                       HOME
+                     
                   </span>
                   </div>
                   <div class="col-sm-3">
-                    <button
-                      style="height: 30px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
+                    <span
+                    style="font-size: 13px; cursor: pointer;"
+                    (click)="changeSpan('Plot')"
+                    [ngClass]="[selectedSpan=='Plot' ? 'horiLine' : '']"
                     >
-                      PLOTS
-                    </button>
+                      PLOT
+                  </span>
                   </div>
                   <div class="col-sm-6">
-                    <button
-                      style="height: 30px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      COMMERCIAL
-                    </button>
+                    <span
+                    (click)="changeSpan('COMMERCIAL')"
+                    style="font-size: 13px; cursor: pointer;"
+                    [ngClass]="[selectedSpan=='COMMERCIAL' ? 'horiLine' : '']"
+                   
+                  >
+                  COMMERCIAL
+                </span>
+                    
                   </div>
                 </div>
-
+                 <!-- In case of Home -->
+                <ng-container *ngIf="selectedSpan=='Home'">
                 <div class="row d-flex justify-content-center mb-1">
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                      style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -142,7 +144,7 @@
                   <div class="col-sm-5">
                     <button
                       pButton
-                      style="height: 30px; width: 150px"
+                      style="height: 25px; width: 130px; font-size: 13px;"
                       pRipple
                       type="button"
                       class="p-button-outlined p-button-secondary"
@@ -155,7 +157,7 @@
                 <div class="row d-flex justify-content-center mb-1">
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                    style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -166,7 +168,7 @@
                   </div>
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                    style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -180,7 +182,7 @@
                 <div class="row d-flex justify-content-center mb-1">
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                    style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -191,7 +193,7 @@
                   </div>
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                    style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -204,7 +206,7 @@
                 <div class="row d-flex justify-content-center mb-1">
                   <div class="col-sm-5">
                     <button
-                      style="height: 30px; width: 150px"
+                    style="height: 25px; width: 130px; font-size: 13px;"
                       pButton
                       pRipple
                       type="button"
@@ -213,7 +215,182 @@
                       Pent House
                     </button>
                   </div>
+                  <div class="col-sm-5">
+                    <button
+                    style="height: 25px; width: 130px; font-size: 13px;display: none;"
+                      pButton
+                      pRipple
+                      type="button"
+                      class="p-button-outlined p-button-secondary"
+                    >
+                      
+                    </button>
+                  </div>
                 </div>
+              </ng-container>
+
+
+
+                   <!-- In case of Plot -->
+                   <ng-container *ngIf="selectedSpan=='Plot'">
+                    <div class="row d-flex justify-content-center mb-1">
+                      <div class="col-sm-5">
+                        <button
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                          pButton
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                          Residential Plot
+                        </button>
+                      </div>
+                      <div class="col-sm-5">
+                        <button
+                          pButton
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                        Comercial Plot
+                        </button>
+                      </div>
+                    </div>
+    
+                    <div class="row d-flex justify-content-center mb-1">
+                      <div class="col-sm-5">
+                        <button
+                        style="height: 25px; width: 140px; font-size: 13px;"
+                          pButton
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                        Agriculture Land
+                        </button>
+                      </div>
+                      <div class="col-sm-5">
+                        <button
+                        style="height: 25px; width: 140px; font-size: 13px;"
+                          pButton
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                        Industrial Land
+                        </button>
+                      </div>
+                    </div>
+    
+                    <div class="row d-flex justify-content-center mb-1">
+                      <div class="col-sm-5">
+                        <button
+                        style="height: 25px; width: 140px; font-size: 13px;"
+                          pButton
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                        Plot File
+                        </button>
+                      </div>
+                      <div class="col-sm-5">
+                        <button
+                        style="height: 25px; width: 140px; font-size: 13px;"
+                          pButton
+                          pRipple
+                          type="button"
+                          class="p-button-outlined p-button-secondary"
+                        >
+                          Plot Form
+                        </button>
+                      </div>
+                    </div>
+                 
+                  </ng-container>
+
+
+                    <!-- In case of Commercial -->
+                    <ng-container *ngIf="selectedSpan=='COMMERCIAL'">
+                      <div class="row d-flex justify-content-center mb-1">
+                        <div class="col-sm-5">
+                          <button
+                            style="height: 25px; width: 140px; font-size: 13px;"
+                            pButton
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                            Office
+                          </button>
+                        </div>
+                        <div class="col-sm-5">
+                          <button
+                            pButton
+                            style="height: 25px; width: 140px; font-size: 13px;"
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                          Shop
+                          </button>
+                        </div>
+                      </div>
+      
+                      <div class="row d-flex justify-content-center mb-1">
+                        <div class="col-sm-5">
+                          <button
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                            pButton
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                          Wearhouse
+                          </button>
+                        </div>
+                        <div class="col-sm-5">
+                          <button
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                            pButton
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                          Factory
+                          </button>
+                        </div>
+                      </div>
+      
+                      <div class="row d-flex justify-content-center mb-1">
+                        <div class="col-sm-5">
+                          <button
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                            pButton
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                          Building
+                          </button>
+                        </div>
+                        <div class="col-sm-5">
+                          <button
+                          style="height: 25px; width: 140px; font-size: 13px;"
+                            pButton
+                            pRipple
+                            type="button"
+                            class="p-button-outlined p-button-secondary"
+                          >
+                            Others
+                          </button>
+                        </div>
+                      </div>
+                   
+                    </ng-container>
+
+
 
                 <div class="btnClear">
                   <a
