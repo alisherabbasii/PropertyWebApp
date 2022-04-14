@@ -19,6 +19,7 @@ export class ControlsComponent implements OnInit {
 
   toggle:Boolean= true;
   selectedButton:any='Buy';
+  selectedSpan:any='Home';
   ngOnInit(): void {
 
     $('.dropdown-menu.ddRange')
@@ -112,7 +113,9 @@ this.setuinvestRangeDropDownList(
   
 
   }
-
+  changeSpan(val:any){
+    this.selectedSpan = val;
+  }
 
   show(value: any) {
     debugger;

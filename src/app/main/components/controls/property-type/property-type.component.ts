@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyTypeComponent implements OnInit {
 
-  constructor() { }
-
+  toggle:Boolean= true;
+  selectedButton:any='Buy';
+  selectedSpan:any='Home';
   ngOnInit(): void {
+  }
+
+  constructor() {
+  }
+  
+  changeSpan(val:any){
+    this.selectedSpan = val;
   }
 
 }
