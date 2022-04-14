@@ -5,12 +5,13 @@ import { ExtendedSerachComponent } from './components/extended-serach/extended-s
 import {HomeComponent} from "./components/home/home.component";
 const routes: Routes = [
   {
+
     path: '',
     component: HomeComponent,
   },
   {
-    path:'extendedSearch',
-    component: ExtendedSerachComponent
+    path: 'expandedSearch',
+    component: ExtendedSerachComponent,
   }
 ];
 

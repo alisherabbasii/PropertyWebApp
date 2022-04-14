@@ -1,31 +1,32 @@
 <div class="container">
-    <div class="span2 marlaRange">
+    <div class="span2 investRange">
       <div class="btn-group w-100">
         <button
           id="min-max-price-range"
-          class="d-flex flex-column align-items-center justify-content-around form-control selectpicker select-btn  searchParams"
+          class="d-flex flex-column justify-content-around align-items-center form-control selectpicker select-btn  searchParams"
           href="#"
           data-toggle="dropdown"
           tabindex="6"
           style="border-radius: 0px !important;height: 3rem;"
-
         >
           <div class="justify-content-start w-100 d-flex pt-2">
-            <span style="font-size: 12px">PRICE (PKR)</span>
+            <span style="font-size: 12px">AREA (MARLA)</span>
           </div>
           <div
             class="d-flex align-items-center justify-content-around w-100"
           >
             <div class="filter-option pull-left span_price">
-              <span id="min_marla"> 0 </span>
+              <span id="price_range1"> 0 </span>
             </div>
             <div class="filter-option pull-left span_price">
-              <span id=""> to </span>
+              <span id="">to </span>
             </div>
             <div class="filter-option pull-left span_price">
-              <span id="max_marla"> Any <i class="pi pi-angle-down"></i></span>
+              <span id="price_range2"> Any <i class="pi pi-angle-down"></i></span>
             </div>
-    
+            <span class="bs-caret" style="float: right"
+              ><span class="caret"></span
+            ></span>
           </div>
         </button>
 
@@ -73,57 +74,63 @@
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="50000"
+                value="2"
                 href="javascript:void(0)"
-                >50,000</a
+                >2</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="1000000"
+                value="3"
                 href="javascript:void(0)"
-                >1,000,000</a
+                >3</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="2000000"
+                value="4"
                 href="javascript:void(0)"
-                >2,000,000</a
+                >4</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="3500000"
+                value="5"
                 href="javascript:void(0)"
-                >3,500,000</a
+                >5</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="5000000"
+                value="8"
                 href="javascript:void(0)"
-                >5,000,000</a
+                >8</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="6500000"
+                value="10"
                 href="javascript:void(0)"
-                >6,500,000</a
+                >10</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="80000000"
+                value="15"
                 href="javascript:void(0)"
-                >8,000,000</a
+                >15</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="10000000"
+                value="20"
                 href="javascript:void(0)"
-                >10,000,000</a
+                >20</a
               >
               <a
                 class="min_value border border-4 d-flex align-ite align-items-center"
-                value="12500000"
+                value="30"
                 href="javascript:void(0)"
-                >12,500,000</a
+                >30</a
+              >
+              <a
+                class="min_value border border-4 d-flex align-ite align-items-center"
+                value="40"
+                href="javascript:void(0)"
+                >40</a
               >
             </div>
             <div class="price_Ranges rangesMax dropDownScroll">
@@ -135,57 +142,63 @@
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="50000"
+                value="2"
                 href="javascript:void(0)"
-                >50,000</a
+                >2</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="1000000"
+                value="3"
                 href="javascript:void(0)"
-                >1,000,000</a
+                >3</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="2000000"
+                value="4"
                 href="javascript:void(0)"
-                >2,000,000</a
+                >4</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="3500000"
+                value="5"
                 href="javascript:void(0)"
-                >3,500,000</a
+                >5</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="5000000"
+                value="8"
                 href="javascript:void(0)"
-                >5,000,000</a
+                >8</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="6500000"
+                value="10"
                 href="javascript:void(0)"
-                >6,500,000</a
+                >10</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="80000000"
+                value="15"
                 href="javascript:void(0)"
-                >8,000,000</a
+                >15</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="10000000"
+                value="20"
                 href="javascript:void(0)"
-                >10,000,000</a
+                >20</a
               >
               <a
                 class="max_value border border-4 d-flex align-ite align-items-center"
-                value="12500000"
+                value="30"
                 href="javascript:void(0)"
-                >12,500,000</a
+                >30</a
+              >
+              <a
+                class="max_value border border-4 d-flex align-ite align-items-center"
+                value="40"
+                href="javascript:void(0)"
+                >40</a
               >
             </div>
           </div>

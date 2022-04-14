@@ -1,696 +1,73 @@
 <div class="bgImage">
-    <h4 class="text-white d-flex justify-content-center pt-3">
-        Search properties for sale in Pakistan
-      </h4>
-      <div class="row d-flex justify-content-center mt-2 mb-2">
-          <div class="col-sm-1">
-              <button
-              (click)="changeBtn('Buy')"
-             
-              style="border: 1px solid white;"  pButton pRipple type="button" label="Buy"
-              [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white']"
-              class="p-button-raised p-button-secondary p-button-text  "></button>
-          </div>
-          <div class="col-sm-1">
-              <button 
-              (click)="changeBtn('Rent')"
-              [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white']"
-              style="border: 1px solid white;" pButton pRipple type="button" label="Rent" class="p-button-raised p-button-secondary p-button-text "></button>
-  
-          </div>
-          <div class="col-sm-1">
-              <button 
-              (click)="changeBtn('Projects')"
-              [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white']"
-              style="border: 1px solid white;" pButton pRipple type="button" label="Projects" class="p-button-raised p-button-secondary p-button-text"></button>
-          </div>
-      </div>
+  <h4 class="text-white d-flex justify-content-center pt-3">
+    Search properties for sale in Pakistan
+  </h4>
+  <div class="row d-flex justify-content-center mt-2 mb-2">
+    <div class="col-sm-1">
+      <button (click)="changeBtn('Buy')" style="border: 1px solid white;" pButton pRipple type="button" label="Buy"
+        [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white']"
+        class="p-button-raised p-button-secondary p-button-text  "></button>
+    </div>
+    <div class="col-sm-1">
+      <button (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white']"
+        style="border: 1px solid white;" pButton pRipple type="button" label="Rent"
+        class="p-button-raised p-button-secondary p-button-text "></button>
+
+    </div>
+    <div class="col-sm-1">
+      <button (click)="changeBtn('Projects')"
+        [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white']" style="border: 1px solid white;"
+        pButton pRipple type="button" label="Projects"
+        class="p-button-raised p-button-secondary p-button-text"></button>
+    </div>
+  </div>
   <div style="background: rgba(34, 34, 34, 0.85)">
     <div class="row d-flex justify-content-center pt-2">
       <div class="col-sm-2">
-  <app-city></app-city>
+        <app-city></app-city>
       </div>
       <div class="col-sm-4">
-        <!-- <p-dropdown
-          placeholder="LOCATION"
-          [style]="{ width: '100%' }"
-          [options]="cities"
-          [(ngModel)]="selectedCity2"
-          optionLabel="name"
-          [filter]="true"
-          filterBy="name"
-          [showClear]="true"
-
-        ></p-dropdown> -->
-
         <app-location-search></app-location-search>
-
-
       </div>
       <div class="col-sm-2">
-        <button
-          pButton
-          pRipple
-          type="button"
-          [style]="{ width: '100%' }"
-          label="FIND"
-          class="p-button-success"
-          (click)="find()"
-          routerLink="extendedSearch"
-        ></button>
+        <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND" class="p-button-success"
+          (click)="find()" routerLink="expandedSearch"></button>
       </div>
     </div>
 
     <br />
     <div class="row d-flex justify-content-center pb-3">
       <div class="col-sm-2">
-        <!-- <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="PROPERTY TYPE"
-                    [virtualScroll]="true" [itemSize]="31" [filter]="false"></p-dropdown> -->
-        <div class="container">
-          <div class="span2 marlaRange">
-            <div class="btn-group">
-              <button
-                id="min-max-price-range"
-                style="
-                  height: 49px;
-                  width: 204px;
-                  margin-left: -1rem;
-                  border-radius: 0px !important;
-                "
-                class="form-control selectpicker select-btn  searchParams"
-                href="#"
-                data-toggle="dropdown"
-                tabindex="6"
-              >
-              <div class="justify-content-start w-100 d-flex ">
-                <span style="font-size: 12px">PROPERTY TYPE</span>
-              </div>
-              <div class="filter-option pull-right span_price">
-                <span id="max_marla"> <i class="pi pi-angle-down"></i></span>
-              </div>
-              </button>
-
-              <div
-                class="dropdown-menu ddRange"
-                role="menu"
-                style="width: 400px !important; padding-top: 12px"
-              >
-                <div class="row d-flex justify-content-around ml-2 mb-3">
-                  <div class="col-sm-3">
-                    <span
-                      style="height: 30px"
-                     
-                    >
-                      HOME
-                  </span>
-                  </div>
-                  <div class="col-sm-3">
-                    <button
-                      style="height: 30px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      PLOTS
-                    </button>
-                  </div>
-                  <div class="col-sm-6">
-                    <button
-                      style="height: 30px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      COMMERCIAL
-                    </button>
-                  </div>
-                </div>
-
-                <div class="row d-flex justify-content-center mb-1">
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      House
-                    </button>
-                  </div>
-                  <div class="col-sm-5">
-                    <button
-                      pButton
-                      style="height: 30px; width: 150px"
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Flat
-                    </button>
-                  </div>
-                </div>
-
-                <div class="row d-flex justify-content-center mb-1">
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Upper Portion
-                    </button>
-                  </div>
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Lower Portion
-                    </button>
-                  </div>
-                </div>
-
-                <div class="row d-flex justify-content-center mb-1">
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Farm House
-                    </button>
-                  </div>
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Room
-                    </button>
-                  </div>
-                </div>
-                <div class="row d-flex justify-content-center mb-1">
-                  <div class="col-sm-5">
-                    <button
-                      style="height: 30px; width: 150px"
-                      pButton
-                      pRipple
-                      type="button"
-                      class="p-button-outlined p-button-secondary"
-                    >
-                      Pent House
-                    </button>
-                  </div>
-                </div>
-
-                <div class="btnClear">
-                  <a
-                    href="javascript:void(0)"
-                    style="height: 15px; font-size: 10px"
-                    class="btn btn-link border-3 border border-dark bg-dark co te text-white fon f d-flex align-items-center w-25 justify-content-center fl float-right text-decoration-none"
-                    >Clear</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-property-type></app-property-type>
       </div>
       <div class="col-sm-2">
-        <!-- <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="PRICE (PKR)" [virtualScroll]="true"
-                [itemSize]="31" [filter]="false"></p-dropdown> -->
 
-        <!-- Custom Drop Down Start Price Ranges-->
-        <div class="container">
-          <div class="span2 marlaRange">
-            <div class="btn-group w-100">
-              <button
-                id="min-max-price-range"
-                class="d-flex flex-column align-items-center justify-content-around form-control selectpicker select-btn  searchParams"
-                href="#"
-                data-toggle="dropdown"
-                tabindex="6"
-                style="border-radius: 0px !important;height: 3rem;"
-
-              >
-                <div class="justify-content-start w-100 d-flex pt-2">
-                  <span style="font-size: 12px">PRICE (PKR)</span>
-                </div>
-                <div
-                  class="d-flex align-items-center justify-content-around w-100"
-                >
-                  <div class="filter-option pull-left span_price">
-                    <span id="min_marla"> 0 </span>
-                  </div>
-                  <div class="filter-option pull-left span_price">
-                    <span id=""> to </span>
-                  </div>
-                  <div class="filter-option pull-left span_price">
-                    <span id="max_marla"> Any <i class="pi pi-angle-down"></i></span>
-                  </div>
-          
-                </div>
-              </button>
-
-              <div
-                class="dropdown-menu ddRange"
-                role="menu"
-                style="width: 295px; padding-top: 12px"
-              >
-                <div class="rangemenu">
-                  <div class="d-flex freeformPrice">
-                    <div class="d-flex flex-column ml-3">
-                      <label for=""><strong>Min:</strong></label>
-
-                      <div class="form-group">
-                        <input
-                          name="min_price"
-                          type="text"
-                          class="min_input inputField form-control"
-                          placeholder="0"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-2"><span class="arrow"></span></div>
-                    <div class="d-flex flex-column">
-                      <label for=""><strong>Max:</strong></label>
-                      <div class="form-group">
-                        <input
-                          name="max_price"
-                          type="text"
-                          class="max_input inputField form-control"
-                          placeholder="0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <!-- min prices div -->
-                  <div class="price_Ranges dropDownScroll rangesMin">
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="0"
-                      href="javascript:void(0)"
-                      >0</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="50000"
-                      href="javascript:void(0)"
-                      >50,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="1000000"
-                      href="javascript:void(0)"
-                      >1,000,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="2000000"
-                      href="javascript:void(0)"
-                      >2,000,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="3500000"
-                      href="javascript:void(0)"
-                      >3,500,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="5000000"
-                      href="javascript:void(0)"
-                      >5,000,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="6500000"
-                      href="javascript:void(0)"
-                      >6,500,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="80000000"
-                      href="javascript:void(0)"
-                      >8,000,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="10000000"
-                      href="javascript:void(0)"
-                      >10,000,000</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="12500000"
-                      href="javascript:void(0)"
-                      >12,500,000</a
-                    >
-                  </div>
-                  <div class="price_Ranges rangesMax dropDownScroll">
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="Any"
-                      href="javascript:void(0)"
-                      >Any</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="50000"
-                      href="javascript:void(0)"
-                      >50,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="1000000"
-                      href="javascript:void(0)"
-                      >1,000,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="2000000"
-                      href="javascript:void(0)"
-                      >2,000,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="3500000"
-                      href="javascript:void(0)"
-                      >3,500,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="5000000"
-                      href="javascript:void(0)"
-                      >5,000,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="6500000"
-                      href="javascript:void(0)"
-                      >6,500,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="80000000"
-                      href="javascript:void(0)"
-                      >8,000,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="10000000"
-                      href="javascript:void(0)"
-                      >10,000,000</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="12500000"
-                      href="javascript:void(0)"
-                      >12,500,000</a
-                    >
-                  </div>
-                </div>
-
-                <div class="btnClear">
-                  <a
-                    href="javascript:void(0)"
-                    style="height: 15px; font-size: 10px"
-                    class="btn btn-link border-3 border border-dark bg-dark co te text-white fon f d-flex align-items-center w-25 justify-content-center fl float-right text-decoration-none"
-                    >Clear</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-price-range></app-price-range>
 
         <!-- custom dropdown End -->
       </div>
       <div class="col-sm-2">
-        <!-- <p-dropdown [options]="items" [(ngModel)]="item" [style]="{'width':'100%'}" placeholder="AREA (MARLA)"
-                    [virtualScroll]="true" [itemSize]="31" [filter]="false"></p-dropdown> -->
+
         <!-- Custom Drop Down Start Area Marla -->
-        <div class="container">
-          <div class="span2 investRange">
-            <div class="btn-group w-100">
-              <button
-                id="min-max-price-range"
-                class="d-flex flex-column justify-content-around align-items-center form-control selectpicker select-btn  searchParams"
-                href="#"
-                data-toggle="dropdown"
-                tabindex="6"
-                style="border-radius: 0px !important;height: 3rem;"
-              >
-                <div class="justify-content-start w-100 d-flex pt-2">
-                  <span style="font-size: 12px">AREA (MARLA)</span>
-                </div>
-                <div
-                  class="d-flex align-items-center justify-content-around w-100"
-                >
-                  <div class="filter-option pull-left span_price">
-                    <span id="price_range1"> 0 </span>
-                  </div>
-                  <div class="filter-option pull-left span_price">
-                    <span id="">to </span>
-                  </div>
-                  <div class="filter-option pull-left span_price">
-                    <span id="price_range2"> Any <i class="pi pi-angle-down"></i></span>
-                  </div>
-                  <span class="bs-caret" style="float: right"
-                    ><span class="caret"></span
-                  ></span>
-                </div>
-              </button>
-
-              <div
-                class="dropdown-menu ddRange"
-                role="menu"
-                style="width: 295px; padding-top: 12px"
-              >
-                <div class="rangemenu">
-                  <div class="d-flex freeformPrice">
-                    <div class="d-flex flex-column ml-3">
-                      <label for=""><strong>Min:</strong></label>
-
-                      <div class="form-group">
-                        <input
-                          name="min_price"
-                          type="text"
-                          class="min_input inputField form-control"
-                          placeholder="0"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-2"><span class="arrow"></span></div>
-                    <div class="d-flex flex-column">
-                      <label for=""><strong>Max:</strong></label>
-                      <div class="form-group">
-                        <input
-                          name="max_price"
-                          type="text"
-                          class="max_input inputField form-control"
-                          placeholder="0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <!-- min prices div -->
-                  <div class="price_Ranges dropDownScroll rangesMin">
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="0"
-                      href="javascript:void(0)"
-                      >0</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="2"
-                      href="javascript:void(0)"
-                      >2</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="3"
-                      href="javascript:void(0)"
-                      >3</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="4"
-                      href="javascript:void(0)"
-                      >4</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="5"
-                      href="javascript:void(0)"
-                      >5</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="8"
-                      href="javascript:void(0)"
-                      >8</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="10"
-                      href="javascript:void(0)"
-                      >10</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="15"
-                      href="javascript:void(0)"
-                      >15</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="20"
-                      href="javascript:void(0)"
-                      >20</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="30"
-                      href="javascript:void(0)"
-                      >30</a
-                    >
-                    <a
-                      class="min_value border border-4 d-flex align-ite align-items-center"
-                      value="40"
-                      href="javascript:void(0)"
-                      >40</a
-                    >
-                  </div>
-                  <div class="price_Ranges rangesMax dropDownScroll">
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="Any"
-                      href="javascript:void(0)"
-                      >Any</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="2"
-                      href="javascript:void(0)"
-                      >2</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="3"
-                      href="javascript:void(0)"
-                      >3</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="4"
-                      href="javascript:void(0)"
-                      >4</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="5"
-                      href="javascript:void(0)"
-                      >5</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="8"
-                      href="javascript:void(0)"
-                      >8</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="10"
-                      href="javascript:void(0)"
-                      >10</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="15"
-                      href="javascript:void(0)"
-                      >15</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="20"
-                      href="javascript:void(0)"
-                      >20</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="30"
-                      href="javascript:void(0)"
-                      >30</a
-                    >
-                    <a
-                      class="max_value border border-4 d-flex align-ite align-items-center"
-                      value="40"
-                      href="javascript:void(0)"
-                      >40</a
-                    >
-                  </div>
-                </div>
-
-                <div class="btnClear">
-                  <a
-                    href="javascript:void(0)"
-                    style="height: 15px; font-size: 10px"
-                    class="btn btn-link border-3 border border-dark bg-dark co te text-white fon f d-flex align-items-center w-25 justify-content-center fl float-right text-decoration-none"
-                    >Clear</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-area-range></app-area-range>
 
         <!-- custom dropdown End -->
       </div>
       <div class="col-sm-2">
-<app-beds></app-beds>
+        <app-beds></app-beds>
       </div>
-      <span
-        *ngIf="toggle"
-        style="
+      <span *ngIf="toggle" style="
           margin-left: 32rem;
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-        "
-        (click)="show('more')"
-        ><i class="pi pi-angle-up"></i>Less Options</span
-      >
-      <span
-        *ngIf="!toggle"
-        class="text-success"
-        style="
+        " (click)="show('more')"><i class="pi pi-angle-up"></i>Less Options</span>
+      <span *ngIf="!toggle" class="text-success" style="
           margin-left: 32rem;
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-        "
-        (click)="show('less')"
-        ><i class="pi pi-angle-down"></i>More Options</span
-      >
+        " (click)="show('less')"><i class="pi pi-angle-down"></i>More Options</span>
     </div>
   </div>
 </div>

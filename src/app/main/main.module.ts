@@ -23,6 +23,7 @@ import { CityComponent } from './components/controls/city/city.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { LocationSearchComponent } from './components/controls/location-search/location-search.component';
 import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
+import { AreaRangeComponent } from './components/controls/area-range/area-range.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ExtendedSerachComponent } from './components/extended-serach/extended-s
     BedsComponent,
     CityComponent,
     LocationSearchComponent,
-    ExtendedSerachComponent
+    ExtendedSerachComponent,
+    AreaRangeComponent
   ],
   imports: [
     MainRoutingModule,
