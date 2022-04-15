@@ -88,4 +88,7 @@ input.inputError:focus {
     box-shadow: inset 0 0 5px #F7BDBB;
     border-radius: 0;
 }
+.bottomRowDiv{
+    color: #0792ea;
+}
 
