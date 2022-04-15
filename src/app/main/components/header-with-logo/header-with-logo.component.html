@@ -5,31 +5,31 @@
        <img src="/assets/images/logo.png" height="20px">
     </a>
     <span (click)="expandHome()" class="navbar-brand font-15  headerText">BUY 
-        <i *ngIf="!showBuyOptions" class="pi pi-angle-right" style="font-size: 1rem; color: #848484 !important;"></i>
-        <i *ngIf="showBuyOptions" class="pi pi-angle-left" style="font-size: 1rem; color: #848484 !important;"></i>
+        <i *ngIf="state=='closed'" class="pi pi-angle-right" style="font-size: 1rem; color: #848484 !important;"></i>
+        <i *ngIf="state=='open'" class="pi pi-angle-left" style="font-size: 1rem; color: #848484 !important;"></i>
     
         <!-- <span> | </span> -->
     </span>
     
-    <ng-container *ngIf="showBuyOptions">
-    <a class="navbar-brand font-15 headerText" href="#">
+    <div class="d-flex left-stuff" [@widthGrow]="state" >
+    <a class="navbar-brand font-15 headerText" href="#" *ngIf="state=='open'">
        HOMES
        <span> | </span>
     </a>
    
    
 
-    <a class="navbar-brand font-15 headerText"  href="#">
+    <a class="navbar-brand font-15 headerText"  href="#" *ngIf="state=='open'">
        PLOTS
        <span> | </span>
     </a>
    
-    <a class="navbar-brand font-15 headerText" [routerLink]="['blogs']">
+    <a class="navbar-brand font-15 headerText" [routerLink]="['blogs']" *ngIf="state=='open'">
       COMMERCIALS
       <span> | </span>
     </a>
     
-</ng-container>
+</div>
     <a class="navbar-brand font-15 headerText"  href="#">
         RENT
         <span> | </span>
