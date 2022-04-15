@@ -24,6 +24,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import { LocationSearchComponent } from './components/controls/location-search/location-search.component';
 import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
 import { AreaRangeComponent } from './components/controls/area-range/area-range.component';
+import { MainBodyControlService } from '../services/MainBodyControlService/main-body-control.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,6 @@ import { AreaRangeComponent } from './components/controls/area-range/area-range.
     HttpClientModule,
     AutoCompleteModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,MainBodyControlService],
 })
 export class MainModule { }
