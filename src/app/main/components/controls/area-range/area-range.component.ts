@@ -86,6 +86,18 @@ setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, cl
       validateDropDownInputs();
     });
   
+    $("#min_marla11").on('keyup',function(){
+      debugger;
+      var temp=(<HTMLInputElement>document.getElementById('min_marla11')).value
+      document.getElementById('price_range1').innerHTML =temp;
+    });
+
+    $("#max_marla11").on('keyup',function(){
+      debugger;
+      var temp=(<HTMLInputElement>document.getElementById('max_marla11')).value
+      document.getElementById('price_range2').innerHTML =temp;
+    });
+
     min_input.on('input',
       function() {
         var minValue = min_input.val();
