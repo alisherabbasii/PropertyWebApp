@@ -16,16 +16,16 @@ declare var $: any;
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.css'],
   animations: [
-    trigger('widthGrow', [
-        state('closed', style({
-            height: 0,
-        })),
-        state('open', style({
-            height: 300
-        })),
-        transition('* => *', animate(350))
-    ]),
-]
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({transform: 'translateY(-100%)'}),
+        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
+      ])
+    ])
+  ]
 })
 export class ControlsComponent implements OnInit {
 
@@ -130,7 +130,7 @@ this.setuinvestRangeDropDownList(
   }
 
   show(value: any) {
-    debugger;
+    
   if (value == 'more') {
     this.toggle = true;
   } else {
