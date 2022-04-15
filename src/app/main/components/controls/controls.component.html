@@ -36,24 +36,24 @@
     </div>
 
     <br />
-    <div class="row d-flex justify-content-center pb-3">
-      <div class="col-sm-2">
+    <div  [@widthGrow]="toggle" class="row d-flex justify-content-center pb-3" >
+      <div class="col-sm-2" *ngIf="toggle">
         <app-property-type></app-property-type>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2" *ngIf="toggle">
 
         <app-price-range></app-price-range>
 
         <!-- custom dropdown End -->
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2" *ngIf="toggle">
 
         <!-- Custom Drop Down Start Area Marla -->
         <app-area-range></app-area-range>
 
         <!-- custom dropdown End -->
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2" *ngIf="toggle">
         <app-beds></app-beds>
       </div>
       <span *ngIf="toggle" style="
@@ -61,13 +61,13 @@
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-        " (click)="show('more')"><i class="pi pi-angle-up"></i>Less Options</span>
+        " (click)="show('less')"><i class="pi pi-angle-up"></i>Less Options</span>
       <span *ngIf="!toggle" class="text-success" style="
           margin-left: 32rem;
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-        " (click)="show('less')"><i class="pi pi-angle-down"></i>More Options</span>
+        " (click)="show('more')"><i class="pi pi-angle-down"></i>More Options</span>
     </div>
   </div>
 </div>
