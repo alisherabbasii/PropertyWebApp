@@ -74,6 +74,9 @@ this.setuinvestRangeDropDownList(
   }
 }
 
+
+
+
  setuinvestRangeDropDownList(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
   min_values.click(function() {
     var minValue = $(this).attr('value');
@@ -85,6 +88,18 @@ this.setuinvestRangeDropDownList(
     validateDropDownInputs();
   });
 
+  $("#min_price").on('keyup',function(){
+    debugger;
+    var temp=(<HTMLInputElement>document.getElementById('min_price')).value
+    document.getElementById('min_marla').innerHTML =temp;
+  });
+
+  $("#max_price").on('keyup',function(){
+    debugger;
+    var temp=(<HTMLInputElement>document.getElementById('max_price')).value
+    document.getElementById('max_marla').innerHTML =temp;
+  });
+  
   max_values.click(function() {
     var maxValue = $(this).attr('value');
     max_input.val(maxValue);
@@ -92,6 +107,8 @@ this.setuinvestRangeDropDownList(
 
     toggleDropDown();
   });
+
+
 
   clearLink.click(function() {
     min_input.val('');
