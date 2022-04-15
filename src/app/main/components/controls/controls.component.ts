@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import {MenuItem} from 'primeng/api';
 import {SelectItem} from 'primeng/api';
 import {SelectItemGroup} from 'primeng/api';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 // import * as $ from 'jquery';
 interface City {
     name: string,
@@ -13,7 +14,18 @@ declare var $: any;
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.css']
+  styleUrls: ['./controls.component.css'],
+  animations: [
+    trigger('widthGrow', [
+        state('closed', style({
+            height: 0,
+        })),
+        state('open', style({
+            height: 300
+        })),
+        transition('* => *', animate(350))
+    ]),
+]
 })
 export class ControlsComponent implements OnInit {
 
