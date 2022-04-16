@@ -1,1 +1,62 @@
-<p>blog-home works!</p>
+<section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <div class="d-flex">
+      <img src="assets/img/icon.png" height="40" class="mr-2 cursor-pointer">
+      <img src="assets/img/logo.png" height="40" class="mr-2 cursor-pointer">
+    </div>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNav" [ngClass]="{'collapse': isCollapsed}">
+      <ul class="navbar-nav">
+        <li class="nav-item active" *ngFor="let menu of menuList">
+          <a class="nav-link" href="">{{menu.label}}</a>
+        </li>
+        <div class="searchBar-blog">
+          <input type="text" pInputText placeholder="Search">
+        </div>
+      </ul>
+    </div>
+  </nav>
+</section>
+
+<section class="container">
+    <img class="img-fluid" alt="Responsive image" src="assets/test.jpg">
+</section>
+
+<section class="container">
+  <h1 class="heading text-dark mt-2">
+    Recent from the blog
+  </h1>
+  <div class="d-flex justify-content-center">
+    <div class="container row">
+      <div class="col-lg-3" *ngFor="let blog of blogsList?.result">
+        <p-card
+          header="Top Ramadan Mobile Apps Available In Pakistan"
+          [style]="{ width: '16rem', 'margin-bottom': '2em' }"
+        >
+          <ng-template pTemplate="header">
+            <img *ngIf="!blog.BlogImages"
+              alt="Card"
+              src="https://zameenblog.s3.amazonaws.com/blog/wp-content/uploads/2020/05/Ramadan-Mobile-Apps-In-Pakistan-Cover-04-05-1024x444.jpg"
+            />
+            <img *ngIf="blog.BlogImages"
+                 alt="Card"
+                 src="https://zameenblog.s3.amazonaws.com/blog/wp-content/uploads/2020/05/Ramadan-Mobile-Apps-In-Pakistan-Cover-04-05-1024x444.jpg"
+            />
+          </ng-template>
+          <p>
+            {{blog?.BlogDescription}}
+          </p>
+          <button pButton pRipple type="button" label="Read More" class="p-button-raised p-button-secondary p-button-text"></button>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <p-paginator [first]="first" [rows]="1" [totalRecords]="totalRecords2"  [pageLinkSize]="3" (onPageChange)="onPageChange($event)" ></p-paginator>
+</section>

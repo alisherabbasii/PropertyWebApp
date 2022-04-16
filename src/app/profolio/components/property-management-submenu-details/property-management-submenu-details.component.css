@@ -1,0 +1,81 @@
+.logo{
+  height: 32px;
+  width: 145px;
+}
+
+.header{
+  border: 1px solid #e6e6e6;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #e6e6e6;
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 15px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.header-active{
+  border: 1px solid #00a651;
+  background-color: #00a651;
+  color: white;
+}
+
+.box-border{
+  border: 1px solid #CCCCCC;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  padding: 0.5rem;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 0px 0;
+  font-weight: 500;
+  color: #343a40;
+  background: #e6e6e6;
+  font-size: 12px;
+}
+
+.p-table-th{
+  padding: 0.3rem 0.5rem !important;
+  border: 1px solid #dee2e6 !important;
+  border-width: 0 0 0px 0 !important;
+  font-weight: 500 !important;
+  color: #343a40 !important;
+  background: #e6e6e6 !important;
+  font-size: 12px !important;
+}
+
+.p-table-td{
+  border: 1px solid #dee2e6 !important;
+  border-width: 0 0 0 0 !important;
+  padding: 0.3rem 0.5rem !important;
+  font-size: 12px !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+  border: 1px solid #dee2e6;
+  border-width: 0 0 0 0;
+  padding: 0.5rem;
+  font-size: 12px;
+}
+
+.p-table{
+  width: 435px !important;
+}
+
+.buy-text{
+  font-weight: bold;
+  text-align: right;
+  float: right;
+  width: 200px;
+  padding: 0px 10px;
+  position: absolute;
+  right: 6rem;
+  display: inline-grid;
+  font-size: 12px;
+}
+
+.font-bold{
+  font-weight: bold;
+}

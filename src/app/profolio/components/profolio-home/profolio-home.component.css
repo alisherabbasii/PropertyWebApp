@@ -1,0 +1,31 @@
+.header{
+  position: absolute;
+  right: 0;
+}
+
+.header-text{
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.ht-icon{
+  height: 22px;
+}
+
+.navbar-light .navbar-nav .nav-item:hover {
+  background-color: #E7F3EF !important;
+  border-bottom: 5px solid #00a651;
+  transition: unset;
+}
+.navbar-light .navbar-nav .nav-item:focus{
+  background-color: #E7F3EF !important;
+  border-bottom: 5px solid #00a651;
+  transition: unset;
+}
+
+.nav-active{
+  background-color: #E7F3EF !important;
+  border-bottom: 5px solid #00a651;
+  transition: unset;
+}
