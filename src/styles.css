@@ -33,12 +33,13 @@ body{
 }
 
 .p-dropdown {
-    border-radius: 0px !important;
+    border-radius: 2.5px !important;
+    background: #f8f9fb !important;
 }
 
 .p-inputtext{
-    border-radius: 0px !important;
-    width:92% !important;
+  border-radius: 2.5px !important;
+  background: #f8f9fb !important;    width:92% !important;
     margin-left: 1.1rem !important;
 }
 
