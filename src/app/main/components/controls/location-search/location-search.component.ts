@@ -19,7 +19,6 @@ export class LocationSearchComponent implements OnInit {
   constructor(private service:DataService) { }
 
   ngOnInit(): void {
-    this.GetLocation()
   }
   tr:boolean = true;
   maxLen:number = 2;
@@ -33,16 +32,26 @@ export class LocationSearchComponent implements OnInit {
   filterCountry(event) {
     debugger
     //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
-    let filtered: any[] = [];
-    let query = event.query;
-    for (let i = 0; i < this.countries.length; i++) {
-      let country = this.countries[i];
-      if (country.AreaName.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-        filtered.push(country);
-      }
+    let obj = {
+      SearchString:event.query,
+      AreaCityId:1
     }
-
-    this.filteredCountries = filtered;
+    this.service.post(`${ApiURL}` + 'api/Area/SearchAll',obj).subscribe((res:any)=>{
+      debugger
+      console.log("Location",res)
+      this.countries = res.result
+      let filtered: any[] = [];
+      let query = event.query;
+      for (let i = 0; i < this.countries.length; i++) {
+        let country = this.countries[i];
+        if (country.AreaName.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+          filtered.push(country);
+        }
+      }
+  
+      this.filteredCountries = filtered;
+    })
+  
   }
 
   SelectLocation() {
@@ -51,18 +60,6 @@ export class LocationSearchComponent implements OnInit {
     this.selectedLocationOutput.emit(this.selectedLocatedCountires);
   }
 
-  GetLocation(){
-    debugger;
 
-    let obj = {
-      SearchString:"F",
-      AreaCityId:1
-    }
-    this.service.post(`${ApiURL}` + 'api/Area/SearchAll',obj).subscribe((res:any)=>{
-      debugger
-      console.log("Location",res)
-      this.countries = res.result
-    })
-  }
 
 }
