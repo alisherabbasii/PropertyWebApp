@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/internal/Observable';
  * Core service to manipulate HTTP services.
  */
 @Injectable()
-export abstract class DataService {
+export class DataService {
 
   /**
    * Requires an HTTPClient object to execute services.
@@ -35,7 +35,7 @@ export abstract class DataService {
    * A generic type to post object for storage.
    */
   public post<T>(url: any, object: any): Observable<T> {
-    return this.http.post<T>(url, object, {responseType: 'json'});
+    return this.http.post<T>(url, object, {responseType: 'json',headers:{'Access-Control-Allow-Origin':'*'}});
   }
 
   /**
