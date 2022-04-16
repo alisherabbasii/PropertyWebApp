@@ -13,6 +13,7 @@ import {EstateInterceptorService} from "./global/estate-interceptor.service";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {NgxSpinnerModule} from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import { DataService } from './global/data-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ToastrModule } from 'ngx-toastr';
     }),
 
   ],
-  providers: [  ProductService,{
+  providers: [ DataService, ProductService,{
     provide: HAMMER_LOADER,
     useValue: () => new Promise(() => {})
   }, {provide: LocationStrategy, useClass: HashLocationStrategy}, {
