@@ -1,0 +1,255 @@
+<section class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light bbtm-profolio btn-header-padding">
+   <div class="d-flex">
+     <div class="cursor-pointer btn-header head-btn-margin">
+       <i class="fa fa-shopping-cart icon-btn icon-btn-clr font-18" aria-hidden="true"></i>
+       <span>Cart</span>
+     </div>
+
+     <div class="cursor-pointer btn-header head-btn-margin">
+       <i class="fa fa-file-text-o icon-btn icon-btn-clr font-18" aria-hidden="true"></i>
+       <span>Billing</span>
+     </div>
+
+     <div class="cursor-pointer btn-header head-btn-margin">
+       <i class="fa fa-envelope-o icon-btn icon-btn-clr font-18" aria-hidden="true"></i>
+       <span>Email Alert</span>
+     </div>
+
+     <div class="cursor-pointer btn-header head-btn-margin">
+       <i class="fa fa-sticky-note-o icon-btn icon-btn-clr font-18" aria-hidden="true"></i>
+       <span>Blog</span>
+     </div>
+
+     <div class="cursor-pointer btn-header">
+       <i class="fa fa-usd icon-btn icon-btn-clr font-18" aria-hidden="true"></i>
+       <span>Advertise</span>
+     </div>
+   </div>
+
+    <div class="header d-flex">
+      <div class="cursor-pointer btn-header head-btn-margin bg-icon-btn">
+        <i class="fa fa-search icon-btn clr-white font-18" aria-hidden="true"></i>
+        <span class="clr-white">Inventory Search</span>
+      </div>
+
+      <div class="cursor-pointer btn-header bg-icon-btn mr-5px">
+        <i class="fa fa-plus icon-btn clr-white font-18" aria-hidden="true"></i>
+        <span class="clr-white">Post Listing</span>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<section class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xxl-3">
+    <!--First SideMenu-->
+      <div>
+        <div class="side-table-head">
+          <span>Tools</span>
+        </div>
+        <div class="side-table-text">
+          <span>
+            Inventory Search
+          </span>
+        </div>
+        <div class="side-table-text">
+          <span>
+            Post New Listing
+          </span>
+        </div>
+        <div class="side-table-text">
+          <span>
+            Zone Details
+          </span>
+        </div>
+        <div class="side-table-text">
+          <span>
+            Listing Policy
+          </span>
+        </div>
+      </div>
+      <!--Second SideMenu-->
+      <div class="mt-2">
+        <div class="side-table-head d-flex">
+          <span>Listings</span>
+          <div class="side-table-listing-head-plus cursor-pointer">
+            <i *ngIf="!allListingShow" class="fa fa-plus-square-o" aria-hidden="true" (click)="openListing('All', true)"></i>
+            <i *ngIf="allListingShow" class="fa fa-minus-square-o" aria-hidden="true" (click)="openListing('All', false)"></i>
+          </div>
+        </div>
+        <div class="side-table-headers">
+          <span class="font-weight-700">
+            <i *ngIf="!activeListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Active', true)"></i>
+            <i *ngIf="activeListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Active', false)"></i>
+            Active <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="activeListingShow">
+            <div class="side-table-subtext" *ngFor="let item of activeLists" [ngClass]="selectedListingMenu === 'Active' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''" (click)="onClickListingMenu('Active', item)">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!editedListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Edited', true)"></i>
+            <i *ngIf="editedListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Edited', false)"></i>
+            Edited <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="editedListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Edited', item)" [ngClass]="selectedListingMenu === 'Edited' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!pendingListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Pending', true)"></i>
+            <i *ngIf="pendingListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Pending', false)"></i>
+            Pending <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="pendingListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Pending', item)" [ngClass]="selectedListingMenu === 'Pending' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!expiredListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Expired', true)"></i>
+            <i *ngIf="expiredListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Expired', false)"></i>
+            Expired <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="expiredListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Expired', item)" [ngClass]="selectedListingMenu === 'Expired' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!uploadedListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Uploaded', true)"></i>
+            <i *ngIf="uploadedListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Uploaded', false)"></i>
+            Uploaded <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="uploadedListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Uploaded', item)" [ngClass]="selectedListingMenu === 'Uploaded' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!hiddenListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Hidden', true)"></i>
+            <i *ngIf="hiddenListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Hidden', false)"></i>
+            Hidden <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="hiddenListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Hidden', item)" [ngClass]="selectedListingMenu === 'Hidden' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!deletedListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Deleted', true)"></i>
+            <i *ngIf="deletedListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Deleted', false)"></i>
+            Deleted <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="deletedListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Deleted', item)" [ngClass]="selectedListingMenu === 'Deleted' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!rejectedListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Rejected', true)"></i>
+            <i *ngIf="rejectedListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Rejected', false)"></i>
+            Rejected <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="rejectedListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists"  (click)="onClickListingMenu('Rejected', item)" [ngClass]="selectedListingMenu === 'Rejected' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!downgradedListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Downgraded', true)"></i>
+            <i *ngIf="downgradedListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Downgraded', false)"></i>
+            Downgraded <span class="font-10">(0)</span>
+          </span>
+          <span *ngIf="downgradedListingShow">
+            <div class="side-table-subtext" *ngFor="let item of commonLists" (click)="onClickListingMenu('Downgraded', item)" [ngClass]="selectedListingMenu === 'Downgraded' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}} {{item.name !== 'All Listings' ? (item.count ? '('+item.count+')' : '(0)') : ''}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!imagesListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Images', true)"></i>
+            <i *ngIf="imagesListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Images', false)"></i>
+            Rejected Images
+          </span>
+          <span *ngIf="imagesListingShow">
+            <div class="side-table-subtext" *ngFor="let item of rejectedImsgesLists" (click)="onClickListingMenu('Rejected Images', item)" [ngClass]="selectedListingMenu === 'Rejected Images' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}}
+            </div>
+          </span>
+        </div>
+        <div class="side-table-headers">
+          <span class=" font-weight-700">
+            <i *ngIf="!videosListingShow" class="fa fa-plus-square" aria-hidden="true" (click)="openListing('Videos', true)"></i>
+            <i *ngIf="videosListingShow" class="fa fa-minus-square" aria-hidden="true" (click)="openListing('Videos', false)"></i>
+            Rejected Videos
+          </span>
+          <span *ngIf="videosListingShow">
+            <div class="side-table-subtext" *ngFor="let item of rejectedVideosLists" (click)="onClickListingMenu('Rejected Videos', item)" [ngClass]="selectedListingMenu === 'Rejected Videos' && item.name === selectedListingSubMenu ? 'side-table-subtext-active': ''">
+              {{item.name}}
+            </div>
+          </span>
+        </div>
+      </div>
+      <!--First SideMenu-->
+      <div class="mt-2">
+        <div class="side-table-head">
+          <span>Credit Expiry Log</span>
+        </div>
+        <div class="side-table-text">
+          <span>
+            View Log
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 col-lg-9 col-md-9 col-sm-9 col-xl-9 col-xxl-9">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light bbtm-profolio btn-header-padding">
+          <div class="d-flex">
+            <span class="clr-green font-10 font-weight-700">Property Management</span>
+            <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true">
+            </i><span class="clr-green font-10 font-weight-700">{{selectedListingMenu}}</span>
+            <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true"></i>
+            <span class="font-10 font-weight-700">{{selectedListingSubMenu}}</span>
+          </div>
+          <div class="header d-flex" style="top: 0.5rem;">
+            <div>
+              <label class="font-12">Edit Property: </label>
+              <input type="text" class="input-search" placeholder="Enter ID">
+            </div>
+
+            <div class="cursor-pointer btn-go bg-icon-btn mr-5px">
+              <span class="clr-white">Go</span>
+            </div>
+          </div>
+        </nav>
+      <div class="row">
+        <app-property-management-submenu-details></app-property-management-submenu-details>
+      </div>
+    </div>
+  </div>
+
+
+
+</section>

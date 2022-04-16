@@ -6,7 +6,7 @@
 
 .navbar-brand{
     color: white;
-    
+
 }
 a:hover{
     color: white !important;
@@ -48,4 +48,16 @@ a:hover{
     text-align: center;
     pointer-events: none;
     color: #aaa;
+}
+
+.p-button.p-button-secondary {
+  height: 39px;
+  color: black;
+  margin-right: 1rem;
+  background: white;
+  width: 155px
+}
+
+.p-button.p-button-secondary.p-button-text:enabled:hover, .p-buttonset.p-button-secondary > .p-button.p-button-text:enabled:hover, .p-splitbutton.p-button-secondary > .p-button.p-button-text:enabled:hover {
+  color: white;
 }

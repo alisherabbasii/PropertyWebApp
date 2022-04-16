@@ -8,7 +8,7 @@ const routes: Routes = [
     component: BlogHomeComponent,
     /*children: [{
       path: 'property',
-      // loadChildren: () => import('app/features/managed-services/components/maintenance/trouble-ticket/trouble-ticket.module').then(m => m.TroubleTicketModule)
+      // loadChildren: () => import('app/features.module').then(m => m.TroubleTicketModule)
     },]*/
   }
 ];

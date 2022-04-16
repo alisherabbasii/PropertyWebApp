@@ -1,0 +1,46 @@
+<section class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0">
+    <a class="navbar-brand" href="#">
+      <div class="d-flex">
+        <img src="assets/img/logo_profolio.gif" height="40" class="mr-2 cursor-pointer">
+      </div>
+    </a>
+
+    <div class="header d-flex">
+      <a class="navbar-brand" href="#">
+        <div class="d-flex">
+          <img src="assets/img/icon.png" class="mr-2 cursor-pointer ht-icon">
+          <p class="header-text mb-0">Go To LandLogic.com</p>
+        </div>
+      </a>
+
+      <a class="navbar-brand" href="#">
+        <div class="d-flex">
+          <i class="fa fa-user mr-2 cursor-pointer clr-logo"></i>
+          <p class="header-text mb-0">sultan.nawaz918@gmail.com</p>
+        </div>
+      </a>
+
+      <a class="navbar-brand" href="#">
+        <div class="d-flex">
+          <svg xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right cursor-pointer clr-logo" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg>
+          <p class="header-text mb-0">Logout</p>
+        </div>
+      </a>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light bbtm-profolio pb-1">
+    <div class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item cursor-pointer" *ngFor="let menu of menuList" [routerLink]="[menu.url]"
+            [routerLinkActive]="['nav-active']">
+          <a class="nav-link">{{menu.label}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</section>
+<router-outlet></router-outlet>

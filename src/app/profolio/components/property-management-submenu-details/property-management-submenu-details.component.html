@@ -1,0 +1,58 @@
+<div class="row mt-2">
+  <img src="assets/img/logo.png" class="cursor-pointer logo">
+  <div class="d-flex mt-3">
+    <div class="header mr-12px" [ngClass]="selectedHeader === 'Premium Listings' ? 'header-active' : ''" (click)="selectHeader('Premium Listings')">
+      <span>Premium Listings (5)</span>
+    </div>
+    <div class="header mr-12px" [ngClass]="selectedHeader === 'Super Hot CR' ? 'header-active' : ''" (click)="selectHeader('Super Hot CR')">
+      <span>Super Hot CR (2)</span>
+    </div>
+    <div class="header mr-12px" [ngClass]="selectedHeader === 'Hot CR' ? 'header-active' : ''" (click)="selectHeader('Hot CR')">
+      <span>Hot CR (0)</span>
+    </div>
+    <div class="header mr-12px" [ngClass]="selectedHeader === 'Refresh CR' ? 'header-active' : ''" (click)="selectHeader('Refresh CR')">
+      <span>Refresh CR (0)</span>
+    </div>
+  </div>
+  <div class="row box-border ml-12px pl-0 d-flex">
+    <p-table [value]="premiumLists" responsiveLayout="scroll" class="p-2 p-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="p-table-th">Total Quota</th>
+          <th class="p-table-th">Quota Used</th>
+          <th class="p-table-th">Available</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row>
+        <tr>
+          <td class="p-table-td">{{row.total}}</td>
+          <td class="p-table-td">{{row.used}}</td>
+          <td class="p-table-td">{{row.available}}</td>
+        </tr>
+        <tr>
+          <td class="p-table-td"></td>
+          <td class="p-table-td">Active Listing(s): 0</td>
+          <td class="p-table-td"></td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <div class="buy-text">
+      <span class="clr-orange pt-2">Buy Hot Listings <i class="fa fa-question-circle font-18" aria-hidden="true"></i></span>
+      <span class="clr-green pt-1">Buy Listings Package <i class="fa fa-question-circle font-18" aria-hidden="true"></i></span>
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <span class="font-12"> <i class="fa fa-exclamation-triangle font-15 clr-alert mr-5px" aria-hidden="true"></i>To increase listing quota please <a class="clr-anchor cursor-pointer anchor-line">contact us </a> or purchase a <a class="clr-anchor cursor-pointer anchor-line">premium listing.</a></span>
+      <span class="font-12 d-flex">Listing credits expiry in next 30 days
+        <span class="font-bold ml-15px"> Refresh Listing : </span><span class="clr-red ml-2px">0</span>
+        <span class="font-bold ml-15px"> Hot Listing : </span><span class="clr-red ml-2px">0</span>
+        <span class="font-bold ml-15px"> Super Hot Listing : </span><span class="clr-red ml-2px">0</span>
+        <div class="ml-15px cursor-pointer">
+          <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          <span class="clr-anchor cursor-pointer"> Show Details </span>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
