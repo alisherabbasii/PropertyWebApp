@@ -1,13 +1,13 @@
 
 
 <span class="p-fluid">
-<p-autoComplete [(ngModel)]="selectedCountries" 
+<p-autoComplete [(ngModel)]="selectedLocatedCountires" 
 placeholder="Location"
 [maxlength]="maxLen"
 scrollHeight="200px"
 [size]="inputSize"
 style="border-radius: 0px;"
-
+(onSelect)="SelectLocation()"
 [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)"  field="name" [multiple]="true">
 </p-autoComplete>
 </span>

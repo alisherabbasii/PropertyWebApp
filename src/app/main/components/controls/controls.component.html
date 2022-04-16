@@ -1,5 +1,4 @@
-
-<div class="bgImage" >
+<div class="bgImage">
   <h4 class="text-white d-flex justify-content-center pt-3">
     Search properties for sale in Pakistan
   </h4>
@@ -23,73 +22,71 @@
     </div>
   </div>
   <div>
-  <div style="background: rgba(34, 34, 34, 0.85)">
-    <div class="row d-flex justify-content-center pt-2">
-      <div class="col-sm-2">
-        <app-city></app-city>
+    <div style="background: rgba(34, 34, 34, 0.85)">
+      <div class="row d-flex justify-content-center pt-2">
+        <div class="col-sm-2">
+          <app-city (selectedCityOutput)="GetCity($event)"></app-city>
+        </div>
+        <div class="col-sm-4">
+          <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
+        </div>
+        <div style="width: 238px;">
+          <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND" class="p-button-success"
+            (click)="find()" routerLink="expandedSearch"></button>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <app-location-search></app-location-search>
-      </div>
-      <div style="width: 238px;">
-        <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND" class="p-button-success"
-          (click)="find()" routerLink="expandedSearch"></button>
-      </div>
-    </div>
 
-    <br />
-    <div  [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3"  >
-      <div class="col-sm-2" >
-        <app-property-type></app-property-type>
-      </div>
-      <div class="col-sm-2"  >
+      <br />
+      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3">
+        <div class="col-sm-2">
+          <app-property-type></app-property-type>
+        </div>
+        <div class="col-sm-2">
 
-        <app-price-range></app-price-range>
+          <app-price-range></app-price-range>
 
-        <!-- custom dropdown End -->
-      </div>
-      <div class="col-sm-2" >
+          <!-- custom dropdown End -->
+        </div>
+        <div class="col-sm-2">
 
-        <!-- Custom Drop Down Start Area Marla -->
-        <app-area-range></app-area-range>
+          <!-- Custom Drop Down Start Area Marla -->
+          <app-area-range></app-area-range>
 
-        <!-- custom dropdown End -->
+          <!-- custom dropdown End -->
+        </div>
+        <div class="col-sm-2">
+          <app-beds></app-beds>
+        </div>
+
       </div>
-      <div class="col-sm-2" >
-        <app-beds></app-beds>
-      </div>
-     
-    </div>
-    <div class="d-flex pb-2">
-      <span *ngIf="toggle" style="
+      <div class="d-flex pb-2">
+        <span *ngIf="toggle" style="
           margin-left: 16.8rem;
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-         "
-           ><span (click)="show('less')"><i class="pi pi-angle-up"></i>Less Options
-           </span>
-            
-            | <span class="bottomRowDiv pr-2">change currency</span>|
-           <span class="bottomRowDiv pr-2">change Area Unit</span>
-          | <span class="bottomRowDiv pr-2">Reset Search</span>
-         
+         "><span (click)="show('less')"><i class="pi pi-angle-up"></i>Less Options
           </span>
-      <span *ngIf="!toggle" class="text-success" style="
+
+          | <span class="bottomRowDiv pr-2">change currency</span>|
+          <span class="bottomRowDiv pr-2">change Area Unit</span>
+          | <span class="bottomRowDiv pr-2">Reset Search</span>
+
+        </span>
+        <span *ngIf="!toggle" class="text-success" style="
           margin-left: 16.8rem;
           color: white !important;
           font-size: 13px;
           cursor: pointer;
           margin-top: -20px;
-        " ><span (click)="show('more')"><i class="pi pi-angle-down"></i>More Options 
+        "><span (click)="show('more')"><i class="pi pi-angle-down"></i>More Options
+          </span>
+          | <span class="bottomRowDiv pr-2">change currency</span>|
+          <span class="bottomRowDiv pr-2">change Area Unit</span>
+          | <span class="bottomRowDiv pr-2">Reset Search</span>
         </span>
-        | <span class="bottomRowDiv pr-2">change currency</span>|
-         <span class="bottomRowDiv pr-2">change Area Unit</span>
-        | <span class="bottomRowDiv pr-2">Reset Search</span>
-      </span>
 
+      </div>
     </div>
   </div>
 </div>
-</div>
-
