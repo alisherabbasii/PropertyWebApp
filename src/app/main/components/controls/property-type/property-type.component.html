@@ -31,9 +31,9 @@
             <div class="row d-flex justify-content-around ml-2 mb-3">
               <div class="col-sm-3">
                 <span
-                (click)="changeSpan('Home')"
+                (click)="changeSpan('Homes')"
                 style="font-size: 13px; cursor: pointer;"
-                [ngClass]="[selectedSpan=='Home' ? 'horiLine' : '']"
+                [ngClass]="[selectedSpan=='Homes' ? 'horiLine' : '']"
                 >
                   HOME
                  
@@ -42,17 +42,17 @@
               <div class="col-sm-3">
                 <span
                 style="font-size: 13px; cursor: pointer;"
-                (click)="changeSpan('Plot')"
-                [ngClass]="[selectedSpan=='Plot' ? 'horiLine' : '']"
+                (click)="changeSpan('Plots')"
+                [ngClass]="[selectedSpan=='Plots' ? 'horiLine' : '']"
                 >
                   PLOT
               </span>
               </div>
               <div class="col-sm-6">
                 <span
-                (click)="changeSpan('COMMERCIAL')"
+                (click)="changeSpan('Commercial')"
                 style="font-size: 13px; cursor: pointer;"
-                [ngClass]="[selectedSpan=='COMMERCIAL' ? 'horiLine' : '']"
+                [ngClass]="[selectedSpan=='Commercial' ? 'horiLine' : '']"
                
               >
               COMMERCIAL
@@ -61,93 +61,94 @@
               </div>
             </div>
              <!-- In case of Home -->
-            <ng-container *ngIf="selectedSpan=='Home'">
-            <div class="row d-flex justify-content-around align-items-center mb-1">
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  House
-              </span>
-              </div>
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
+            <ng-container *ngIf="selectedSpan=='Homes'">
+              <div class="row d-flex justify-content-around align-items-center mb-1" *ngFor="let s of renderProperty; let i = index">
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
                   class="basicSpanStyle"
-                >
-                  Flat
-              </span>
+                  >
+                    {{s.AdClassName}}
+                   
+                </span>
+                </div>
+                <!-- <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                    class="basicSpanStyle"
+                  >
+                  {{s[i+1].AdClassName}}
+                </span>
+                </div> -->
               </div>
-            </div>
 
-            <div class="row d-flex justify-content-around align-items-center mb-1">
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  Upper Portion
-              </span>
+              <!-- <div class="row d-flex justify-content-around align-items-center mb-1">
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                  class="basicSpanStyle"
+                  >
+                    Upper Portion
+                </span>
+                </div>
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                  class="basicSpanStyle"
+                  >
+                    Lower Portion
+                </span>
+                </div>
               </div>
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  Lower Portion
-              </span>
-              </div>
-            </div>
 
-            <div class="row d-flex justify-content-around align-items-center mb-1">
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  Farm House
-              </span>
+              <div class="row d-flex justify-content-around align-items-center mb-1">
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                  class="basicSpanStyle"
+                  >
+                    Farm House
+                </span>
+                </div>
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                  class="basicSpanStyle"
+                  >
+                    Room
+                </span>
+                </div>
               </div>
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  Room
-              </span>
-              </div>
-            </div>
-            <div class="row d-flex justify-content-around align-items-center mb-1">
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-                <span
-                class="basicSpanStyle"
-                >
-                  Pent House
-              </span>
-              </div>
-              <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
-              
-              </div>
-            </div>
+              <div class="row d-flex justify-content-around align-items-center mb-1">
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <span
+                  class="basicSpanStyle"
+                  >
+                    Pent House
+                </span>
+                </div>
+                <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                
+                </div>
+              </div> -->
           </ng-container>
 
 
 
                <!-- In case of Plot -->
-               <ng-container *ngIf="selectedSpan=='Plot'">
-                <div class="row d-flex justify-content-around align-items-center mb-1">
+               <ng-container *ngIf="selectedSpan=='Plots'">
+                <div class="row d-flex justify-content-around align-items-center mb-1"  *ngFor="let s of renderProperty; let i = index">
                   <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
                     <span
                     class="basicSpanStyle"
                     >
-                      Residential Plot
+                    {{s.AdClassName}}
                   </span>
                   </div>
-                  <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                  <!-- <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
                     <span
                     class="basicSpanStyle"
                     >
                     Comercial Plot
                   </span>
-                  </div>
+                  </div> -->
                 </div>
 
-                <div class="row d-flex justify-content-around align-items-center mb-1">
+                <!-- <div class="row d-flex justify-content-around align-items-center mb-1">
                   <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
                     <span
                     class="basicSpanStyle"
@@ -179,31 +180,31 @@
                       Plot Form
                   </span>
                   </div>
-                </div>
+                </div> -->
              
               </ng-container>
 
 
                 <!-- In case of Commercial -->
-                <ng-container *ngIf="selectedSpan=='COMMERCIAL'">
+                <ng-container *ngIf="selectedSpan=='Commercial'">
                   <div class="row d-flex justify-content-around align-items-center mb-1">
-                    <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                    <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center" *ngFor="let s of renderProperty; let i = index">
                       <span
                       class="basicSpanStyle"
                       >
-                        Office
+                      {{s.AdClassName}}
                     </span>
                     </div>
-                    <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
+                    <!-- <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
                       <span
                       class="basicSpanStyle"
                       >
                       Shop
                     </span>
-                    </div>
+                    </div> -->
                   </div>
   
-                  <div class="row d-flex justify-content-around align-items-center mb-1">
+                  <!-- <div class="row d-flex justify-content-around align-items-center mb-1">
                     <div class="border  rounded col-sm-4 d-flex justify-content-center align-items-center">
                       <span
                       class="basicSpanStyle"
@@ -235,7 +236,7 @@
                         Others
                     </span>
                     </div>
-                  </div>
+                  </div> -->
                
                 </ng-container>
 
