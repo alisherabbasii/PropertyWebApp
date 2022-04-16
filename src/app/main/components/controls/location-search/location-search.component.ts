@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+interface Location {
+  name: string,
+  code: string
+}
 @Component({
   selector: 'app-location-search',
   templateUrl: './location-search.component.html',
   styleUrls: ['./location-search.component.css']
 })
 export class LocationSearchComponent implements OnInit {
+  @Output() selectedLocationOutput: EventEmitter<Location> = new EventEmitter();
 
   constructor() { }
 
@@ -14,7 +18,7 @@ export class LocationSearchComponent implements OnInit {
   tr:boolean = true;
   maxLen:number = 2;
   inputSize:number=200;
-  selectedCountries: any[];
+  selectedLocatedCountires!: Location;
   filteredCountries: any[];
   countries: any =[
     
@@ -279,6 +283,12 @@ export class LocationSearchComponent implements OnInit {
     }
 
     this.filteredCountries = filtered;
+  }
+
+  SelectLocation() {
+    debugger
+    console.log(this.selectedLocatedCountires)
+    this.selectedLocationOutput.emit(this.selectedLocatedCountires);
   }
 
 }
