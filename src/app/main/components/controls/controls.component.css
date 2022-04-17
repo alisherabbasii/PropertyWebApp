@@ -92,3 +92,16 @@ input.inputError:focus {
     color: #0792ea;
 }
 
+.openHeightStyle{
+    height: 10rem !important;
+}
+
+.closeHeightStyle{
+    height: 7rem !important;
+}
+.openMarginStyle{
+    margin-top: -10rem;
+}
+.closeMarginStyle{
+    margin-top: -7rem;
+}

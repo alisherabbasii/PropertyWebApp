@@ -3,95 +3,98 @@
     Search properties for sale in Pakistan
   </h4>
   <div class="row d-flex justify-content-center align-items-center mt-2 mb-2">
-    <div (click)="changeBtn('Buy')" [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2rem;">
-      <span label="Buy"
-        >Buy</span>
+    <div (click)="changeBtn('Buy')" [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white border']"
+      style="border: 1px solid white;"
+      class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2.3rem;">
+      <span label="Buy">Buy</span>
     </div>
- 
-    <div (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2rem;">
-      <span label="Rent"
-        >Rent</span>
+
+    <div (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white border']"
+      style="border: 1px solid white;"
+      class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2.3rem;">
+      <span label="Rent">Rent</span>
     </div>
 
 
-    <div (click)="changeBtn('Projects')" [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer" style="height: 2rem;">
-      <span label="Projects"
-        >Projects</span>
+    <div (click)="changeBtn('Projects')"
+      [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white border']"
+      style="border: 1px solid white;" class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer"
+      style="height: 2.3rem;">
+      <span label="Projects">Projects</span>
     </div>
 
   </div>
-  <div>
-    <div id="bgClr" style="background: rgba(34, 34, 34, 0.85); height: 170px;width: 70%;z-index: -1;margin-left: 13.5rem;">
+
+  <div class="mt-4">
+    <div id="bgClr" class="row col-lg-8 offset-2 pt-2" [ngClass]="[toggle ? 'openHeightStyle' : 'closeHeightStyle']" style="background: rgba(34, 34, 34, 0.85); ">
 
     </div>
-    <div style="z-index: 99; margin-top: -172px;">
-      <div class="row d-flex justify-content-center pt-2">
-        <div class="col-sm-2"  style="margin-left:1.4rem;">
+
+    <div style="z-index: 99; " [ngClass]="[toggle ? 'openMarginStyle' : 'closeMarginStyle']">
+
+      <div class="row col-lg-8 offset-2 pt-2">
+        <div class="col-lg-3">
           <app-city (selectedCityOutput)="GetCity($event)"></app-city>
         </div>
-        <div class="col-sm-4 mt-1">
+        <div class="col-lg-6">
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
-        <div style="width: 238px;" class="mt-1">
-          <button pButton pRipple type="button" [style]="{ width: '80%' }" label="FIND" class="FindButtonGlobalThemeStyle"
-            (click)="find()" routerLink="expandedSearch"></button>
+        <div class="col-lg-3">
+          <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND"
+            class="FindButtonGlobalThemeStyle" (click)="find()" routerLink="expandedSearch"></button>
         </div>
+
+        <div *ngIf="!toggle" class="d-flex pb-2 mt-4">
+
+          <span  class="text-success" style="
+      color: white !important;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: -20px;
+    "><span (click)="show('more')"><i class="pi pi-angle-down"></i>More Options
+            </span>
+            | <span class="bottomRowDiv pr-2">change currency</span>|
+            <span class="bottomRowDiv pr-2">change Area Unit</span>
+            | <span class="bottomRowDiv pr-2">Reset Search</span>
+          </span>
+        </div>
+
+
       </div>
 
-      <br />
-      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3" style="margin-left:-2rem;">
-        <div class="col-sm-2">
-          <app-property-type (onDropDownChange)="showHideDropDown($event)" ></app-property-type>
+      <div [@slideInOut] *ngIf="toggle" class="row col-lg-8 offset-2 pt-2">
+        <div class="col-lg-3">
+          <app-property-type (onDropDownChange)="showHideDropDown($event)"></app-property-type>
         </div>
-        <div class="col-sm-2">
-
+        <div class="col-lg-3">
           <app-price-range></app-price-range>
-
-          <!-- custom dropdown End -->
         </div>
-        <div class="col-sm-2">
-
-          <!-- Custom Drop Down Start Area Marla -->
+        <div class="col-lg-3">
           <app-area-range></app-area-range>
-
-          <!-- custom dropdown End -->
         </div>
-        <div class="col-sm-2" *ngIf="showBedDropDown" style="margin-left:-1rem;">
+
+
+        <div class="col-lg-3">
           <app-beds></app-beds>
         </div>
-        <div class="col-sm-2" *ngIf="!showBedDropDown" style="margin-left:-1rem;">
-         
-        </div>
-      </div>
 
 
-
-      <div class="d-flex pb-2">
-        <span *ngIf="toggle" style="
-          margin-left: 16.8rem;
+        <div class="d-flex ">
+          <span *ngIf="toggle" style="
           color: white !important;
           font-size: 13px;
           cursor: pointer;
          "><span (click)="show('less')"><i class="pi pi-angle-up"></i>Less Options
-          </span>
+            </span>
 
-          | <span class="bottomRowDiv pr-2">change currency</span>|
-          <span class="bottomRowDiv pr-2">change Area Unit</span>
-          | <span class="bottomRowDiv pr-2">Reset Search</span>
+            | <span class="bottomRowDiv pr-2">change currency</span>|
+            <span class="bottomRowDiv pr-2">change Area Unit</span>
+            | <span class="bottomRowDiv pr-2">Reset Search</span>
 
-        </span>
-        <span *ngIf="!toggle" class="text-success" style="
-          margin-left: 16.8rem;
-          color: white !important;
-          font-size: 13px;
-          cursor: pointer;
-          margin-top: -20px;
-        "><span (click)="show('more')"><i class="pi pi-angle-down"></i>More Options
           </span>
-          | <span class="bottomRowDiv pr-2">change currency</span>|
-          <span class="bottomRowDiv pr-2">change Area Unit</span>
-          | <span class="bottomRowDiv pr-2">Reset Search</span>
-        </span>
+        </div>
+
+
 
       </div>
     </div>
