@@ -20,10 +20,10 @@ declare var $: any;
     trigger('slideInOut', [
       transition(':enter', [
         style({ transform: 'translateY(-100%)' }),
-        animate('200ms ease-in', style({ transform: 'translateY(0%)' }))
+        animate('500ms ease-in', style({ transform: 'translateY(0%)' }))
       ]),
       transition(':leave', [
-        animate('200ms ease-in', style({ transform: 'translateY(-100%)' }))
+        animate('400ms ease-in', style({ transform: 'translateY(-100%)' }))
       ])
     ])
   ]
@@ -33,6 +33,7 @@ export class ControlsComponent implements OnInit {
   toggle: Boolean = true;
   selectedButton: any = 'Buy';
   selectedSpan: any = 'Home';
+  showBedDropDown:boolean=true;
   ngOnInit(): void {
 
     $('.dropdown-menu.ddRange')
@@ -140,7 +141,14 @@ export class ControlsComponent implements OnInit {
     }
   }
 
-
+  showHideDropDown(val:any){
+   if(val=='Homes'){
+    this.showBedDropDown = true;
+   }
+   else{
+     this.showBedDropDown  = false;
+   }
+  }
 
 
 

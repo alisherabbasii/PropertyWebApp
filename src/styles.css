@@ -5,6 +5,20 @@ body{
 .navbar{
     justify-content: start !important;
     align-items: inherit !important;
+    height: 50px;
+    background: rgb(250, 12, 25) !important;
+  
+}
+.FindButtonGlobalThemeStyle{
+  background: rgb(250, 12, 25) !important;
+}
+
+.defaultDropDownFontColor{
+  color: #767676 !important;
+}
+.defaultDropDownFontSize{
+  font-size: 0.8rem !important;
+  justify-content: center;
 }
 .p-card-title{
     font-size: 0.93rem !important;
