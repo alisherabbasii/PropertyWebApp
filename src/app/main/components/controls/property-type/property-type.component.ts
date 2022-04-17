@@ -15,8 +15,9 @@ export class PropertyTypeComponent implements OnInit {
   selectedSpan:any='Homes';
   PropertyType:any
   renderProperty:any
+  homeList:any=''
   ngOnInit(): void {
-    this.GetpropertyType()
+   // this.GetpropertyType()
   }
 
   constructor(private service:DataService) {
@@ -30,7 +31,7 @@ export class PropertyTypeComponent implements OnInit {
   }
 
   GetpropertyType(){
-    debugger
+  
     let obj ={}
     this.service.post(`${ApiURL}` + 'api/AdClass/GetAll',obj).subscribe((res:any)=>{
       debugger
@@ -38,6 +39,11 @@ export class PropertyTypeComponent implements OnInit {
       console.log("Propert Type",res)
       // this.countries = res.result
     })
+  }
+
+  onHomeClick(val:any){
+    debugger;
+    this.homeList = val;
   }
 
 }
