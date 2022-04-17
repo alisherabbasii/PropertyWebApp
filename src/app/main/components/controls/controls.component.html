@@ -22,22 +22,25 @@
     </div>
   </div>
   <div>
-    <div style="background: rgba(34, 34, 34, 0.85)">
+    <div id="bgClr" style="background: rgba(34, 34, 34, 0.85); height: 170px;width: 885px;z-index: -1;margin-left: 13.5rem;">
+
+    </div>
+    <div style="z-index: 99; margin-top: -172px;">
       <div class="row d-flex justify-content-center pt-2">
         <div class="col-sm-2">
           <app-city (selectedCityOutput)="GetCity($event)"></app-city>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 mt-1">
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
-        <div style="width: 238px;">
-          <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND" class="p-button-success"
+        <div style="width: 238px;" class="mt-1">
+          <button pButton pRipple type="button" [style]="{ width: '80%' }" label="FIND" class="p-button-success"
             (click)="find()" routerLink="expandedSearch"></button>
         </div>
       </div>
 
       <br />
-      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3">
+      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3" style="margin-left:-3rem;">
         <div class="col-sm-2">
           <app-property-type></app-property-type>
         </div>
@@ -54,11 +57,14 @@
 
           <!-- custom dropdown End -->
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" style="margin-left:-1rem;">
           <app-beds></app-beds>
         </div>
 
       </div>
+
+
+
       <div class="d-flex pb-2">
         <span *ngIf="toggle" style="
           margin-left: 16.8rem;
