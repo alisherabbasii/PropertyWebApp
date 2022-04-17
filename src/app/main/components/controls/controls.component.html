@@ -2,27 +2,26 @@
   <h4 class="text-white d-flex justify-content-center pt-3">
     Search properties for sale in Pakistan
   </h4>
-  <div class="row d-flex justify-content-center mt-2 mb-2">
-    <div class="col-sm-1">
-      <span (click)="changeBtn('Buy')" style="border: 1px solid white;" pButton pRipple type="button" label="Buy"
-        [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white']"
-        class="p-button-raised p-button-secondary p-button-text  "></span>
+  <div class="row d-flex justify-content-center align-items-center mt-2 mb-2">
+    <div (click)="changeBtn('Buy')" [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2rem;">
+      <span label="Buy"
+        >Buy</span>
     </div>
-    <div class="col-sm-1">
-      <button (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white']"
-        style="border: 1px solid white;" pButton pRipple type="button" label="Rent"
-        class="p-button-raised p-button-secondary p-button-text "></button>
+ 
+    <div (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2rem;">
+      <span label="Rent"
+        >Rent</span>
+    </div>
 
+
+    <div (click)="changeBtn('Projects')" [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white border']"  style="border: 1px solid white;"  class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer" style="height: 2rem;">
+      <span label="Projects"
+        >Projects</span>
     </div>
-    <div class="col-sm-1">
-      <button (click)="changeBtn('Projects')"
-        [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white']" style="border: 1px solid white;"
-        pButton pRipple type="button" label="Projects"
-        class="p-button-raised p-button-secondary p-button-text"></button>
-    </div>
+
   </div>
   <div>
-    <div id="bgClr" style="background: rgba(34, 34, 34, 0.85); height: 170px;width: 885px;z-index: -1;margin-left: 13.5rem;">
+    <div id="bgClr" style="background: rgba(34, 34, 34, 0.85); height: 170px;width: 70%;z-index: -1;margin-left: 13.5rem;">
 
     </div>
     <div style="z-index: 99; margin-top: -172px;">
@@ -34,15 +33,15 @@
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
         <div style="width: 238px;" class="mt-1">
-          <button pButton pRipple type="button" [style]="{ width: '80%' }" label="FIND" class="p-button-success"
+          <button pButton pRipple type="button" [style]="{ width: '80%' }" label="FIND" class="FindButtonGlobalThemeStyle"
             (click)="find()" routerLink="expandedSearch"></button>
         </div>
       </div>
 
       <br />
-      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3" style="margin-left:-3rem;">
+      <div [@slideInOut] *ngIf="toggle" class="row d-flex justify-content-center pb-3" style="margin-left:-2rem;">
         <div class="col-sm-2">
-          <app-property-type></app-property-type>
+          <app-property-type (onDropDownChange)="showHideDropDown($event)" ></app-property-type>
         </div>
         <div class="col-sm-2">
 
@@ -57,10 +56,12 @@
 
           <!-- custom dropdown End -->
         </div>
-        <div class="col-sm-2" style="margin-left:-1rem;">
+        <div class="col-sm-2" *ngIf="showBedDropDown" style="margin-left:-1rem;">
           <app-beds></app-beds>
         </div>
-
+        <div class="col-sm-2" *ngIf="!showBedDropDown" style="margin-left:-1rem;">
+         
+        </div>
       </div>
 
 

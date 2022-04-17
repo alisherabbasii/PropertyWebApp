@@ -7,13 +7,15 @@
     [filter]="true"
     filterBy="CityName"
     [showClear]="true"
-    placeholder="SELECT A CITY"
+   
+    placeholder="CITY"
     (onChange)="SelectCity()"
   >
     <ng-template pTemplate="selectedItem">
       <div class="country-item country-item-value" *ngIf="selectedCountry">
         <div>{{ selectedCountry.CityName }}</div>
       </div>
+      
     </ng-template>
     <ng-template let-country pTemplate="item">
       <div class="country-item">
