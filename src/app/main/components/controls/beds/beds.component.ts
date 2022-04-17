@@ -42,6 +42,10 @@ export class BedsComponent implements OnInit {
   setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
     min_values.click(function() {
       var minValue = $(this).attr('value');
+      $(".min_value").css('background-color', 'white');
+      $(".min_value").css('color', 'black');
+      $(this).css('background-color', '#007bff');
+      $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('selectedBeds').innerHTML = minValue;
   
