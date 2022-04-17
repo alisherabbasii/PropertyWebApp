@@ -26,13 +26,19 @@
 </div>
 
 
-<div class="ml-5 d-flex">
-  <button pButton pRipple type="button" label="Add Property" class="p-button-raised p-button-secondary p-button-text" (click)="clickAddProperty()"></button>
-    <div class="main">
+<div class="ml-5 d-flex align-items-center">
+    <div class="col-sm-4 cursor-pointer rounded d-flex align-items-center border" style="height: 2rem;">
+        <div class=" d-flex align-items-center">
+    <span class="fa fa-plus form-control-feedback text-white pr-3"></span>
+  <span label="Add Property" class=" text-white" (click)="clickAddProperty()">Add Property</span>
+</div>
+</div>
+
+    <div class="main col-sm-5">
         <!-- Actual search box -->
-        <div class="form-group has-search">
-          <span class="fa fa-search form-control-feedback"></span>
-          <input type="text" class="form-control" placeholder="Search">
+        <div class="form-group has-search d-flex align-items-center">
+          <span class="fa fa-search form-control-feedback pr-3"></span>
+          <input type="text" class="form-control pl-4" placeholder="Search">
         </div>
         <!-- <p class="mt-4 text-center"><a href="https://www.gungorbudak.com/blog/2018/12/12/bootstrap-4-search-box-with-search-icon/">See how it's done on my blog</a></p> -->
 
