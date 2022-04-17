@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectItemGroup } from 'primeng/api';
+import { City } from 'src/app/models/City';
+import { MainBodyControlService } from 'src/app/services/MainBodyControlService/main-body-control.service';
 
 @Component({
   selector: 'app-area-range',
@@ -7,146 +10,185 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AreaRangeComponent implements OnInit {
 
-  toggle:Boolean= true;
-  selectedButton:any='Buy';
-  selectedSpan:any='Home';
+  toggle: Boolean = true;
+  selectedButton: any = 'Buy';
+  selectedSpan: any = 'Home';
+  showBedDropDown:boolean=true;
   ngOnInit(): void {
 
     $('.dropdown-menu.ddRange')
-    .click(function(e) {
-      e.stopPropagation();
-    });
+      .click(function (e) {
+        e.stopPropagation();
+      });
 
 
-  this.setuinvestRangeDropDownListArea(
-    $('.marlaRange .min_value'),
-    $('.marlaRange .max_value'),
-    $('.marlaRange .freeformPrice .min_input'),
-    $('.marlaRange .freeformPrice .max_input'),
-    $('.marlaRange .btnClear'),
-    $('.marlaRange .dropdown-toggle'));
+
+    this.setuinvestRangeDropDownList(
+      $('.investRange .min_val_marla'),
+      $('.investRange .max_val_marla'),
+      $('.investRange .freeformPrice .min_input'),
+      $('.investRange .freeformPrice .max_input'),
+      $('.investRange .btnClear'),
+      $('.investRange .dropdown-toggle'));
 
 
   }
 
 
+  cities: City[];
+
+  selectedCity1!: City;
+
+  selectedCity2!: City;
+
+  selectedCity3!: string;
+
+  selectedCountry!: City;
+
+  groupedCities: SelectItemGroup[];
+  selectedLocation!: City;
+  selectedCity: City;
+  IncommingSelectedCity: any
+  IncommingSelectedLocation:any
   // toggle:Boolean= true;
-  constructor() {
+  constructor(private service: MainBodyControlService) {
+
+
 
   }
-  changeBtn(val:any){
-    
-      this.selectedButton = val;
-  
+  changeBtn(val: any) {
+
+    this.selectedButton = val;
+
 
   }
-  changeSpan(val:any){
+  changeSpan(val: any) {
     this.selectedSpan = val;
   }
 
   show(value: any) {
-    debugger;
-  if (value == 'more') {
-    this.toggle = true;
-  } else {
-    this.toggle = false;
+
+    if (value == 'more') {
+      this.toggle = true;
+    } else {
+      this.toggle = false;
+    }
   }
-}
+
+  showHideDropDown(val:any){
+   if(val=='Homes'){
+    this.showBedDropDown = true;
+   }
+   else{
+     this.showBedDropDown  = false;
+   }
+  }
 
 
 
 
+  disableDropDownRangeOptions(max_values: any, minValue: any) {
+    if (max_values) {
+      max_values.each(function () {
+        var maxValue = $(this).attr("value");
 
+        if (parseInt(maxValue) < parseInt(minValue)) {
+          $(this).addClass('disabled');
+        } else {
+          $(this).removeClass('disabled');
+        }
+      });
+    }
+  }
 
-setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, clearLink, dropDownControl) {
-    min_values.click(function() {
+  setuinvestRangeDropDownList(min_val_marla, max_val_marla, min_input, max_input, clearLink, dropDownControl) {
+    min_val_marla.click(function () {
+      var temp = this;
       var minValue = $(this).attr('value');
+      $(".min_val_marla").css('background-color', 'white');
+      $(".min_val_marla").css('color', 'black');
+      $(this).css('background-color', '#007bff');
+      $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('min_marla').innerHTML = minValue;
-  
-     this.disableDropDownRangeOptionsArea(max_values, minValue);
-  
+
+      this.disableDropDownRangeOptions(max_val_marla, minValue);
+
       validateDropDownInputs();
-    });
-  
-    max_values.click(function() {
-      var maxValue = $(this).attr('value');
-      max_input.val(maxValue);
-      document.getElementById('max_marla').innerHTML = maxValue;
-  
-      toggleDropDown();
-    });
-  
-    clearLink.click(function() {
-      min_input.val('');
-      max_input.val('');
-  
-      this.disableDropDownRangeOptionsArea(max_values);
-  
-      validateDropDownInputs();
-    });
-  
-    $("#min_marla11").on('keyup',function(){
-      debugger;
-      var temp=(<HTMLInputElement>document.getElementById('min_marla11')).value
-      document.getElementById('price_range1').innerHTML =temp;
     });
 
-    $("#max_marla11").on('keyup',function(){
-      debugger;
-      var temp=(<HTMLInputElement>document.getElementById('max_marla11')).value
-      document.getElementById('price_range2').innerHTML =temp;
+    max_val_marla.click(function () {
+      var temp = this;
+      var maxValue = $(this).attr('value');
+      $(".max_val_marla").css('background-color', 'white');
+      $(".max_val_marla").css('color', 'black');
+      $(this).css('background-color', '#007bff');
+      $(this).css('color', 'white');
+      max_input.val(maxValue);
+      document.getElementById('max_marla').innerHTML = maxValue;
+      toggleDropDown();
+    });
+
+    clearLink.click(function () {
+      min_input.val('');
+      max_input.val('');
+
+      this.disableDropDownRangeOptions(max_val_marla);
+
+      validateDropDownInputs();
     });
 
     min_input.on('input',
-      function() {
+      function () {
         var minValue = min_input.val();
-  
-        this.disableDropDownRangeOptionsArea(max_values, minValue);
+
+        this.disableDropDownRangeOptions(max_val_marla, minValue);
         validateDropDownInputs();
       });
-  
+
     max_input.on('input', validateDropDownInputs);
-  
+
     max_input.blur('input',
-      function() {
+      function () {
         toggleDropDown();
       });
-  
+
     function validateDropDownInputs() {
       var minValue = parseInt(min_input.val());
       var maxValue = parseInt(max_input.val());
-  
+
       if (maxValue > 0 && minValue > 0 && maxValue < minValue) {
         min_input.addClass('inputError');
         max_input.addClass('inputError');
-  
+
         return false;
       } else {
         min_input.removeClass('inputError');
         max_input.removeClass('inputError');
-  
+
         return true;
       }
     }
-  
+
+
+
+
     function toggleDropDown() {
       if (validateDropDownInputs() &&
         parseInt(min_input.val()) > 0 &&
         parseInt(max_input.val()) > 0) {
-  
+
         // auto close if two values are valid
         dropDownControl.dropdown('toggle');
       }
     }
   }
 
-
-  disableDropDownRangeOptionsArea(max_values:any, minValue:any) {
+  disableDropDownRangeOptionsArea(max_values: any, minValue: any) {
     if (max_values) {
-      max_values.each(function() {
+      max_values.each(function () {
         var maxValue = $(this).attr("value");
-  
+
         if (parseInt(maxValue) < parseInt(minValue)) {
           $(this).addClass('disabled');
         } else {
@@ -160,3 +202,8 @@ setuinvestRangeDropDownListArea(min_values, max_values, min_input, max_input, cl
 
 
 }
+
+
+
+
+
