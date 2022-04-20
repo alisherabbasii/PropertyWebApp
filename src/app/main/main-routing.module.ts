@@ -10,6 +10,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+
+    path: 'plots',
+    component: HomeComponent,
+  },
+  {
     path: 'expandedSearch',
     component: ExtendedSerachComponent,
   }

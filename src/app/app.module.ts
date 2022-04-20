@@ -9,7 +9,7 @@ import { ProductService } from './services/productservice';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {EstateInterceptorService} from "./global/estate-interceptor.service";
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {NgxSpinnerModule} from "ngx-spinner";
 import { DataService } from './global/data-service';
 import {ToastrModule} from "ngx-toastr";
@@ -38,7 +38,7 @@ import {ToastrModule} from "ngx-toastr";
   providers: [ DataService, ProductService,{
     provide: HAMMER_LOADER,
     useValue: () => new Promise(() => {})
-  }, {provide: LocationStrategy, useClass: HashLocationStrategy}, {
+  }, {provide: LocationStrategy, useClass: PathLocationStrategy}, {
     provide: HTTP_INTERCEPTORS,
     useClass: EstateInterceptorService,
     multi: true
