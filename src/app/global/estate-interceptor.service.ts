@@ -10,8 +10,8 @@ import {
 import {Observable} from "rxjs/internal/Observable";
 import {catchError, finalize, tap} from "rxjs/operators";
 import {throwError} from "rxjs";
-import {ToastrService} from "ngx-toastr";
 import {NgxSpinnerService} from "ngx-spinner";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'

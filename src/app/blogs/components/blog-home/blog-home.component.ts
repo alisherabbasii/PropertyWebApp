@@ -13,6 +13,7 @@ export class BlogHomeComponent implements OnInit, AfterViewInit {
   blogsList: IBlogsList = {} as IBlogsList;
   isCollapsed : boolean = true;
   first: number = 0;
+  showSearchBar: boolean = false
 
   totalRecords: number = 120;
 
@@ -46,7 +47,8 @@ export class BlogHomeComponent implements OnInit, AfterViewInit {
 
   getAllBlogsbyClass() {
     this.blogsService.getAllBlogsbyClass().subscribe(res => {
-      if(res){
+      if(res.result){
+        this.showSearchBar = true;
         res.result.forEach((item: any) => {
           this.menuList.push({'label' : item.BlogClassName})
         })

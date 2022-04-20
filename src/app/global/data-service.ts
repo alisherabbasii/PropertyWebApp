@@ -38,6 +38,10 @@ export class DataService {
     return this.http.post<T>(url, object, {responseType: 'json',headers:{'Access-Control-Allow-Origin':'*'}});
   }
 
+  public postWithoutParam<T>(url: any): Observable<T> {
+    return this.http.post<T>(url, {responseType: 'json',headers:{'Access-Control-Allow-Origin':'*'}});
+  }
+
   /**
    * A generic type to put object for storage.
    */

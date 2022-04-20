@@ -1,3 +1,6 @@
+$theme-color: #fa0c19;
+$theme-hover-color: #ffebed;
+
 .logo{
   height: 32px;
   width: 145px;
@@ -18,8 +21,8 @@
 }
 
 .header-active{
-  border: 1px solid #00a651;
-  background-color: #00a651;
+  border: 1px solid $theme-color;
+  background-color: $theme-color;
   color: white;
 }
 

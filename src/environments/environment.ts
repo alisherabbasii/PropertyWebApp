@@ -5,9 +5,10 @@
 export const environment = {
   production: false,
   servicingUrl: 'https://erpsystems.app:8096/',
+  profolioServicingUrl: 'http://52.220.211.58:8092/',
   // documentsUrl: 'http://115.186.131.157:6060/',
   documentsUrl: 'http://52.220.211.58:8092/',
-  
+
 };
 
 /*

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-property-management-submenu-details',
   templateUrl: './property-management-submenu-details.component.html',
-  styleUrls: ['./property-management-submenu-details.component.css']
+  styleUrls: ['./property-management-submenu-details.component.scss']
 })
 export class PropertyManagementSubmenuDetailsComponent implements OnInit {
 

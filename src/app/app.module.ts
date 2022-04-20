@@ -8,17 +8,14 @@ import {CardModule} from 'primeng/card';
 import { ProductService } from './services/productservice';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {EstateInterceptorService} from "./global/estate-interceptor.service";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {NgxSpinnerModule} from "ngx-spinner";
-import { ToastrModule } from 'ngx-toastr';
 import { DataService } from './global/data-service';
-
+import {ToastrModule} from "ngx-toastr";
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +25,6 @@ import { DataService } from './global/data-service';
     CardModule,
     HttpClientModule,
     DropdownModule,
-  
     NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 5000,
@@ -47,8 +43,6 @@ import { DataService } from './global/data-service';
     useClass: EstateInterceptorService,
     multi: true
   },],
-  exports: [
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

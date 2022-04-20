@@ -27,33 +27,36 @@ import { AreaRangeComponent } from './components/controls/area-range/area-range.
 import { MainBodyControlService } from '../services/MainBodyControlService/main-body-control.service';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    HeaderComponent,
-    BodyComponent,
-    ControlsComponent,
-    FooterComponent,
-    HeaderWithLogoComponent,
-    PriceRangeComponent,
-    SingleColumnDropDownComponent,
-    PropertyTypeComponent,
-    BedsComponent,
-    CityComponent,
-    LocationSearchComponent,
-    ExtendedSerachComponent,
-    AreaRangeComponent
-  ],
-  imports: [
-    MainRoutingModule,
-    ButtonModule,
-    CardModule,
-    DropdownModule,
-    FormsModule,
-    CommonModule,
-    CarouselModule,
-    HttpClientModule,
-    AutoCompleteModule
-  ],
-  providers: [ProductService,MainBodyControlService],
+    declarations: [
+        HomeComponent,
+        HeaderComponent,
+        BodyComponent,
+        ControlsComponent,
+        FooterComponent,
+        HeaderWithLogoComponent,
+        PriceRangeComponent,
+        SingleColumnDropDownComponent,
+        PropertyTypeComponent,
+        BedsComponent,
+        CityComponent,
+        LocationSearchComponent,
+        ExtendedSerachComponent,
+        AreaRangeComponent
+    ],
+    imports: [
+        MainRoutingModule,
+        ButtonModule,
+        CardModule,
+        DropdownModule,
+        FormsModule,
+        CommonModule,
+        CarouselModule,
+        HttpClientModule,
+        AutoCompleteModule
+    ],
+    providers: [ProductService, MainBodyControlService],
+    exports: [
+        FooterComponent
+    ]
 })
 export class MainModule { }
