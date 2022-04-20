@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-profolio-home',
   templateUrl: './profolio-home.component.html',
-  styleUrls: ['./profolio-home.component.css']
+  styleUrls: ['./profolio-home.component.scss']
 })
 export class ProfolioHomeComponent implements OnInit {
 

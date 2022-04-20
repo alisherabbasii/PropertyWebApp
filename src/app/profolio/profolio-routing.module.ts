@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProfolioHomeComponent} from "./components/profolio-home/profolio-home.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {PropertyManagementComponent} from "./components/property-management/property-management.component";
+import {
+  PropertyManagementSubmenuDetailsComponent
+} from "./components/property-management-submenu-details/property-management-submenu-details.component";
+import {PostListingComponent} from "./components/post-listing/post-listing.component";
 
 const routes: Routes = [
   {
@@ -20,7 +24,22 @@ const routes: Routes = [
       },
       {
         path: 'property-management',
-        component: PropertyManagementComponent
+        component: PropertyManagementComponent,
+        children: [
+          {
+            path:'',
+            redirectTo: 'property-management-details',
+            pathMatch: 'full'
+          },
+          {
+            path: 'property-management-details',
+            component: PropertyManagementSubmenuDetailsComponent
+          },
+          {
+            path: 'post-listing',
+            component: PostListingComponent
+          }
+      ]
       }
     ]
   }

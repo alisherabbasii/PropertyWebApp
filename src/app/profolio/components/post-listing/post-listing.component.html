@@ -1,0 +1,622 @@
+<!--PURPOSE, PROPERTY TYPE AND LOCATION-->
+<div class="row mt-5 header-margin" #scrollpropertyTypeError>
+    <div class="header-bar mr-12px">
+      <span>PURPOSE, PROPERTY TYPE AND LOCATION</span>
+    </div>
+    <div class="row mt-2">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+          <label class="label">Purpose: <span class="clr-red font-14">*</span></label>
+        </div>
+        <div class="div-field justify-content-start d-flex flex-nowrap">
+          <div pTooltip="For Sale" tooltipPosition="top" class="checkbox-btn d-flex checkbox-border-left" (click)="selectPurpose('For Sale')" [ngClass]="selectedPurpose === 'For Sale' ? 'checkbox-subcheck-check' : ''">
+            <img *ngIf="selectedPurpose === 'For Sale'" src="assets/img/CheckBoxOn.png">
+            <img *ngIf="selectedPurpose !== 'For Sale'" src="assets/img/CheckBoxOff.png">
+            <span class="ml-2">For Sale</span>
+          </div>
+          <div pTooltip="Rent" tooltipPosition="top" class="checkbox-btn d-flex checkbox-border-right" (click)="selectPurpose('Rent')" [ngClass]="selectedPurpose === 'Rent' ? 'checkbox-subcheck-check' : ''">
+            <img *ngIf="selectedPurpose === 'Rent'" src="assets/img/CheckBoxOn.png">
+            <img *ngIf="selectedPurpose !== 'Rent'" src="assets/img/CheckBoxOff.png">
+            <span class="ml-2px">Rent</span>
+          </div>
+        </div>
+    </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Property Type: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+        <div pTooltip="Homes" tooltipPosition="top" #propertyTypeHome class="checkbox-btn d-flex checkbox-border-left" (click)="selectPropertyType('Homes')" [ngClass]="selectedPropertyType === 'Homes' ? 'checkbox-subcheck-check' : ''">
+          <img *ngIf="selectedPropertyType !== 'Homes'" src="assets/img/CheckBoxOff.png">
+          <img *ngIf="selectedPropertyType === 'Homes'" src="assets/img/CheckBoxOn.png">
+          <span class="ml-2">Homes</span>
+        </div>
+        <div pTooltip="Plots" tooltipPosition="top" #propertyTypePlots class="checkbox-btn d-flex" (click)="selectPropertyType('Plots')" [ngClass]="selectedPropertyType === 'Plots' ? 'checkbox-subcheck-check' : ''">
+          <img *ngIf="selectedPropertyType !== 'Plots'" src="assets/img/CheckBoxOff.png">
+          <img *ngIf="selectedPropertyType === 'Plots'" src="assets/img/CheckBoxOn.png">
+          <span class="ml-2px">Plots</span>
+        </div>
+        <div pTooltip="Commercial" tooltipPosition="top" #propertyTypeCommercial class="checkbox-btn d-flex checkbox-border-right" (click)="selectPropertyType('Commercial')" [ngClass]="selectedPropertyType === 'Commercial' ? 'checkbox-subcheck-check' : ''">
+          <img *ngIf="selectedPropertyType !== 'Commercial'" src="assets/img/CheckBoxOff.png">
+          <img *ngIf="selectedPropertyType === 'Commercial'" src="assets/img/CheckBoxOn.png">
+          <span class="ml-2px">Commercial</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="row mt-2" *ngIf="selectedPropertyType">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Property Subtype: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <div class="row justify-content-start" style="width: 80%; margin-left: 0px;">
+        <div class="d-flex checkbox-subcheck" #propertySubType *ngFor="let item of selectedPropertyTypeList" (click)="selctPropertySubtype(item)" [ngClass]="selectedPropertySubType === item ? 'checkbox-subcheck-check' : ''">
+          <img *ngIf="selectedPropertySubType !== item" src="assets/img/CheckBoxOff.png" style="width: 20px;height: 18px;">
+          <img *ngIf="selectedPropertySubType === item" src="assets/img/CheckBoxOn.png" style="width: 20px;height: 18px;">
+          <span class="ml-2">{{item}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">City: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+        <p-dropdown [options]="cities" #cityElement [ngClass]="showErrorCity?  'ng-invalid ng-dirty' : ''" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true" filterBy="name"
+                    [showClear]="true" placeholder="Select a City" [style]="{'minWidth':'200px', 'width': '200px'}" (onChange)="onChangeCity()">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="selectedCity">
+              <div>{{selectedCity.name}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-city pTemplate="item">
+            <div class="country-item">
+              <div>{{city.name}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Location: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-autoComplete #locationElement [ngClass]="showErrorLocation?  'ng-invalid ng-dirty' : ''" [(ngModel)]="enterSearchLocation" [suggestions]="searchLocations" (completeMethod)="getSearchLocations($event)" field="name" (input)="onChangeLocation()">
+        <ng-template let-loc pTemplate="item">
+          <div class="country-item">
+            <div>{{loc.name}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+      <label class="label center-label"> or </label>
+      <p-dropdown [options]="LocationsDropdown" [(ngModel)]="selectedLocation" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Any">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedLocation">
+            <div>{{selectedLocation.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-loc pTemplate="item">
+          <div class="country-item">
+            <div>{{loc.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+</div>
+</div>
+
+<!--PURPOSE FOR SALE Check -->
+<div class="row mt-4 header-margin" *ngIf="selectedPurpose === 'For Sale'">
+  <div class="header-bar mr-12px">
+    <span>PROPERTY SPECS AND PRICE</span>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Area Size: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-inputNumber #areaSizeElement [ngClass]="showErrorAreaSize?  'ng-invalid ng-dirty' : ''" [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()"></p-inputNumber>
+      <label class="label center-label"> Unit </label>
+      <p-dropdown [options]="unitList" [(ngModel)]="selectedAreaUnit" optionLabel="name" [filter]="true" filterBy="name"
+                  placeholder="Unit" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="selectAreaUnit($event)">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedAreaUnit">
+            <div>{{selectedAreaUnit.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-unit pTemplate="item">
+          <div class="country-item">
+            <div>{{unit.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <div [pTooltip]="showToolTipList()" tooltipPosition="top" [escape]="false">
+        <i class="fa fa-calculator m-label" aria-hidden="true"></i>
+        <span class="cal-label">Area Calculator</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Occupancy Status: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-dropdown #occupancyStatusElement [options]="occupancyList" [ngClass]="showErrorOccupancyStatus?  'ng-invalid ng-dirty' : ''" [(ngModel)]="selectedOccupancy" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="onChangeOccupancyStatus()">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedOccupancy">
+            <div>{{selectedOccupancy.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-status pTemplate="item">
+          <div class="country-item">
+            <div>{{status.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Total Price: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input type="number" [ngClass]="showErrorForSalePrice?  'ng-invalid ng-dirty' : ''" pInputText [(ngModel)]="forSaleprice" (input)="onChangeForSalePrice()"/>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <div title="Price" class="checkbox-btn d-flex convert-price-border" style="width: 68%;">
+        <span class="ml-2 line-break">{{forSaleprice | amountToWord}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Installment Available: </label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <div title="For Sale" class="checkbox-btn d-flex checkbox-border-left checkbox-border-right" (click)="installmentPlanForSale()" [ngClass]="showInstallmentPlan ? 'checkbox-subcheck-check' : ''">
+        <img *ngIf="!showInstallmentPlan" src="assets/img/CheckBoxOff.png">
+        <img *ngIf="showInstallmentPlan" src="assets/img/CheckBoxOn.png">
+        <span class="ml-2">Property on Installment</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showInstallmentPlan">
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Advance/Initial Payment: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start d-flex flex-nowrap">
+        <input type="text" pInputText [(ngModel)]="advancePayment"/>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">No. of Remaining Installments:: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start d-flex flex-nowrap">
+        <input type="text" pInputText [(ngModel)]="remainingInstallment"/>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Monthly Installment: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start d-flex flex-nowrap">
+        <input type="text" pInputText [(ngModel)]="monthlyInstallment"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Listing Expiry: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-dropdown #listingExpiryElement [ngClass]="showErrorListingExpiry?  'ng-invalid ng-dirty' : ''" [options]="listingExpiryList" [(ngModel)]="selectedListingExpiry" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="onChangeListingExpiry()">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedListingExpiry">
+            <div>{{selectedListingExpiry.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-status pTemplate="item">
+          <div class="country-item">
+            <div>{{status.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+</div>
+
+<!--PURPOSE FOR RENT START -->
+<div class="row mt-4 header-margin" *ngIf="selectedPurpose === 'Rent'">
+  <div class="header-bar mr-12px">
+    <span>PROPERTY SPECS</span>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Area Size: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-inputNumber #areaSizeElement [ngClass]="showErrorAreaSize ? 'ng-invalid ng-dirty' : ''"  [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()"></p-inputNumber>
+      <label class="label center-label"> Unit </label>
+      <p-dropdown [options]="unitList" [(ngModel)]="selectedAreaUnit" optionLabel="name" [filter]="true" filterBy="name"
+                  placeholder="Unit" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="selectAreaUnit($event)">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedAreaUnit">
+            <div>{{selectedAreaUnit.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-unit pTemplate="item">
+          <div class="country-item">
+            <div>{{unit.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <div [pTooltip]="showToolTipList()" tooltipPosition="top" [escape]="false">
+        <i class="fa fa-calculator m-label" aria-hidden="true"></i>
+        <span class="cal-label">Area Calculator</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Occupancy Status: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-dropdown #occupancyStatusElement [ngClass]="showErrorOccupancyStatus?  'ng-invalid ng-dirty' : ''" [options]="occupancyList" [(ngModel)]="selectedOccupancy" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="onChangeOccupancyStatus()">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedOccupancy">
+            <div>{{selectedOccupancy.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-status pTemplate="item">
+          <div class="country-item">
+            <div>{{status.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label">Listing Expiry: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-dropdown #listingExpiryElement [options]="listingExpiryList" [ngClass]="showErrorListingExpiry?  'ng-invalid ng-dirty' : ''" [(ngModel)]="selectedListingExpiry" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="onChangeListingExpiry()">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedListingExpiry">
+            <div>{{selectedListingExpiry.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-status pTemplate="item">
+          <div class="country-item">
+            <div>{{status.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+</div>
+<div class="row mt-4 header-margin" *ngIf="selectedPurpose === 'Rent'">
+  <div class="header-bar mr-12px">
+    <span>RENTAL PRICE DETAILS</span>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Minimum Contract Period: </label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <p-dropdown [options]="rentContractPeriodList" [(ngModel)]="selectedRentContractPeriod" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="calculateSecurityDepAndAdvRent();">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedRentContractPeriod">
+            <div>{{selectedRentContractPeriod.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-count pTemplate="item">
+          <div class="country-item">
+            <div>{{count.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <span class="mr-12px"></span>
+      <p-dropdown [options]="rentContractPeriodTypeList" [(ngModel)]="selectedRentContractPeriodType" optionLabel="name" [filter]="true" filterBy="name"
+                  [showClear]="true" placeholder="Please Select" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="calculateSecurityDepAndAdvRent();">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedRentContractPeriodType">
+            <div>{{selectedRentContractPeriodType.name}}</div>
+          </div>
+        </ng-template>
+        <ng-template let-cont pTemplate="item">
+          <div class="country-item">
+            <div>{{cont.name}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Monthly Rent: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input type="number" #monthlyRentElement [ngClass]="showErrorMonthlyRent?  'ng-invalid ng-dirty' : ''" (input)="onChangePriceRent();" pInputText [(ngModel)]="monthlyRent"/>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <div title="Price" class="checkbox-btn d-flex convert-price-border" style="width: 68%;">
+        <span class="ml-2 line-break">{{monthlyRent | amountToWord}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Security Deposit: </label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input type="number" pInputText [(ngModel)]="securityDeposit"/>
+      <label class="label center-label"> or </label>
+      <input type="text" pInputText [(ngModel)]="securityDepositMonths"/>
+      <label class="label center-label"> number of month's rental amount </label>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Advance Rent: </label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input type="number" pInputText [(ngModel)]="advanceRent"/>
+      <label class="label center-label"> or </label>
+      <input type="text" pInputText [(ngModel)]="advanceRentMonths"/>
+      <label class="label center-label"> number of month's rental amount </label>
+    </div>
+  </div>
+</div>
+<!--PURPOSE FOR RENT END -->
+
+<div class="row mt-4 header-margin">
+  <div class="header-bar mr-12px">
+    <span>PROPERTY TITLE AND DESCRIPTION</span>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Property Title: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start flex-nowrap">
+      <input class="propert-title-field" #propertyTitleElement [ngClass]="showErrorPropertyTitle?  'ng-invalid ng-dirty' : ''" type="text" pTooltip="Property Title" tooltipPosition="top" placeholder="Enter property title here..." pInputText [(ngModel)]="propertyTitle" (input)="onChangePropertyTitle()"/>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <span class="ml-2 p-0 title-field-bottom">*Minimum of 5 characters required</span>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Description: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start flex-nowrap">
+      <textarea class="propert-title-field" #descriptionElement [ngClass]="showErrorDescription?  'ng-invalid ng-dirty' : ''" pTooltip="Description" tooltipPosition="top" [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="propertyDiscription" (input)="onChangeDescription()"></textarea>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <span class="ml-2 p-0 title-field-bottom">*Minimum of 20 characters required</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4 header-margin">
+  <div class="header-bar mr-12px">
+    <span>IMAGES</span>
+  </div>
+
+  <div class="row mt-2 d-flex">
+    <div class="cursor-pointer btn-images bg-icon-btn mr-5px">
+      <span class="clr-white">Add Images</span>
+    </div>
+    <div class="alert-title mt-1">
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <span class="ml-5px">Press CTRL key while selecting images to upload multiple images at once</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4 header-margin">
+  <div class="header-bar mr-12px">
+    <span>VIDEOS</span>
+  </div>
+  <div class="row mt-2 d-flex">
+    <div class="cursor-pointer btn-images bg-icon-btn mr-5px">
+      <span class="clr-white">Add Videos</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4 header-margin">
+  <div class="header-bar mr-12px">
+    <span>DOCUMENTS</span>
+  </div>
+  <div class="row mt-2 d-flex">
+    <div class="cursor-pointer btn-images bg-icon-btn mr-5px">
+      <span class="clr-white">Add document</span>
+    </div>
+    <div class="alert-title mt-1">
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <span class="ml-5px">Press CTRL key while selecting images to upload multiple images at once</span>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4 header-margin">
+  <div class="header-bar mr-12px">
+    <span>CONTACT DETAILS</span>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Contact Person: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input #contactPersonElement [ngClass]="showErrorContactPerson?  'ng-invalid ng-dirty' : ''" class="default-field" type="text" [ngClass]="showErrorContactPerson?  'ng-invalid ng-dirty' : ''" pInputText [(ngModel)]="contactPerson" (input)="onChangeContactPerson()"/>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Landline Phone #:</label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input [pTooltip]="showCountryCodeToolTipList()" tooltipPosition="top" [escape]="false" class="input-code" type="text" pInputText [(ngModel)]="landlineNumberCC"/>
+      <label class="center-label">-</label>
+      <input [pTooltip]="showAreaCodeToolTipList()" tooltipPosition="top" [escape]="false" class="input-code" type="text" pInputText [(ngModel)]="landlineNumberAC"/>
+      <label class="center-label">-</label>
+      <input class="input-nunber" type="text" pInputText [(ngModel)]="landlineNumber"/>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Mobile #1: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+          <ngx-intl-tel-input
+            #mobileFirstElement [ngClass]="showErrorMobileFirst?  'ng-invalid ng-dirty' : ''"
+            (input)="onChangeMobileFirst()"
+            [cssClass]="'custom'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Pakistan"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="true"
+            [numberFormat]="PhoneNumberFormat.National"
+            [(ngModel)]="mobilefirst"
+          >
+          </ngx-intl-tel-input>
+      <div pTooltip="Add Mobile Number" tooltipPosition="top">
+        <span class="another-number-label" (click)="toggleMobile('Add')">Add Another Mobile Number</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2" *ngIf="showMobileSecond">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Mobile #2: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <ngx-intl-tel-input
+        #mobileSecondElement [ngClass]="showErrorMobileSeocnd?  'ng-invalid ng-dirty' : ''"
+        (input)="onChangeMobileSeocnd()"
+        [cssClass]="'custom'"
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true"
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.Pakistan"
+        [maxLength]="15"
+        [phoneValidation]="true"
+        [separateDialCode]="true"
+        [numberFormat]="PhoneNumberFormat.National"
+        [(ngModel)]="mobileSecond"
+      >
+      </ngx-intl-tel-input>
+      <div pTooltip="Remove Mobile Number" tooltipPosition="top">
+        <span class="another-number-label" (click)="toggleMobile('Remove')">Remove Mobile Number</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2" *ngIf="showMobilethird">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Mobile #3: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <ngx-intl-tel-input
+        #mobileThirdElement [ngClass]="showErrorMobileThird?  'ng-invalid-tel' : ''"
+        (input)="onChangeMobileThird()"
+        [cssClass]="'custom'"
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true"
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.Pakistan"
+        [maxLength]="15"
+        [phoneValidation]="true"
+        [separateDialCode]="true"
+        [numberFormat]="PhoneNumberFormat.National"
+        [(ngModel)]="mobilethird"
+      >
+      </ngx-intl-tel-input>
+      <div pTooltip="Remove Mobile Number" tooltipPosition="top">
+        <span class="another-number-label"  (click)="toggleMobile('Remove')">Remove Mobile Number</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+      <label class="label m-label">Email:: <span class="clr-red font-14">*</span></label>
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <input class="default-field" #emailElement [ngClass]="showErrorEmail?  'ng-invalid ng-dirty' : ''"
+             (input)="onChangeEmail()" type="email" pInputText [(ngModel)]="email"/>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="div-label justify-content-end d-flex flex-nowrap">
+    </div>
+    <div class="div-field justify-content-start d-flex flex-nowrap">
+      <div class="cursor-pointer btn-submit bg-icon-btn mr-5px" (click)="saveListing()">
+        <span class="clr-white">SUBMIT PROPERTY</span>
+      </div>
+    </div>
+  </div>
+
+
+</div>

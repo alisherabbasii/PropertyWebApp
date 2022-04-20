@@ -1,0 +1,34 @@
+$theme-color: #fa0c19;
+$theme-hover-color: #ffebed;
+
+.header{
+  position: absolute;
+  right: 0;
+}
+
+.header-text{
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.ht-icon{
+  height: 22px;
+}
+
+.navbar-light .navbar-nav .nav-item:hover {
+  background-color: $theme-hover-color !important;
+  border-bottom: 5px solid $theme-color;
+  transition: unset;
+}
+.navbar-light .navbar-nav .nav-item:focus{
+  background-color: $theme-hover-color !important;
+  border-bottom: 5px solid $theme-color;
+  transition: unset;
+}
+
+.nav-active{
+  background-color: $theme-hover-color !important;
+  border-bottom: 5px solid $theme-color;
+  transition: unset;
+}

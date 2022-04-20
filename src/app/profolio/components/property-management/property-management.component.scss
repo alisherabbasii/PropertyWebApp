@@ -1,3 +1,6 @@
+$theme-color: #fa0c19;
+$theme-hover-color: #ffdcde;
+
 .header{
   position: absolute;
   right: 0;
@@ -16,6 +19,7 @@
   border-radius: 6px;
   text-transform: capitalize;
   font-size: 13px;
+  height: 30px;
 }
 
 .icon-btn{
@@ -23,11 +27,11 @@
 }
 
 .icon-btn-clr{
-  color: #00a651;
+  color: $theme-color;
 }
 
 .bg-icon-btn{
-  background-color: #00a651;
+  background-color: $theme-color;
 }
 
 .head-btn-margin{
@@ -43,10 +47,10 @@
 }
 
 .side-table-head{
-  border: 1px solid #00a651;
+  border: 1px solid $theme-color;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  background-color: #00a651;
+  background-color: $theme-color;
   color: white;
   font-size: 13px;
   font-weight: 600;
@@ -63,7 +67,7 @@
 }
 
 .side-table-text:hover{
-  background: #e7f3ef;
+  background: $theme-hover-color;
 }
 
 .font-weight-700{
@@ -92,11 +96,11 @@
 }
 
 .side-table-subtext:hover{
-  background: #e7f3ef;
+  background: $theme-hover-color;
 }
 
 .side-table-subtext-active{
-  background: #e7f3ef;
+  background: $theme-hover-color;
 }
 
 .input-search{

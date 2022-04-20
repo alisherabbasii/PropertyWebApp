@@ -7,7 +7,7 @@ body{
     align-items: inherit !important;
     height: 50px;
     background: rgb(250, 12, 25) !important;
-  
+
 }
 .FindButtonGlobalThemeStyle{
   background: rgb(250, 12, 25) !important;
@@ -46,22 +46,21 @@ body{
     width: 150px;
 }
 
-.p-dropdown {
-    border-radius: 2.5px !important;
-    background: #f8f9fb !important;
-}
+/*.p-dropdown {*/
+/*    border-radius: 0px !important;*/
+/*}*/
 
-.p-inputtext{
-  border-radius: 2.5px !important;
-  background: #f8f9fb !important;    width:92% !important;
-    margin-left: 1.1rem !important;
-}
+/*.p-inputtext{*/
+/*    border-radius: 0px !important;*/
+/*    width:92% !important;*/
+/*    margin-left: 1.1rem !important;*/
+/*}*/
 
-.p-dropdown-label.p-placeholder {
-    padding-top: 0px !important;
-    font-size: 12px;
-    height: 3rem;
-}
+/*.p-dropdown-label.p-placeholder {*/
+/*    padding-top: 0px !important;*/
+/*    font-size: 12px;*/
+/*    height: 3rem;*/
+/*}*/
 
 .cursor-pointer{
   cursor: pointer;
@@ -107,6 +106,9 @@ body{
 .font-12{
   font-size: 12px !important;
 }
+.font-14{
+  font-size: 14px !important;
+}
 
 .font-15{
   font-size: 15px !important;
@@ -125,6 +127,10 @@ body{
 
 .clr-green{
   color: #00a651;
+}
+
+.clr-theme{
+  color: #fa0c19;
 }
 
 .clr-alert{
@@ -163,6 +169,10 @@ body{
   margin-left: 2px !important;
 }
 
+.ml-5px{
+  margin-left: 5px !important;
+}
+
 .ml-12px{
   margin-left: 12px !important;
 }
@@ -175,4 +185,120 @@ body{
   padding-left: 0 !important;
 }
 
+.bg-theme{
+  background-color: #fa0c19;
+  background: #fa0c19;
+}
+.hover-theme{
+  background-color: #ffdcde;
+  background: #ffdcde;
+}
+.active-theme{
+  background-color: #ffdcde;
+  background: #ffdcde;
+}
 
+.line-break{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+/* ngx-intl-tel-input styling */
+.iti {
+  display: block !important;
+}
+
+.iti .dropdown-menu.country-dropdown {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-color: #c7cace;
+  margin-top: -1px;
+}
+
+.iti .iti__country-list {
+  box-shadow: none;
+  font-size: 14px;
+  margin-left: 0;
+  width: 244px;
+  max-height: 170px;
+}
+
+.iti__flag-container.open + input {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.iti .search-container input {
+  font-size: 14px;
+  border-color: #c7cace;
+  border-radius: 0;
+  padding: 5px 10px;
+}
+
+.iti .search-container input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 479px) {
+  .iti .iti__country-list {
+    width: 88.3vw;
+  }
+}
+
+ngx-intl-tel-input input {
+  height: 44px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c7cace;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+ngx-intl-tel-input.ng-invalid.ng-touched input {
+  box-shadow: 0 0 0 0.2rem #ffdcde;
+  border-color: #fa0c19;
+}
+
+ngx-intl-tel-input input:hover {
+  box-shadow: 0 0 0 0.2rem #ffdcde;
+}
+
+ngx-intl-tel-input input:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.2rem #ffdcde;
+}
+
+ngx-intl-tel-input input::-webkit-input-placeholder {
+  color: #bac2c7;
+}
+
+ngx-intl-tel-input input:-ms-input-placeholder {
+  color: #bac2c7;
+}
+
+ngx-intl-tel-input input::-ms-input-placeholder {
+  color: #bac2c7;
+}
+
+ngx-intl-tel-input input::placeholder {
+  color: #bac2c7;
+}
+
+ngx-intl-tel-input input[disabled] {
+  background-color: #e5eaf1;
+}
+/* ngx-intl-tel-input styling */
+
+.error-field{
+  border: 1px solid red !important;
+}
+.ng-invalid {
+  border: 1px solid red;
+}
+.ng-invalid-tel {
+  border: 1px solid red;
+}

@@ -29,14 +29,14 @@
 
     <div class="header d-flex">
       <div class="cursor-pointer btn-header head-btn-margin bg-icon-btn">
-        <i class="fa fa-search icon-btn clr-white font-18" aria-hidden="true"></i>
+        <i class="fa fa-search icon-btn clr-white font-15" aria-hidden="true"></i>
         <span class="clr-white">Inventory Search</span>
       </div>
 
-      <div class="cursor-pointer btn-header bg-icon-btn mr-5px">
-        <i class="fa fa-plus icon-btn clr-white font-18" aria-hidden="true"></i>
+      <a routerLink="post-listing" class="anchor-line" (click)="onClickListingMenu('Post Listing' , '')"><div class="cursor-pointer btn-header bg-icon-btn mr-5px">
+        <i class="fa fa-plus icon-btn clr-white font-15" aria-hidden="true"></i>
         <span class="clr-white">Post Listing</span>
-      </div>
+      </div></a>
     </div>
   </nav>
 </section>
@@ -226,12 +226,17 @@
     </div>
     <div class="col-9 col-lg-9 col-md-9 col-sm-9 col-xl-9 col-xxl-9">
         <nav class="navbar navbar-expand-lg navbar-light bg-light bbtm-profolio btn-header-padding">
-          <div class="d-flex">
-            <span class="clr-green font-10 font-weight-700">Property Management</span>
+          <div class="d-flex" *ngIf="selectedListingMenu !== 'Post Listing'">
+            <span class="clr-theme font-10 font-weight-700">Property Management</span>
             <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true">
-            </i><span class="clr-green font-10 font-weight-700">{{selectedListingMenu}}</span>
+            </i><span class="clr-theme font-10 font-weight-700">{{selectedListingMenu}}</span>
             <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true"></i>
             <span class="font-10 font-weight-700">{{selectedListingSubMenu}}</span>
+          </div>
+          <div class="d-flex" *ngIf="selectedListingMenu === 'Post Listing'">
+            <span class="clr-theme font-10 font-weight-700">Property Management</span>
+            <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true"></i>
+            <span class="font-10 font-weight-700">{{selectedListingMenu}}</span>
           </div>
           <div class="header d-flex" style="top: 0.5rem;">
             <div>
@@ -245,7 +250,8 @@
           </div>
         </nav>
       <div class="row">
-        <app-property-management-submenu-details></app-property-management-submenu-details>
+<!--        <app-property-management-submenu-details></app-property-management-submenu-details>-->
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

@@ -26,17 +26,17 @@
   </div>
 
   <div class="mt-4">
-    <div id="bgClr" class="row col-lg-8 offset-2 pt-2" [ngClass]="[toggle ? 'openHeightStyle' : 'closeHeightStyle']" style="background: rgba(34, 34, 34, 0.85); ">
+    <div  id="bgClr" class="row col-lg-8 offset-2 pt-2" [ngClass]="[toggle ? 'openHeightStyle' : 'closeHeightStyle']" style="background: rgba(34, 34, 34, 0.85); ">
 
     </div>
 
     <div style="z-index: 99; " [ngClass]="[toggle ? 'openMarginStyle' : 'closeMarginStyle']">
 
       <div class="row col-lg-8 offset-2 pt-2">
-        <div class="col-lg-3">
+        <div class="col-lg-3" >
           <app-city (selectedCityOutput)="GetCity($event)"></app-city>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 px-3">
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
         <div class="col-lg-3">
@@ -62,19 +62,21 @@
 
       </div>
 
+
+
       <div [@slideInOut] *ngIf="toggle" class="row col-lg-8 offset-2 pt-2">
         <div class="col-lg-3">
           <app-property-type (onDropDownChange)="showHideDropDown($event)"></app-property-type>
         </div>
-        <div class="col-lg-3">
+        <div [ngClass]="[showBedDropDown ? 'col-lg-3 asa' : 'col-lg-3 asa']" >
           <app-price-range></app-price-range>
         </div>
-        <div class="col-lg-3">
+        <div [ngClass]="[showBedDropDown ? 'col-lg-3' : 'col-lg-6']">
           <app-area-range></app-area-range>
         </div>
 
 
-        <div class="col-lg-3">
+        <div *ngIf="showBedDropDown" class="col-lg-3">
           <app-beds></app-beds>
         </div>
 

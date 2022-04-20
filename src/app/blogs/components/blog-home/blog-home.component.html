@@ -14,7 +14,7 @@
         <li class="nav-item active" *ngFor="let menu of menuList">
           <a class="nav-link" href="">{{menu.label}}</a>
         </li>
-        <div class="searchBar-blog">
+        <div class="searchBar-blog" *ngIf="showSearchBar">
           <input type="text" pInputText placeholder="Search">
         </div>
       </ul>
