@@ -15,3 +15,12 @@
     color: #767676;
 
 }
+textarea{
+    font-size: 11px;
+}
+
+.odd{
+    background: #fafafa;
+}
+
+p { display: inline;}
