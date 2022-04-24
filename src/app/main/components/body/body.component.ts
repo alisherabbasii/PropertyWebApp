@@ -1,20 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/productservice';
+import {Subscription} from "rxjs";
+import {SendlangstatusService} from "../../../profolio/servives/sendlangstatus.service";
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent implements OnInit {
+export class BodyComponent implements OnInit, OnDestroy {
 
-
+  subscription: Subscription;
   products: Product[];
-
 	responsiveOptions:any;
+  isLangUrdu = false;
 
-	constructor(private productService: ProductService) {
+	constructor(private productService: ProductService, private sendlangstatusService: SendlangstatusService) {
+
+    this.subscription = this.sendlangstatusService.onMessage().subscribe(message => {
+      if (message) {
+        this.isLangUrdu = message
+      } else {
+        // clear messages when empty message received
+        this.isLangUrdu = false
+      }
+    });
+
 		this.responsiveOptions = [
             {
                 breakpoint: '1024px',
@@ -32,11 +44,22 @@ export class BodyComponent implements OnInit {
                 numScroll: 1
             }
         ];
+
+    if(localStorage.getItem('languageCodeLandLogic')){
+      if(localStorage.getItem('languageCodeLandLogic') === 'ur'){
+        this.isLangUrdu = true;
+      }
+    }
 	}
 	ngOnInit() {
 		this.productService.getProductsSmall().then(products => {
 			this.products = products;
 		});
     }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
 
 }

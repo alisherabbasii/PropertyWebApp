@@ -13,7 +13,7 @@ const ApiURL = BASE_FILE_PATH
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  
+
   @Output() selectedCityOutput: EventEmitter<City> = new EventEmitter();
   countries: any[];
 
@@ -39,7 +39,6 @@ export class CityComponent implements OnInit {
   }
 
   SelectCity() {
-    debugger
     console.log(this.selectedCountry)
     this.selectedCityOutput.emit(this.selectedCountry);
   }
@@ -49,7 +48,6 @@ export class CityComponent implements OnInit {
       CityIsActive:1
     }
     this.service.post(`${ApiURL}` + 'api/City/GetAll',obj).subscribe((res:any)=>{
-      debugger;
       this.countries = res.result
     })
   }

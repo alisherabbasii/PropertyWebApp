@@ -25,6 +25,8 @@ import { LocationSearchComponent } from './components/controls/location-search/l
 import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
 import { AreaRangeComponent } from './components/controls/area-range/area-range.component';
 import { MainBodyControlService } from '../services/MainBodyControlService/main-body-control.service';
+import {TranslateModule} from "@ngx-translate/core";
+
 
 @NgModule({
     declarations: [
@@ -43,17 +45,18 @@ import { MainBodyControlService } from '../services/MainBodyControlService/main-
         ExtendedSerachComponent,
         AreaRangeComponent
     ],
-    imports: [
-        MainRoutingModule,
-        ButtonModule,
-        CardModule,
-        DropdownModule,
-        FormsModule,
-        CommonModule,
-        CarouselModule,
-        HttpClientModule,
-        AutoCompleteModule
-    ],
+  imports: [
+    MainRoutingModule,
+    ButtonModule,
+    CardModule,
+    DropdownModule,
+    FormsModule,
+    CommonModule,
+    CarouselModule,
+    HttpClientModule,
+    AutoCompleteModule,
+    TranslateModule,
+  ],
     providers: [ProductService, MainBodyControlService],
     exports: [
         FooterComponent

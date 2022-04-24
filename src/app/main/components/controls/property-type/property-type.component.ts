@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {DataService} from '../../../../global/data-service';
 import { BASE_FILE_PATH } from 'src/app/global/api-endpoints';
+import { UtilsService } from 'src/app/services/utils.service';
 const ApiURL = BASE_FILE_PATH
 
 @Component({
@@ -22,10 +23,17 @@ export class PropertyTypeComponent implements OnInit {
  
   }
 
-  constructor(private service:DataService) {
+  constructor(private service:DataService,private srv:UtilsService) {
+
+    this.srv.propertyTypeReplaySubject.subscribe(val => {
+      this.selectedSpan = val;
+   });
   }
   
   changeSpan(val:any){
+  
+      this.homeList=val;
+   
     this.onDropDownChange.emit(val);
     this.selectedSpan = this.PropertyType.filter(x=>x.AdClassName == val);
     let renderProp = this.selectedSpan;

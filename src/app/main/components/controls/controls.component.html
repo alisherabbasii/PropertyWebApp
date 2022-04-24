@@ -1,18 +1,18 @@
-<div class="bgImage">
+<div class="bgImage direction-change-screen">
   <h4 class="text-white d-flex justify-content-center pt-3">
-    Search properties for sale in Pakistan
+    {{'Search properties for sale in Pakistan' | translate}}
   </h4>
   <div class="row d-flex justify-content-center align-items-center mt-2 mb-2">
     <div (click)="changeBtn('Buy')" [ngClass]="[selectedButton=='Buy' ? 'text-black bg-white' : 'text-white border']"
       style="border: 1px solid white;"
       class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2.3rem;">
-      <span label="Buy">Buy</span>
+      <span label="Buy">{{'Buy' | translate}}</span>
     </div>
 
     <div (click)="changeBtn('Rent')" [ngClass]="[selectedButton=='Rent' ? 'text-black bg-white' : 'text-white border']"
       style="border: 1px solid white;"
-      class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3" style="height: 2.3rem;">
-      <span label="Rent">Rent</span>
+      class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer mr-3 urdu-rent-align" style="height: 2.3rem;">
+      <span label="Rent">{{'Rent' | translate}}</span>
     </div>
 
 
@@ -20,12 +20,17 @@
       [ngClass]="[selectedButton=='Projects' ? 'text-black bg-white' : 'text-white border']"
       style="border: 1px solid white;" class="col-sm-1 d-flex align-items-center justify-content-center cursor-pointer"
       style="height: 2.3rem;">
-      <span label="Projects">Projects</span>
+      <span label="Projects">{{'Projects' | translate}}</span>
     </div>
 
   </div>
 
-  <div class="mt-4">
+  <div class="mt-4 align-card">
+    <div class="row col-lg-8 offset-6" >
+      <i class="fa-duotone fa-triangle" style="height: 20px; width: 20px;"></i>
+
+
+    </div>
     <div  id="bgClr" class="row col-lg-8 offset-2 pt-2" [ngClass]="[toggle ? 'openHeightStyle' : 'closeHeightStyle']" style="background: rgba(34, 34, 34, 0.85); ">
 
     </div>
@@ -40,7 +45,7 @@
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
         <div class="col-lg-3">
-          <button pButton pRipple type="button" [style]="{ width: '100%' }" label="FIND"
+          <button pButton pRipple type="button" [style]="{ width: '100%' }" label="{{'Find' | translate}}"
             class="FindButtonGlobalThemeStyle" (click)="find()" routerLink="expandedSearch"></button>
         </div>
 
@@ -51,18 +56,16 @@
       font-size: 13px;
       cursor: pointer;
       margin-top: -20px;
-    "><span (click)="show('more')"><i class="pi pi-angle-down"></i>More Options
+    "><span (click)="show('more')"><i class="pi pi-angle-down"></i>{{'More Options' | translate}}
             </span>
-            | <span class="bottomRowDiv pr-2">change currency</span>|
-            <span class="bottomRowDiv pr-2">change Area Unit</span>
-            | <span class="bottomRowDiv pr-2">Reset Search</span>
+            | <span class="bottomRowDiv pr-2">{{'Change Currency' | translate}}</span>|
+            <span class="bottomRowDiv pr-2">{{'Change Area Unit' | translate}}</span>
+            | <span class="bottomRowDiv pr-2">{{'Reset Search' | translate}}</span>
           </span>
         </div>
 
 
       </div>
-
-
 
       <div [@slideInOut] *ngIf="toggle" class="row col-lg-8 offset-2 pt-2">
         <div class="col-lg-3">
@@ -86,12 +89,12 @@
           color: white !important;
           font-size: 13px;
           cursor: pointer;
-         "><span (click)="show('less')"><i class="pi pi-angle-up"></i>Less Options
+         "><span (click)="show('less')"><i class="pi pi-angle-up"></i>{{'Less Options' | translate}}
             </span>
 
-            | <span class="bottomRowDiv pr-2">change currency</span>|
-            <span class="bottomRowDiv pr-2">change Area Unit</span>
-            | <span class="bottomRowDiv pr-2">Reset Search</span>
+            | <span class="bottomRowDiv pr-2">{{'Change Currency' | translate}}</span>|
+            <span class="bottomRowDiv pr-2">{{'Change Area Unit' | translate}}</span>
+            | <span class="bottomRowDiv pr-2">{{'Reset Search' | translate}}</span>
 
           </span>
         </div>

@@ -6,6 +6,9 @@ import { SelectItemGroup } from 'primeng/api';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 // import * as $ from 'jquery';
 import { MainBodyControlService } from '../../../services/MainBodyControlService/main-body-control.service'
+import { Router } from '@angular/router';
+import { UtilsService } from 'src/app/services/utils.service';
+import { ThrowStmt } from '@angular/compiler';
 interface City {
   name: string,
   code: string
@@ -41,6 +44,8 @@ export class ControlsComponent implements OnInit {
   showBedDropDown:boolean=true;
 
   ngOnInit(): void {
+    debugger;
+    console.log("Coming from...",this.router);
 
     $('.dropdown-menu.ddRange')
       .click(function (e) {
@@ -86,7 +91,11 @@ export class ControlsComponent implements OnInit {
   IncommingSelectedCity: any
   IncommingSelectedLocation:any
   // toggle:Boolean= true;
-  constructor(private service: MainBodyControlService) {
+  constructor(private service: MainBodyControlService , private router:Router,private srv:UtilsService) {
+
+    this.srv.rentReplaySubject.subscribe(val => {
+      this.selectedButton = val;
+   });
 
     this.cities = [
       { name: 'New York', code: 'NY' },

@@ -23,7 +23,7 @@ export interface ISavePostListing {
   AdIsActive: boolean;
   AdIsExpired: boolean;
   AdIsInstallmentsAvailable: boolean;
-  AdIsInstallmentsInitialPayment: string
+  AdIsInstallmentsInitialPayment: number;
   AdIsPossessionAvailable: boolean;
   AdLocation: string;
   AdMapDescription: string;
@@ -52,4 +52,14 @@ export interface ISavePostListing {
   AdQuality: string;
   AdSecurityDepositAmount: number;
   AdSecurityDepositNoOfMonthsMonthlyRent: number;
+  Area: number;
+  AdPropertyUOMId: number;
+  AdValidityPeriod: number;
+  AdValidityPeriodUnit: number;
+  Description: string;
+}
+
+export interface ILanguageTranslate {
+  text: string; // English Text
+  urdu: string; // Urdu Text
 }

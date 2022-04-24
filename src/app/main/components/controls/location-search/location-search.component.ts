@@ -21,7 +21,7 @@ export class LocationSearchComponent implements OnInit {
   ngOnInit(): void {
   }
   tr:boolean = true;
-  maxLen:number = 2;
+  maxLen:number = 10;
   inputSize:number=200;
   selectedLocatedCountires!: Location;
   filteredCountries: any[];

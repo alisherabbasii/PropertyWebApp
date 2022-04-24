@@ -1,47 +1,47 @@
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-light direction-change-screen">
     <div class="d-flex w-100 justify-content-between">
     <div class="d-flex">
     <a class="navbar-brand" href="#">
        <img src="/assets/images/logo.png" height="20px">
     </a>
-    <span (click)="expandHome()" class="navbar-brand font-15  headerText">BUY 
+    <span (click)="expandHome()" class="navbar-brand font-15  headerText">{{'Buy' | translate}}
         <i *ngIf="state=='closed'" class="pi pi-angle-right" style="font-size: 1rem; color: #848484 !important;"></i>
         <i *ngIf="state=='open'" class="pi pi-angle-left" style="font-size: 1rem; color: #848484 !important;"></i>
-    
+
         <!-- <span> | </span> -->
     </span>
-    
-    <div class="d-flex left-stuff" [@widthGrow]="state" >
-    <a class="navbar-brand font-15 headerText" href="#" *ngIf="state=='open'">
-       HOMES
-       <span> | </span>
-    </a>
-   
-   
 
-    <a class="navbar-brand font-15 headerText"  href="#" *ngIf="state=='open'">
-       PLOTS
+    <div class="d-flex left-stuff" [@widthGrow]="state" >
+    <a class="navbar-brand font-15 headerText" [routerLink]="['/Homes']" *ngIf="state=='open'">
+      {{'Homes' | translate}}
        <span> | </span>
     </a>
-   
-    <a class="navbar-brand font-15 headerText" [routerLink]="['blogs']" *ngIf="state=='open'">
-      COMMERCIALS
+
+
+
+    <a class="navbar-brand font-15 headerText"  [routerLink]="['/Plots']" *ngIf="state=='open'">
+      {{'Plots' | translate}}
+       <span> | </span>
+    </a>
+
+    <a class="navbar-brand font-15 headerText" [routerLink]="['/Commercial']" *ngIf="state=='open'">
+      {{'Commercials' | translate}}
       <span> | </span>
     </a>
-    
+
 </div>
-    <a class="navbar-brand font-15 headerText"  href="#">
-        RENT
+    <a class="navbar-brand font-15 headerText"  [routerLink]="['/Rent']">
+      {{'Rent' | translate}}
         <span> | </span>
     </a>
-    
+
     <a class="navbar-brand font-15 headerText" href="#">
-        AGENTS
+      {{'Agents' | translate}}
         <span> | </span>
     </a>
-    
+
     <a class="navbar-brand font-15 headerText" href="#">
-        NEW PROJECTS
+      {{'New Projects' | translate}}
     </a>
 </div>
 

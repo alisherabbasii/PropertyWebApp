@@ -3,11 +3,6 @@
 p{
     font-size: 13px;
 }
-.heading{
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-    margin-left: 16rem;
-}
 
 ul{
     list-style-type:none;
@@ -19,7 +14,7 @@ a{
     color: #4a606a !important;
 }
 a:hover{
-    text-decoration: underline !important;   
+    text-decoration: underline !important;
 
 }
 .redirect{
@@ -29,3 +24,4 @@ a:hover{
 .display-6{
     font-size: 18px;
 }
+

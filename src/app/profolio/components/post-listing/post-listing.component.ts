@@ -8,6 +8,9 @@ import {ToastrService} from "ngx-toastr";
 import {Dropdown} from "primeng/dropdown";
 import {AutoComplete} from "primeng/autocomplete";
 import {InputNumber} from "primeng/inputnumber";
+import {UtilsService} from "../../../services/utils.service";
+import {ISavePostListing} from "../../servives/profolio";
+import {ProfolioService} from "../../servives/profolio.service";
 @Component({
   selector: 'app-post-listing',
   templateUrl: './post-listing.component.html',
@@ -23,7 +26,7 @@ export class PostListingComponent implements OnInit {
   @ViewChild('propertySubType') propertySubTypeElement: ElementRef;
   @ViewChild('cityElement') cityElement: Dropdown;
   @ViewChild('locationElement') locationElement: AutoComplete;
-  @ViewChild('areaSizeElement') areaSizeElement;
+  @ViewChild('areaSizeElement') areaSizeElement: ElementRef;
   @ViewChild('occupancyStatusElement') occupancyStatusElement: Dropdown;
   @ViewChild('forSalePriceElement') forSalePriceElement: ElementRef;
   @ViewChild('listingExpiryElement') listingExpiryElement: Dropdown;
@@ -53,8 +56,8 @@ export class PostListingComponent implements OnInit {
 
 
   selectedPurpose: string = 'For Sale';
-  selectedPropertyType: string = '';
-  selectedPropertySubType: string = '';
+  selectedPropertyType = null;
+  selectedPropertySubType = null;
   selectedPropertyTypeList: any[] = [];
   areaSize = null;
   forSaleprice = null;
@@ -90,7 +93,7 @@ export class PostListingComponent implements OnInit {
   unitList: any[] = [];
 
   selectedOccupancy: any;
-  occupancyList: any[] = [{name: 'Vacant'} , {name: 'Occupied'}];
+  occupancyList: any[] = [{id: 1, name: 'Vacant'} , {id: 2, name: 'Occupied'}];
 
   selectedListingExpiry: any;
   listingExpiryList: any[] = [];
@@ -119,31 +122,37 @@ export class PostListingComponent implements OnInit {
     CountryISO.UnitedKingdom,
   ];
   countMobileNumber = 0;
-  constructor(private toastr: ToastrService, ) {
-    this.cities = [
-      {name: 'Islamabad'},
-      {name: 'Karachi'},
-      {name: 'Lahore'},
-      {name: 'Multan'},
-      {name: 'Rawalpindi'}
-    ];
+  SavePostListing: ISavePostListing = {} as ISavePostListing;
+  constructor(private toastr: ToastrService, private utilsService: UtilsService, private profolioService: ProfolioService) {
     this.unitList = [
-      {name: 'Square Feet'},
-      {name: 'Square Meter'},
-      {name: 'Square Yards'},
-      {name: 'Marla'},
-      {name: 'Kanal'},
-      {name: 'Acre'},
-      {name: 'Murabba'}
+      {name: 'Square Feet', id: 20},
+      {name: 'Square Meter', id: 17},
+      {name: 'Square Yards', id: 15},
+      {name: 'Marla', id: 14},
+      {name: 'Kanal', id: 18},
+      {name: 'Acre', id: 16},
+      {name: 'Murabba', id: 19}
     ];
     this.LocationsDropdown = [
-      {name: 'G-10'},
-      {name: 'G-11'},
-      {name: 'G-12'},
-      {name: 'G-13'},
-      {name: 'G-14'},
-      {name: 'G-15'},
-      {name: 'G-16'}
+      { AreaId: 13,
+        AreaCode: "F-10",
+        AreaName: "F-10"
+      },{ AreaId: 14,
+        AreaCode: "F-11",
+        AreaName: "F-11"
+      },{ AreaId: 15,
+        AreaCode: "F-12",
+        AreaName: "F-12"
+      },{ AreaId: 16,
+        AreaCode: "F-13",
+        AreaName: "F-13"
+      },{ AreaId: 17,
+        AreaCode: "F-14",
+        AreaName: "F-14"
+      },{ AreaId: 18,
+        AreaCode: "F-15",
+        AreaName: "F-15"
+      }
     ];
     this.listingExpiryList = [
       {name: '1 Month'},
@@ -152,11 +161,33 @@ export class PostListingComponent implements OnInit {
     ];
 
     this.selectedPropertyTypeList = this.homesPropertyType;
-    this.selectedAreaUnit = {name: 'Marla'};
+    this.selectedAreaUnit = {name: 'Marla', id: 14};
   }
 
   ngOnInit(): void {
+    this.getCityList();
   }
+
+  getCityList(){
+    this.utilsService.getCitiesList().subscribe(res => {
+      if(res.result){
+        this.cities = res.result;
+      }
+    });
+  }
+
+  getAreaList(){
+    let req = {
+      SearchString:'',
+      AreaCityId: this.selectedCity.CityId
+    }
+    this.utilsService.getAreaList(req).subscribe(res => {
+      if(res.result){
+        this.LocationsDropdown = res.result;
+      }
+    });
+  }
+
 
   showToolTipList():string{
     let temp:string = ``;
@@ -172,8 +203,8 @@ export class PostListingComponent implements OnInit {
 
   selectPurpose(val: string){
     this.selectedPurpose = val;
-    this.selectedPropertyType = '';
-    this.selectedPropertySubType = '';
+    this.selectedPropertyType = null;
+    this.selectedPropertySubType = null;
     this.selectedPropertyTypeList = this.homesPropertyType;
   }
 
@@ -182,7 +213,7 @@ export class PostListingComponent implements OnInit {
     this.propertyTypePlotsElement.nativeElement.classList.remove('error-field');
     this.propertyTypeCommercialElement.nativeElement.classList.remove('error-field');
     this.selectedPropertyType = val;
-    this.selectedPropertySubType = '';
+    this.selectedPropertySubType = null;
     if(val === 'Plots'){
       this.selectedPropertyTypeList = this.plotPropertyType;
     }
@@ -303,7 +334,7 @@ export class PostListingComponent implements OnInit {
     let query = event.query;
     for (let i = 0; i < this.LocationsDropdown.length; i++) {
       let loc = this.LocationsDropdown[i];
-      if (loc.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+      if (loc.AreaName.toLowerCase().indexOf(query.toLowerCase()) == 0) {
         filtered.push(loc);
       }
     }
@@ -333,8 +364,8 @@ export class PostListingComponent implements OnInit {
 
   toggleMobile(val){
     if (val.toString().toLowerCase().trim() === 'add'){
-      this.countMobileNumber += 1;
-      if(this.countMobileNumber <= 2){
+      if(this.countMobileNumber < 2){
+        this.countMobileNumber += 1;
         if(this.countMobileNumber === 1){
           this.showMobileSecond = true
         }
@@ -356,6 +387,7 @@ export class PostListingComponent implements OnInit {
 
   onChangeCity(){
     this.showErrorCity = false;
+    this.getAreaList();
   }
 
   onChangeLocation(){
@@ -399,19 +431,21 @@ export class PostListingComponent implements OnInit {
   }
 
   saveListing(){
-    if (!this.selectedPropertyType){
+    if (this.selectedPropertyType === null){
       this.toastr.error('Please select property type', 'Property Type');
       this.propertyTypeHomeElement.nativeElement.classList.add('error-field');
       this.propertyTypePlotsElement.nativeElement.classList.add('error-field');
       this.propertyTypeCommercialElement.nativeElement.classList.add('error-field');
       this.scrollpropertyType.nativeElement.scrollIntoView();
+      return;
       }
-     if (!this.selectedPropertySubType){
+    if (this.selectedPropertySubType === null){
       this.toastr.error('Please select property subtype', 'Property Sub Type');
       if(this.selectedPropertyType){
         this.propertySubTypeElement.nativeElement.classList.add('error-field');
         this.scrollpropertyType.nativeElement.scrollIntoView();
       }
+      return;
     }
      if (!this.selectedCity){
         this.toastr.error('Please select city', 'City');
@@ -425,7 +459,7 @@ export class PostListingComponent implements OnInit {
     }
      if (!this.areaSize){
         this.toastr.error('Please enter area size', 'Area Size');
-        this.areaSizeElement.input.nativeElement.focus();
+        this.areaSizeElement.nativeElement.focus();
         this.showErrorAreaSize = true;
       }
      if (!this.selectedOccupancy){
@@ -483,24 +517,80 @@ export class PostListingComponent implements OnInit {
       this.toastr.error('Please enter Mobile #1', 'Mobile #1');
        // this.mobileFirstElement.input.nativeElement.focus();
        this.showErrorMobileFirst = true;
+       return;
     }
      if (this.showMobileSecond && !this.mobileSecond){
       this.toastr.error('Please enter Mobile #2', 'Mobile #2');
        // this.mobileSecondElement.nativeElement.focus();
        this.showErrorMobileSeocnd = true;
+       return;
     }
      if (this.showMobilethird && !this.mobilethird){
       this.toastr.error('Please enter Mobile #3', 'Mobile #3');
        // this.mobileThirdElement.nativeElement.focus();
        this.showErrorMobileThird = true;
+       return;
     }
      if (!this.email){
       this.toastr.error('Please enter Email', 'Email');
        // this.emailElement.nativeElement.focus();
        this.showErrorEmail = true;
+       return;
     }
      else {
 
+            this.SavePostListing.AdAdTypeId = 1;
+            this.SavePostListing.AdCityId = this.selectedCity.CityId;
+            this.SavePostListing.AdAreaId = this.enterSearchLocation.AreaId;
+            this.SavePostListing.Area   = this.selectedLocation.AreaId;
+            this.SavePostListing.AdPropertyUOMId  = this.selectedAreaUnit.id;
+            this.SavePostListing.AdOccupancyStatusId  = this.selectedOccupancy.id;
+            this.SavePostListing.AdValidityPeriodUnit  = this.selectedListingExpiry.name;
+       if (this.selectedPurpose === 'For Sale') {
+            this.SavePostListing.AdPropertyPrice  = this.forSaleprice;
+            this.SavePostListing.AdIsInstallmentsAvailable  = this.showInstallmentPlan;
+            this.SavePostListing.AdIsInstallmentsInitialPayment  = this.advancePayment;
+            this.SavePostListing.AdIsPossessionAvailable  = false;
+       }
+       else{
+         this.SavePostListing.AdMinimumContractPeriod = this.selectedRentContractPeriod.name
+         this.SavePostListing.AdMonthlyRent = this.monthlyRent;
+         this.SavePostListing.AdSecurityDepositAmount = this.securityDeposit;
+         this.SavePostListing.AdSecurityDepositNoOfMonthsMonthlyRent = this.securityDepositMonths;
+         this.SavePostListing.AdAdvanceRentAmount = this.advancePayment;
+         this.SavePostListing.AdAdvanceRentNoOfMonthsMonthlyRent = this.advanceRentMonths;
+       }
+       this.SavePostListing.AdName = this.propertyTitle
+       this.SavePostListing.AdDescription  = this.propertyDiscription
+       this.SavePostListing.AdContactPersonName  = this.contactPerson
+       this.SavePostListing.AdContactPersonEmail  = this.email
+
+       this.profolioService.savePostListing(this.SavePostListing).subscribe(res => {
+         if(res){
+           this.toastr.success('Post Saved Successfully', 'Success');
+           this.clearFields();
+         }
+       });
+
      }
+  }
+  clearFields(){
+    this.selectedCity = null;
+    this.enterSearchLocation = null;
+    this.selectedLocation = null;
+    this.selectedOccupancy = null;
+    this.selectedListingExpiry = null;
+    this.forSaleprice = null;
+    this.advancePayment = null;
+    this.selectedRentContractPeriod = null;
+    this.monthlyRent = null;
+    this.securityDeposit = null;
+    this.securityDepositMonths = null;
+    this.advancePayment = null;
+    this.advanceRentMonths = null;
+    this.propertyTitle = null;
+    this.propertyDiscription = null;
+    this.contactPerson = null;
+    this.email = null;
   }
 }

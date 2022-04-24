@@ -1,6 +1,6 @@
 <section class=" mb-5">
-  <h1 class="text-dark heading">
-    Discover New Locations
+  <h1 class="text-dark heading-app-body">
+    {{'Discover New Locations' | translate}}
   </h1>
   <div  class="container">
     <p-carousel [value]="products" [showIndicators]="false" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
@@ -12,9 +12,9 @@
                       <img src="{{product.image}}" alt="sample" class="product-image" />
                   </div>
                   <div>
-                      <h4 class="mb-1">{{product.name}}</h4>
-                      <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.description}}</span>
-                      
+                      <h4 class="mb-1 text-fl-cap">{{product.name | translate}}</h4>
+                      <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.description | translate}}</span>
+
                   </div>
               </div>
           </div>
@@ -25,8 +25,8 @@
 </section>
 
 <section class="mb-5">
-  <h1 class="text-dark heading">
-    Titanium Agencies
+  <h1 class="text-dark heading-app-body">
+    {{'Titanium Agencies' | translate}}
   </h1>
   <div  class="container ">
     <p-carousel [value]="products" [showIndicators]="false" [numScroll]="1" [autoplayInterval]="1500" [numVisible]="5"  [circular]="true" [responsiveOptions]="responsiveOptions">
@@ -47,209 +47,519 @@
 
 
 
-<section>
-    <h1 class="text-dark heading">
-        Popular Locations
+<section class="direction-change-screen urdu-heading-text-home-body">
+    <h1 class="text-dark heading-app-body">
+      {{'Popular Locations' | translate}}
       </h1>
   <div class="d-flex justify-content-center">
     <div class="container row">
-    
+
 
       <div class="row ">
         <h1 class="text-dark" style="font-size: 1rem">
-          Popular Cities to buy Properties
+          {{'Popular Cities to Buy Properties' | translate}}
         </h1>
         <hr />
         <div class="col-lg-4">
           <ul>
             <li>
-              <h6><strong>HOUSES</strong></h6>
+              <h6><strong>{{'HOUSES' | translate}}</strong></h6>
             </li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
           </ul>
         </div>
         <div class="col-lg-4 mt-4">
             <ul>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li class="text-primary redirect">View all Cities</li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
               </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                  <h6><strong>FLATS AND APARTMENTS</strong></h6>
+                  <h6><strong>{{'FLATS AND APARTMENTS' | translate}}</strong></h6>
                 </li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                    <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
+                <li>
+                  <a *ngIf="!isLangUrdu".>Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
+                <li>
+                  <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                  <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+                </li>
               </ul>
         </div>
       </div>
       <div class="row mt-4">
         <h1 class="text-dark" style="font-size: 1rem">
-            Most Popular Locations for Homes
+          {{'Most Popular Locations for Homes' | translate}}
         </h1>
         <hr />
         <div class="col-lg-4">
           <ul>
             <li>
-              <h6><strong>LAHORE</strong></h6>
+              <h6><strong class="text-cap">{{'Lahore' | translate}}</strong></h6>
             </li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
           </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                    <h6><strong>KARACHI</strong></h6>
+                    <h6><strong class="text-cap">{{'Karachi' | translate}}</strong></h6>
                   </li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li class="text-primary redirect">View all Cities</li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+                <li class="text-primary redirect">{{'View all Cities' | translate}}</li>
               </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                  <h6><strong>ISLAMABAD/RAWALPINDI</strong></h6>
+                  <h6><strong class="text-cap">{{'Islamabad' | translate}}/{{'Rawalpindi' | translate}}</strong></h6>
                 </li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                    <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
               </ul>
         </div>
       </div>
       <div class="row mt-4">
         <h1 class="text-dark" style="font-size: 1rem">
-            Most Popular Locations for Plots
+          {{'Most Popular Locations for Plots' | translate}}
         </h1>
         <hr />
         <div class="col-lg-4">
           <ul>
             <li>
-              <h6><strong>LAHORE</strong></h6>
+              <h6><strong>{{'Lahore' | translate}}</strong></h6>
             </li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
           </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                    <h6><strong>KARACHI</strong></h6>
+                    <h6><strong>{{'Karachi' | translate}}</strong></h6>
                   </li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li class="text-primary redirect">View all Cities</li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a>{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+                <li class="text-primary redirect">{{'View all Cities' | translate}}</li>
               </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                  <h6><strong>ISLAMABAD/RAWALPINDI</strong></h6>
+                  <h6><strong>{{'Islamabad' | translate}}/{{'Rawalpindi' | translate}}</strong></h6>
                 </li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                    <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
               </ul>
         </div>
       </div>
       <div class="row mt-4">
         <h1 class="text-dark" style="font-size: 1rem">
-            Popular Cities to Rent Properties
+          {{'Popular Cities to Rent Properties' | translate}}
         </h1>
         <hr />
         <div class="col-lg-4">
           <ul>
             <li>
-              <h6><strong>HOUSES</strong></h6>
+              <h6><strong>{{'HOUSES' | translate}}</strong></h6>
             </li>
-            <li><a>House for sale in DHA(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-            <li><a>House for sale in Lahore(32,028)</a></li>
-     
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+            <li>
+              <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+              <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+            </li>
+
           </ul>
         </div>
         <div class="col-lg-4 mt-4">
             <ul>
-          
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                    <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li><a>House for sale in Lahore(32,028)</a></li>
-                <li class="text-primary redirect">View all Cities</li>
+
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">House for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'House for sale in' | translate}}(32,028)</a>
+              </li>
+                <li class="text-primary redirect">{{'View all Cities' | translate}}</li>
               </ul>
         </div>
         <div class="col-lg-4">
             <ul>
                 <li>
-                  <h6><strong>FLATS AND APARTMENTS</strong></h6>
+                  <h6><strong>{{'FLATS AND APARTMENTS' | translate}}</strong></h6>
                 </li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                <li><a>Flats for sale in Lahore(32,028)</a></li>
-                    <li><a>House for sale in Lahore(32,028)</a></li>
-         
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a  *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a  *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a  *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a  *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+              <li>
+                <a *ngIf="!isLangUrdu">Flats for sale in Lahore(32,028)</a>
+                <a *ngIf="isLangUrdu">{{'Lahore' | translate}}{{'Flats for sale in' | translate}}(32,028)</a>
+              </li>
+
               </ul>
         </div>
       </div>
@@ -257,9 +567,9 @@
   </div>
 </section>
 
-<section>
-    <h1 class="heading text-dark">
-        Recent from the blog
+<section class="direction-change-screen">
+    <h1 class="heading-app-body text-dark">
+      {{'Recent from the Blog' | translate}}
       </h1>
   <div class="d-flex justify-content-center">
     <div class="container row">
@@ -280,7 +590,7 @@
             Muslim ProDhikr & DuaRamadan LegacyMy PrayerRamadan 2022 The holy
             month of Ramadan is all about accumulating the
           </p>
-          <button pButton pRipple type="button" label="Read More" class="p-button-raised p-button-secondary p-button-text"></button>
+          <button pButton pRipple type="button" label="{{'Read More' | translate}}" class="p-button-raised p-button-secondary p-button-text"></button>
         </p-card>
       </div>
       <div class="col-lg-3">
@@ -298,7 +608,7 @@
             Muslim ProDhikr & DuaRamadan LegacyMy PrayerRamadan 2022 The holy
             month of Ramadan is all about accumulating the
           </p>
-          <button pButton pRipple type="button" label="Read More" class="p-button-raised p-button-secondary p-button-text"></button>
+          <button pButton pRipple type="button" label="{{'Read More' | translate}}" class="p-button-raised p-button-secondary p-button-text"></button>
         </p-card>
       </div>
       <div class="col-lg-3">
@@ -316,7 +626,7 @@
             Muslim ProDhikr & DuaRamadan LegacyMy PrayerRamadan 2022 The holy
             month of Ramadan is all about accumulating the
           </p>
-          <button pButton pRipple type="button" label="Read More" class="p-button-raised p-button-secondary p-button-text"></button>
+          <button pButton pRipple type="button" label="{{'Read More' | translate}}" class="p-button-raised p-button-secondary p-button-text"></button>
         </p-card>
       </div>
       <div class="col-lg-3">
@@ -334,7 +644,7 @@
             Muslim ProDhikr & DuaRamadan LegacyMy PrayerRamadan 2022 The holy
             month of Ramadan is all about accumulating the
           </p>
-          <button pButton pRipple type="button" label="Read More" class="p-button-raised p-button-secondary p-button-text"></button>
+          <button pButton pRipple type="button" label="{{'Read More' | translate}}" class="p-button-raised p-button-secondary p-button-text"></button>
         </p-card>
       </div>
     </div>
