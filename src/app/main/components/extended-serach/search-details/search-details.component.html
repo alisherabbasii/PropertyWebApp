@@ -136,7 +136,7 @@
                 </div>
 
                 <div class="mt-4">
-                <button class="btn btn-outline-success btn-lg w-100 mt-2" type="button">
+                <button data-toggle="modal" data-target="#exampleModalLong" class="btn btn-outline-success btn-lg w-100 mt-2" type="button">
                     <i class="pi pi-inbox" style="font-size: 1rem"></i>
                      <span> SEND EMAIL </span>
                 </button>
@@ -148,89 +148,136 @@
         </div>
     </div>
 
-    <!-- <div class="container py-5" >
-    <div class="row mb-3 justify-content-center mb-3" >
-      <div>
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img
-                    src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
-                    class="w-100" />
-                  <a href="#!">
-                    <div class="hover-overlay">
-                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>s.AdName</h5>
-
-                <div class="mt-1 mb-0 text-muted small">
-                  <span><i class="fa-solid fa fa-location-arrow mb-3"></i> Behria
-                    Town Phase 4, Behria Town Rawalpindi s.AdPropertyArea</span>
-                </div>
-
-                <div class="mb-2 row mb-3 text-muted small">
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bed"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bath"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-3">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-home"></i>
-                    </span>
-                    <span>5 Marla<br /></span>
-                  </div>
-                </div>
-
-                <p class="mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered
-                </p>
-
-              </div>
-              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                <div class="d-flex flex-row mb-3 align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Pkr 12324 Lacs</h4>
-                  <span class="text-danger"><s> 44</s></span>
-                </div>
-                <h6 class="text-success">Discounted Offer</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Call
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Email
-                  </button>
-                </div>
-              </div>
+    
+</section>
 
 
+
+                                            <!-- modal  -->
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg"  role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <div class="d-flex justify-content-between">
+            <div>
+                Photos
             </div>
-          </div>
+            <div>
+                Map
+            </div>
+        </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <section class="">
+                <div class="d-flex container py-2 ">
+                    <div class="d-flex flex-column">
+                        <div class="flex-grow-1">
+                            <div class="bg-image hover-zoom ripple rounded ripple-surface h-100">
+                                <img src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
+                                    class="w-100 h-100" />
+                                <a href="#!">
+                                    <div class="hover-overlay">
+                                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- icons -->
+                      
+                        </div>
+                    </div>
+            
+            
+                    <div class="d-flex flex-column col-md-3 ">
+                        <div class="shadow-lg rounded-3 border p-2 h-100">
+            
+                            <div class="d-flex mb-3 align-items-center justify-content-center">
+                                <h4 class="mb-1 font-weight-bold">PKR 4 Lakh</h4>
+                            </div>
+            
+                            <div class="d-flex flex-column mt-4">
+                                
+                                
+                                <button class="btn btn-success btn-lg mt-2" type="button">
+                                    <i class="pi pi-phone" style="font-size: 1rem"></i>
+                                     <span> Call </span>
+                                </button>
+                               <div class="mt-4">
+                                <span class="p-float-label">
+                                    <input style="width: -moz-available" id="float-input" type="text" pInputText [(ngModel)]="name"> 
+                                    <label for="float-input">Name</label>
+                                </span>
+                               </div>
+            
+                               <div class="mt-4">
+                                <span class="p-float-label">
+                                    <input style="width: -moz-available" id="float-input" type="email" pInputText [(ngModel)]="email"> 
+                                    <label for="float-input">Email</label>
+                                </span>
+                               </div>
+            
+                               <div class="mt-4">
+                                <span class="p-float-label">
+                                    <input style="width: -moz-available" id="float-input" type="tel" pInputText [(ngModel)]="phone"> 
+                                    <label for="float-input">Phone</label>
+                                </span>
+                               </div>
+            
+            
+                               <div class="mt-4">
+                                <span class="p-float-label">
+                                    <textarea style="width: -moz-available" id="float-input" rows="5" cols="30" pInputTextarea></textarea>
+                                    <label for="float-input">Message</label>
+                                </span>
+                               </div>
+            
+            
+                               <div class="mt-4 d-flex align-items-center ">
+                                   <small>I am a: </small>
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="city" value="Chicago" [(ngModel)]="buyer" inputId="city1"></p-radioButton>
+                                    <small> Buyer</small>
+                                </div>
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="city" value="Los Angeles" [(ngModel)]="buyer" inputId="city2"></p-radioButton>
+                                    <small> Agent</small>
+                                </div>
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="city" value="New York" [(ngModel)]="buyer" inputId="city3"></p-radioButton>
+                                    <small> Other</small>
+                                </div>
+                               </div>
+            
+                               <div class=" mt-4 field-checkbox">
+                                <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+                                <small> Keep me informed about similar properties.</small>
+                            </div>
+            
+                            <div class="mt-4">
+                            <button data-toggle="modal" data-target="#exampleModalLong" class="btn btn-outline-success btn-lg w-100 mt-2" type="button">
+                                <i class="pi pi-inbox" style="font-size: 1rem"></i>
+                                 <span> SEND EMAIL </span>
+                            </button>
+                            </div>
+            
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+                
+            </section>
         </div>
       </div>
     </div>
-
-
-  </div> -->
-</section>
-
+  </div>
 
 
 
