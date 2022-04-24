@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {BrowserModule, HAMMER_LOADER} from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpClient} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
@@ -13,6 +13,13 @@ import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@ang
 import {NgxSpinnerModule} from "ngx-spinner";
 import { DataService } from './global/data-service';
 import {ToastrModule} from "ngx-toastr";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function httpTranslateLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +40,13 @@ import {ToastrModule} from "ngx-toastr";
       progressBar: true,
       closeButton: true
     }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [ DataService, ProductService,{

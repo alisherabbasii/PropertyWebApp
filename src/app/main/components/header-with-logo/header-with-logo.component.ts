@@ -20,7 +20,11 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 export class HeaderWithLogoComponent implements OnInit {
 
   state= 'closed';
-  constructor() { }
+  constructor() {
+    if (localStorage.getItem('languageCodeLandLogic') === 'ur'){
+      this.state= 'open';
+    }
+  }
 
   ngOnInit(): void {
   }

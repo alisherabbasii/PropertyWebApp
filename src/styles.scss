@@ -2,6 +2,81 @@
 body{
     overflow-x: hidden;
 }
+.direction-urdu {
+  .direction-change-screen{
+    direction: rtl !important;
+  }
+  .searchbar-header{
+    position: absolute;
+    left: 1rem;
+  }
+  .align-card{
+    text-align: -webkit-left;
+  }
+  .btn-header-plus{
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+  .p-dropdown .p-dropdown-label.p-placeholder {
+    text-align: start;
+  }
+  .header-propertytype-home-popup {
+    text-align: initial;
+  }
+  .text-propertytype-home-popup {
+    text-align: center;
+  }
+  .btn-propertytype-home-popup {
+    height: 15px;
+    width: 80px;
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  .btn-propertytype-home-popup-align {
+    float: left;
+  }
+  .urdu-heading-text-home-body{
+    text-align: right;
+  }
+  .heading-app-body {
+    margin-right: 16rem;
+    text-align: right;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    text-align: center;
+  }
+  .footer-home-head{
+    text-align: -webkit-right;
+  }
+
+  .footer-home-subhead-ul{
+    padding: 0;
+  }
+  .footer-home-roshan{
+    margin-right: 15px;
+  }
+  .footer-home-socials{
+    margin-top: 15px;
+  }
+  .home-beds-clr-btn{
+    height: 24px;
+    font-size: 10px;
+    width: 80px !important;
+  }
+  .home-dropdown-price {
+    padding-left: 0;
+    padding-right: 16px !important;
+  }
+  .urdu-rent-align{
+    margin-left: 1rem;
+  }
+}
+
+.direction-eng {
+  direction: ltr !important;
+}
 .navbar{
     justify-content: start !important;
     align-items: inherit !important;
@@ -301,4 +376,44 @@ ngx-intl-tel-input input[disabled] {
 }
 .ng-invalid-tel {
   border: 1px solid red;
+}
+
+.btn-propertytype-home-popup-align {
+  float: right;
+}
+
+.btn-propertytype-home-popup {
+  height: 15px;
+  width: 37px;
+  font-size: 10px
+}
+
+.urdu-heading-text-home-body{
+  text-align: left;
+}
+
+.heading-app-body{
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  margin-left: 16rem;
+}
+
+.text-cap{
+  text-transform: uppercase;
+}
+
+.text-fl-cap{
+  text-transform: capitalize;
+}
+
+.text-small{
+  text-transform: lowercase;
+}
+
+.home-beds-clr-btn{
+  height: 15px; font-size: 10px
+}
+
+.home-dropdown-price{
+    padding-right: 0 !important;
 }

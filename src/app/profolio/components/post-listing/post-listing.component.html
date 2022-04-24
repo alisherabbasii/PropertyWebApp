@@ -1,7 +1,7 @@
 <!--PURPOSE, PROPERTY TYPE AND LOCATION-->
 <div class="row mt-5 header-margin" #scrollpropertyTypeError>
     <div class="header-bar mr-12px">
-      <span>PURPOSE, PROPERTY TYPE AND LOCATION</span>
+      <span lang="uz">PURPOSE, PROPERTY TYPE AND LOCATION</span>
     </div>
     <div class="row mt-2">
         <div class="div-label justify-content-end d-flex flex-nowrap">
@@ -65,16 +65,16 @@
       <label class="label">City: <span class="clr-red font-14">*</span></label>
     </div>
     <div class="div-field justify-content-start d-flex flex-nowrap">
-        <p-dropdown [options]="cities" #cityElement [ngClass]="showErrorCity?  'ng-invalid ng-dirty' : ''" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true" filterBy="name"
+        <p-dropdown [options]="cities" #cityElement [ngClass]="showErrorCity?  'ng-invalid ng-dirty' : ''" [(ngModel)]="selectedCity" optionLabel="CityName" [filter]="true" filterBy="CityName"
                     [showClear]="true" placeholder="Select a City" [style]="{'minWidth':'200px', 'width': '200px'}" (onChange)="onChangeCity()">
           <ng-template pTemplate="selectedItem">
             <div class="country-item country-item-value" *ngIf="selectedCity">
-              <div>{{selectedCity.name}}</div>
+              <div>{{selectedCity?.CityName}}</div>
             </div>
           </ng-template>
           <ng-template let-city pTemplate="item">
             <div class="country-item">
-              <div>{{city.name}}</div>
+              <div>{{city.CityName}}</div>
             </div>
           </ng-template>
         </p-dropdown>
@@ -87,24 +87,24 @@
       <label class="label">Location: <span class="clr-red font-14">*</span></label>
     </div>
     <div class="div-field justify-content-start d-flex flex-nowrap">
-      <p-autoComplete #locationElement [ngClass]="showErrorLocation?  'ng-invalid ng-dirty' : ''" [(ngModel)]="enterSearchLocation" [suggestions]="searchLocations" (completeMethod)="getSearchLocations($event)" field="name" (input)="onChangeLocation()">
+      <p-autoComplete #locationElement [ngClass]="showErrorLocation?  'ng-invalid ng-dirty' : ''" [(ngModel)]="enterSearchLocation" [suggestions]="searchLocations" (completeMethod)="getSearchLocations($event)" field="AreaName" (input)="onChangeLocation()">
         <ng-template let-loc pTemplate="item">
           <div class="country-item">
-            <div>{{loc.name}}</div>
+            <div>{{loc.AreaName}}</div>
           </div>
         </ng-template>
       </p-autoComplete>
       <label class="label center-label"> or </label>
-      <p-dropdown [options]="LocationsDropdown" [(ngModel)]="selectedLocation" optionLabel="name" [filter]="true" filterBy="name"
+      <p-dropdown [options]="LocationsDropdown" [(ngModel)]="selectedLocation" optionLabel="AreaName" [filter]="true" filterBy="AreaName"
                   [showClear]="true" placeholder="Any">
         <ng-template pTemplate="selectedItem">
           <div class="country-item country-item-value" *ngIf="selectedLocation">
-            <div>{{selectedLocation.name}}</div>
+            <div>{{selectedLocation.AreaName}}</div>
           </div>
         </ng-template>
         <ng-template let-loc pTemplate="item">
           <div class="country-item">
-            <div>{{loc.name}}</div>
+            <div>{{loc.AreaName}}</div>
           </div>
         </ng-template>
       </p-dropdown>
@@ -123,7 +123,7 @@
       <label class="label m-label">Area Size: <span class="clr-red font-14">*</span></label>
     </div>
     <div class="div-field justify-content-start d-flex flex-nowrap">
-      <p-inputNumber #areaSizeElement [ngClass]="showErrorAreaSize?  'ng-invalid ng-dirty' : ''" [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()"></p-inputNumber>
+      <input #areaSizeElement [ngClass]="showErrorAreaSize?  'ng-invalid ng-dirty' : ''" pInputText [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()">
       <label class="label center-label"> Unit </label>
       <p-dropdown [options]="unitList" [(ngModel)]="selectedAreaUnit" optionLabel="name" [filter]="true" filterBy="name"
                   placeholder="Unit" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="selectAreaUnit($event)">
@@ -257,7 +257,7 @@
       <label class="label m-label">Area Size: <span class="clr-red font-14">*</span></label>
     </div>
     <div class="div-field justify-content-start d-flex flex-nowrap">
-      <p-inputNumber #areaSizeElement [ngClass]="showErrorAreaSize ? 'ng-invalid ng-dirty' : ''"  [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()"></p-inputNumber>
+      <input #areaSizeElement [ngClass]="showErrorAreaSize?  'ng-invalid ng-dirty' : ''" pInputText [min]="0" [(ngModel)]="areaSize" (input)="selectAreaUnit()">
       <label class="label center-label"> Unit </label>
       <p-dropdown [options]="unitList" [(ngModel)]="selectedAreaUnit" optionLabel="name" [filter]="true" filterBy="name"
                   placeholder="Unit" [style]="{'minWidth':'180px', 'width': '180px'}" (onChange)="selectAreaUnit($event)">

@@ -1,27 +1,29 @@
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-light direction-change-screen">
     <div class="d-flex w-100 justify-content-between">
     <div class="d-flex">
     <a class="navbar-brand" routerLink="">
         <i class="pi pi-home" style="font-size: 1.5rem; color: white;"></i>
     </a>
-    <span class="navbar-brand text-white font-13">PROPERTIES</span>
+     <a class="navbar-brand font-15" routerLink=" ">
+        {{'PROPERTIES' | translate}}
+     </a>
     <a class="navbar-brand font-15" routerLink="plots">
-       PLOT FINDER
+       {{'PLOT FINDER' | translate}}
     </a>
-    <a class="navbar-brand font-15"  href="#">
-        AREA GUIDES
+    <a class="navbar-brand font-15"  routerLink=" ">
+      {{'AREA GUIDES' | translate}}
     </a>
     <a class="navbar-brand font-15" [routerLink]="['blogs']">
-      BLOG
+      {{'BLOG' | translate}}
     </a>
     <a class="navbar-brand font-15" routerLink=" ">
-        PARTNERS
+      {{'PARTNERS' | translate}}
     </a>
     <a class="navbar-brand font-15" routerLink=" ">
-        TOOLS
+      {{'TOOLS' | translate}}
     </a>
     <a class="navbar-brand font-15" routerLink=" ">
-        MORE
+      {{'MORE' | translate}}
     </a>
 </div>
 
@@ -29,21 +31,26 @@
 <div class="ml-5 d-flex align-items-center">
     <div class="col-sm-4 cursor-pointer rounded d-flex align-items-center border" style="height: 2rem;">
         <div class=" d-flex align-items-center">
-    <span class="fa fa-plus form-control-feedback text-white pr-3"></span>
-  <span label="Add Property" class=" text-white" (click)="clickAddProperty()">Add Property</span>
+          <span class="fa fa-plus form-control-feedback text-white btn-header-plus pr-3"></span>
+  <span label="Add Property" class=" text-white" (click)="clickAddProperty()">{{'Add Property' | translate}}</span>
 </div>
 </div>
 
     <div class="main col-sm-5">
         <!-- Actual search box -->
         <div class="form-group has-search d-flex align-items-center">
-          <span class="fa fa-search form-control-feedback pr-3"></span>
-          <input type="text" class="form-control pl-4" placeholder="Search">
+          <span class="fa fa-search form-control-feedback pr-3 searchbar-header"></span>
+          <input type="text" class="form-control pl-4" placeholder="{{'Property ID' | translate }}">
         </div>
         <!-- <p class="mt-4 text-center"><a href="https://www.gungorbudak.com/blog/2018/12/12/bootstrap-4-search-box-with-search-icon/">See how it's done on my blog</a></p> -->
 
       </div>
 
+
+    <a class="navbar-brand" href="#" style="margin-top: -10px !important; padding: 0;">
+      <img *ngIf="!switchLang" style="height: 27px; width: 30px; cursor: pointer !important;" src="assets/img/urdu-white.png" (click)="translateLanguageTo('ur')">
+      <span *ngIf="switchLang" style="cursor: pointer !important; height: 27px; width: 30px; font-size: 12px; font-weight: bold; color: white;" (click)="translateLanguageTo('en')">ENGLISH</span>
+    </a>
 
     <a class="navbar-brand" href="#">
         <i class="pi pi-flag-fill" style="font-size: 1rem; color: white;"></i>
@@ -54,6 +61,6 @@
     <a class="navbar-brand" href="#">
         <i class="pi pi-user" style="font-size: 1rem; color: white;"></i>
     </a>
-</div>
-</div>
+    </div>
+    </div>
   </nav>
