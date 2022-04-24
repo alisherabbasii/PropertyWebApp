@@ -1,3 +1,17 @@
 .modal-lg {
     max-width: 80% !important;
 }
+
+.product-image1 {
+    margin-top: 1rem;
+    height: 540px;
+    width: 100%;
+}
+
+.p-float-label label{
+    top:18%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #767676;
+
+}
