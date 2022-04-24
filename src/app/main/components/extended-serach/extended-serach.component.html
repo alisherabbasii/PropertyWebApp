@@ -74,7 +74,7 @@
 <section style="background-color: #eee">
   <div class="container py-5" >
     <div class="row mb-3 justify-content-center mb-3" *ngFor="let s of GetAllLLCustomer">
-      <div class="col-md-12 col-xl-10">
+      <div class="col-md-12 col-xl-10" (click)="moveToDetails()">
         <div class="card shadow-0 border rounded-3">
           <div class="card-body">
             <div class="row mb-3">

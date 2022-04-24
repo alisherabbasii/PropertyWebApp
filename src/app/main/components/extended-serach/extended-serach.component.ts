@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/global/data-service'; 
 import { BASE_FILE_PATH } from 'src/app/global/api-endpoints';
+import { Router } from '@angular/router';
 const ApiURL = BASE_FILE_PATH
 @Component({
   selector: 'app-extended-serach',
@@ -9,7 +10,7 @@ const ApiURL = BASE_FILE_PATH
 })
 export class ExtendedSerachComponent implements OnInit {
 
-  constructor(private service:DataService) { }
+  constructor(private service:DataService,private router:Router) { }
   GetAllLLCustomer:any
   ngOnInit(): void {
     debugger
@@ -18,7 +19,9 @@ export class ExtendedSerachComponent implements OnInit {
   find(){
     
   }
-
+  moveToDetails(){
+    this.router.navigateByUrl('/searchDetails');
+  }
   GetpropertyType(){
     
      let  Where = {

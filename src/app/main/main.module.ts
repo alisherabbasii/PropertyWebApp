@@ -26,8 +26,11 @@ import { ExtendedSerachComponent } from './components/extended-serach/extended-s
 import { AreaRangeComponent } from './components/controls/area-range/area-range.component';
 import { MainBodyControlService } from '../services/MainBodyControlService/main-body-control.service';
 import {TranslateModule} from "@ngx-translate/core";
-
-
+import { SearchDetailsComponent } from './components/extended-serach/search-details/search-details.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CheckboxModule} from 'primeng/checkbox';
 @NgModule({
     declarations: [
         HomeComponent,
@@ -43,7 +46,8 @@ import {TranslateModule} from "@ngx-translate/core";
         CityComponent,
         LocationSearchComponent,
         ExtendedSerachComponent,
-        AreaRangeComponent
+        AreaRangeComponent,
+        SearchDetailsComponent
     ],
   imports: [
     MainRoutingModule,
@@ -56,6 +60,10 @@ import {TranslateModule} from "@ngx-translate/core";
     HttpClientModule,
     AutoCompleteModule,
     TranslateModule,
+    InputTextModule,
+    InputTextareaModule,
+    RadioButtonModule,
+    CheckboxModule
   ],
     providers: [ProductService, MainBodyControlService],
     exports: [
