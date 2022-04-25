@@ -31,6 +31,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
+import {GalleriaModule} from 'primeng/galleria';
 @NgModule({
     declarations: [
         HomeComponent,
@@ -58,6 +59,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     CommonModule,
     CarouselModule,
     HttpClientModule,
+    GalleriaModule,
     AutoCompleteModule,
     TranslateModule,
     InputTextModule,

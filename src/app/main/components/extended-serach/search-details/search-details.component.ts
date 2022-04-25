@@ -37,12 +37,14 @@ export class SearchDetailsComponent implements OnInit {
   responsiveOptions:any;
   agent:any;
   products: Product[];
+  images: any[];
   other:any;
   checked:any;
   ngOnInit(): void {
     this.productService.getProductsSmall().then(products => {
 			this.products = products;
 		});
+    
   }
 
   printWindow(){
