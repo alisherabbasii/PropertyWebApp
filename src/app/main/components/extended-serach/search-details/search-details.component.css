@@ -28,3 +28,7 @@ p { display: inline;}
 .navclr{
     background-color: rgb(31, 29, 29) !important;
 }
+
+.specs{
+    font-size: 12px;
+}
