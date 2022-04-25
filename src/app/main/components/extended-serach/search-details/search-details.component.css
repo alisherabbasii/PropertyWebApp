@@ -24,3 +24,7 @@ textarea{
 }
 
 p { display: inline;}
+
+.navclr{
+    background-color: rgb(31, 29, 29) !important;
+}
