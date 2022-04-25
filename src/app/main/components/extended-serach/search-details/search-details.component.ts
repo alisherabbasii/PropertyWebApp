@@ -44,6 +44,8 @@ export class SearchDetailsComponent implements OnInit {
     this.productService.getProductsSmall().then(products => {
 			this.products = products;
 		});
+
+
     
   }
 
@@ -51,4 +53,6 @@ export class SearchDetailsComponent implements OnInit {
     window.print();
   }
 
+
+ 
 }
