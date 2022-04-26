@@ -31,6 +31,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import {GalleriaModule} from 'primeng/galleria';
+import { BathsComponent } from './components/controls/baths/baths.component';
+import { PurposeComponent } from './components/controls/purpose/purpose.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +50,9 @@ import {GalleriaModule} from 'primeng/galleria';
         LocationSearchComponent,
         ExtendedSerachComponent,
         AreaRangeComponent,
-        SearchDetailsComponent
+        SearchDetailsComponent,
+        BathsComponent,
+        PurposeComponent
     ],
   imports: [
     MainRoutingModule,
