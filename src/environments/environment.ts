@@ -7,7 +7,7 @@ export const environment = {
   servicingUrl: 'http://52.220.211.58:8092/',
   profolioServicingUrl: 'http://52.220.211.58:8092/',
   // documentsUrl: 'http://115.186.131.157:6060/',
-  documentsUrl: 'http://52.220.211.58:8092/',
+  documentsUrl: 'http://erpsystems.ddns.net:8091/',
 
 };
 
