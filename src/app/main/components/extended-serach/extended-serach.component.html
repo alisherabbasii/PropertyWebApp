@@ -3,7 +3,7 @@
 
 
 
-<section style="background: rgba(18, 18, 18, 1)" class="pt-3 pb-3">
+<section id="searchBar" style="background: rgba(18, 18, 18, 1);position: fixed;width: 100%;z-index: 99;" class="pt-3 pb-3">
 <div class="row">
   <div class="col-lg-3 d-flex justify-content-end">
     <app-purpose></app-purpose>
@@ -44,7 +44,7 @@
 
 
 
-<section style="background-color: #eee">
+<section style="background-color: #eee" style="padding-top:10rem">
   <div class="container py-5" >
     <div class="row mb-3 justify-content-center mb-3" *ngFor="let s of GetAllLLCustomer">
       <div class="col-md-12 col-xl-10" (click)="moveToDetails()">
