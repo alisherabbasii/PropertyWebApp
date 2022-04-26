@@ -24,7 +24,6 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import { LocationSearchComponent } from './components/controls/location-search/location-search.component';
 import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
 import { AreaRangeComponent } from './components/controls/area-range/area-range.component';
-import { MainBodyControlService } from '../services/MainBodyControlService/main-body-control.service';
 import {TranslateModule} from "@ngx-translate/core";
 import { SearchDetailsComponent } from './components/extended-serach/search-details/search-details.component';
 import {InputTextModule} from 'primeng/inputtext';
@@ -32,6 +31,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import {GalleriaModule} from 'primeng/galleria';
+import { BathsComponent } from './components/controls/baths/baths.component';
+import { PurposeComponent } from './components/controls/purpose/purpose.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,9 @@ import {GalleriaModule} from 'primeng/galleria';
         LocationSearchComponent,
         ExtendedSerachComponent,
         AreaRangeComponent,
-        SearchDetailsComponent
+        SearchDetailsComponent,
+        BathsComponent,
+        PurposeComponent
     ],
   imports: [
     MainRoutingModule,
@@ -68,7 +71,7 @@ import {GalleriaModule} from 'primeng/galleria';
     RadioButtonModule,
     CheckboxModule
   ],
-    providers: [ProductService, MainBodyControlService],
+    providers: [ProductService,],
     exports: [
         FooterComponent
     ]
