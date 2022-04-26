@@ -5,7 +5,6 @@ import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 // import * as $ from 'jquery';
-import { MainBodyControlService } from '../../../services/MainBodyControlService/main-body-control.service'
 import { Router } from '@angular/router';
 import { UtilsService } from 'src/app/services/utils.service';
 import { ThrowStmt } from '@angular/compiler';
@@ -91,7 +90,7 @@ export class ControlsComponent implements OnInit {
   IncommingSelectedCity: any
   IncommingSelectedLocation:any
   // toggle:Boolean= true;
-  constructor(private service: MainBodyControlService , private router:Router,private srv:UtilsService) {
+  constructor(private router:Router,private srv:UtilsService) {
 
     this.srv.rentReplaySubject.subscribe(val => {
       this.selectedButton = val;
@@ -379,11 +378,11 @@ export class ControlsComponent implements OnInit {
   }
   
   find() {
-    debugger;
-    console.log(this.IncommingSelectedCity, this.selectedLocation)
-    this.service.FindByCityandLocation(this.IncommingSelectedCity, this.selectedLocation).subscribe((res) => {
-      alert(res)
-    })
+    // debugger;
+    // console.log(this.IncommingSelectedCity, this.selectedLocation)
+    // this.service.FindByCityandLocation(this.IncommingSelectedCity, this.selectedLocation).subscribe((res) => {
+    //   alert(res)
+    // })
   }
 
 

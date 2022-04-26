@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItemGroup } from 'primeng/api';
 import { City } from 'src/app/models/City';
-import { MainBodyControlService } from 'src/app/services/MainBodyControlService/main-body-control.service';
 
 @Component({
   selector: 'app-area-range',
@@ -51,7 +50,7 @@ export class AreaRangeComponent implements OnInit {
   IncommingSelectedCity: any
   IncommingSelectedLocation:any
   // toggle:Boolean= true;
-  constructor(private service: MainBodyControlService) {
+  constructor() {
 
 
 
