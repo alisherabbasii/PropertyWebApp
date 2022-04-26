@@ -2,91 +2,38 @@
 <app-header-with-logo></app-header-with-logo>
 
 
-<!-- <section>
-  <div style="background: rgba(18, 18, 18, 1)" class="pt-3">
-   <div class="col-lg-8 offset-2">
-    <div class="row">
-      <div class="col-lg-4">
-       
-          <app-beds></app-beds>
-        
-      </div>
 
-
-      <div class="col-lg-8">
-        <div class="row mb-3">
-          <app-location-search></app-location-search>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-lg-4">
-          <app-area-range></app-area-range>
-      </div>
-
-
-      <div class="col-lg-4">
-        <div class="row mb-3">
-          <app-property-type></app-property-type>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="row mb-3">
-          <app-price-range></app-price-range>
-        </div>
-      </div>
-
-    </div>
+<section style="background: rgba(18, 18, 18, 1)" class="pt-3 pb-3">
+<div class="row">
+  <div class="col-lg-3 d-flex justify-content-end">
+    <app-purpose></app-purpose>
   </div>
+  <div class="col-lg-6 ">
+    <app-location-search></app-location-search>
   </div>
-</section> -->
-
-<section>
-  <div style="background: rgba(18, 18, 18, 1)" class="pt-3 pb-3">
-
-  <div class="row mr-5 ml-5">
-    <div class="col-lg-2">
-      <app-purpose></app-purpose>
-    </div>
-    <div class="col-lg-4">
-      <app-beds></app-beds>
-    </div>
-    <div class="col-lg-4">
-      <app-location-search></app-location-search>
-    </div>
-  
+  <div class="col-lg-3 d-flex justify-content-start">
+    <app-beds></app-beds>
   </div>
-  <div class="row mt-3 d-flex justify-content-center">
- 
-    <div class="col-lg-4">
-      <app-area-range></app-area-range>
-    </div>
-
-    <div class="col-lg-4">
-      <app-property-type></app-property-type>
-    </div>
-  
+</div>
+<div class="row mt-2 d-flex justify-content-center">
+  <div class="col-sm-2 ">
+    <app-area-range></app-area-range>
   </div>
-
-  <div class="row mt-3 d-flex justify-content-center">
-    
-    <div class="col-lg-4">
-      <app-price-range></app-price-range>
-    </div>
-    <div class="col-lg-4">
-      <app-baths></app-baths>
-    </div>
-    <div class="col-lg-4">
-      <input type="text" placeholder="Keyword" pInputText />
-    </div>
+  <div class="col-sm-2 center-controls">
+    <app-price-range></app-price-range>
   </div>
-
-
+  <div class="col-sm-2 center-controls">
+    <app-property-type></app-property-type>
   </div>
+  <div class="col-sm-2 center-controls">
+    <input type="text" class="keyword" placeholder="Keyword" pInputText />
+  </div>
+  <div class="col-sm-2 ">
+    <app-baths></app-baths>
+  </div>
+</div>
 </section>
+
 
 
 
@@ -177,299 +124,7 @@
       </div>
     </div>
 
-    <!-- <div class="row mb-3 justify-content-center mb-3">
-      <div class="col-md-12 col-xl-10">
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img
-                    src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
-                    class="w-100" />
-                  <a href="#!">
-                    <div class="hover-overlay">
-                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>River Courtyard</h5>
-
-                <div class="mt-1 mb-0 text-muted small">
-                  <span><i class="fa-solid fa fa-location-arrow mb-3"></i> Behria
-                    Town Phase 4, Behria Town Rawalpindi</span>
-                </div>
-                <div class="mb-2 row mb-3 text-muted small">
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bed"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bath"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-3">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-home"></i>
-                    </span>
-                    <span>5 Marla<br /></span>
-                  </div>
-                </div>
-                <p class="mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered
-                </p>
-              </div>
-              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                <div class="d-flex flex-row mb-3 align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Pkr 43 Lacs</h4>
-                  <span class="text-danger"><s> 44</s></span>
-                </div>
-                <h6 class="text-success">Discounted Offer</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Call
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Email
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mb-3 justify-content-center mb-3">
-      <div class="col-md-12 col-xl-10">
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img
-                    src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
-                    class="w-100" />
-                  <a href="#!">
-                    <div class="hover-overlay">
-                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>River Courtyard</h5>
-
-                <div class="mt-1 mb-0 text-muted small">
-                  <span><i class="fa-solid fa fa-location-arrow mb-3"></i> Behria
-                    Town Phase 4, Behria Town Rawalpindi</span>
-                </div>
-                <div class="mb-2 row mb-3 text-muted small">
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bed"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bath"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-3">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-home"></i>
-                    </span>
-                    <span>5 Marla<br /></span>
-                  </div>
-                </div>
-                <p class="mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered
-                </p>
-              </div>
-              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                <div class="d-flex flex-row mb-3 align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Pkr 43 Lacs</h4>
-                  <span class="text-danger"><s> 44</s></span>
-                </div>
-                <h6 class="text-success">Discounted Offer</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Call
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Email
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mb-3 justify-content-center mb-3">
-      <div class="col-md-12 col-xl-10">
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img
-                    src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
-                    class="w-100" />
-                  <a href="#!">
-                    <div class="hover-overlay">
-                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>River Courtyard</h5>
-
-                <div class="mt-1 mb-0 text-muted small">
-                  <span><i class="fa-solid fa fa-location-arrow mb-3"></i> Behria
-                    Town Phase 4, Behria Town Rawalpindi</span>
-                </div>
-                <div class="mb-2 row mb-3 text-muted small">
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bed"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bath"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-3">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-home"></i>
-                    </span>
-                    <span>5 Marla<br /></span>
-                  </div>
-                </div>
-                <p class="mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered
-                </p>
-              </div>
-              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                <div class="d-flex flex-row mb-3 align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Pkr 43 Lacs</h4>
-                  <span class="text-danger"><s> 44</s></span>
-                </div>
-                <h6 class="text-success">Discounted Offer</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Call
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Email
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mb-3 justify-content-center mb-3">
-      <div class="col-md-12 col-xl-10">
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img
-                    src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
-                    class="w-100" />
-                  <a href="#!">
-                    <div class="hover-overlay">
-                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>River Courtyard</h5>
-
-                <div class="mt-1 mb-0 text-muted small">
-                  <span><i class="fa-solid fa fa-location-arrow mb-3"></i> Behria
-                    Town Phase 4, Behria Town Rawalpindi</span>
-                </div>
-                <div class="mb-2 row mb-3 text-muted small">
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bed"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-2">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-bath"></i>
-                    </span>
-                    <span>2</span>
-                  </div>
-                  <div class="col-sm-3">
-                    <span class="text-secondary">
-                      <i class="fa-solid fa fa-home"></i>
-                    </span>
-                    <span>5 Marla<br /></span>
-                  </div>
-                </div>
-                <p class="mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered
-                </p>
-              </div>
-              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                <div class="d-flex flex-row mb-3 align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Pkr 43 Lacs</h4>
-                  <span class="text-danger"><s> 44</s></span>
-                </div>
-                <h6 class="text-success">Discounted Rates</h6>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Call
-                  </button>
-                  <button class="btn btn-outline-success btn-sm mt-2" type="button">
-                    Email
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
+ 
   </div>
 </section>
 

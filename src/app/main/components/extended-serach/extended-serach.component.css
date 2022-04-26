@@ -7,3 +7,31 @@
 }
 
 
+:host::ng-deep button{
+    width: 13rem !important;
+}
+.keyword{
+    width: 13rem !important;
+}
+
+
+
+.center-controls{
+   width: 100%;
+}
+
+.col-sm-2{
+    padding-left: 0.2rem;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+.col-lg-3{
+padding-left: 0.2rem;
+}
+
+::placeholder {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    font-size: 12px;
+  }
