@@ -6,7 +6,7 @@ placeholder="{{'Location' | translate}}"
 [maxlength]="maxLen"
 scrollHeight="200px"
 [size]="inputSize"
-style="border-radius: 0px;"
+style="border-radius: 0px;    background: #f8f9fb !important;"
 (onSelect)="SelectLocation()"
 [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)"  field="AreaName" [multiple]="true">
 </p-autoComplete>
