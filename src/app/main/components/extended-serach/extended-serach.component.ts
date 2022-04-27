@@ -22,6 +22,14 @@ export class ExtendedSerachComponent implements OnInit {
   moveToDetails(){
     this.router.navigateByUrl('/searchDetails');
   }
+
+  ngAfterViewInit() {
+    $(window).scroll(function(){
+      var fromTop = $(window).scrollTop();
+      $("#searchBar").css('margin', '-' + (100 - fromTop) + 'px 0px 0px 0px');
+  });
+}
+
   GetpropertyType(){
     
      let  Where = {
