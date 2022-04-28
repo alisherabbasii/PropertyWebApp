@@ -14,7 +14,9 @@ export class AreaRangeComponent implements OnInit {
   selectedSpan: any = 'Home';
   showBedDropDown:boolean=true;
   ngOnInit(): void {
-
+    // min_marla
+    document.getElementById('min_marla').innerHTML = localStorage.getItem('areaRangeMin');
+    document.getElementById('max_marla').innerHTML = localStorage.getItem('areaRangeMax');
     $('.dropdown-menu.ddRange')
       .click(function (e) {
         e.stopPropagation();
@@ -110,6 +112,7 @@ export class AreaRangeComponent implements OnInit {
       $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('min_marla').innerHTML = minValue;
+      localStorage.setItem('areaRangeMin',minValue);
 
       this.disableDropDownRangeOptions(max_val_marla, minValue);
 
@@ -125,6 +128,7 @@ export class AreaRangeComponent implements OnInit {
       $(this).css('color', 'white');
       max_input.val(maxValue);
       document.getElementById('max_marla').innerHTML = maxValue;
+      localStorage.setItem('areaRangeMax',maxValue);
       toggleDropDown();
     });
 

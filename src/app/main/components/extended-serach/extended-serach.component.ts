@@ -16,6 +16,7 @@ export class ExtendedSerachComponent implements OnInit {
     debugger
     this.GetpropertyType();
     document.getElementById('priceRange').innerHTML = localStorage.getItem('priceRange');
+    
   }
   find(){
     
@@ -25,10 +26,10 @@ export class ExtendedSerachComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    $(window).scroll(function(){
-      var fromTop = $(window).scrollTop();
-      $("#searchBar").css('margin', '-' + (100 - fromTop) + 'px 0px 0px 0px');
-  });
+  //   $(window).scroll(function(){
+  //     var fromTop = $(window).scrollTop();
+  //     $("#searchBar").css('margin', '-' + (100 - fromTop) + 'px 0px 0px 0px');
+  // });
 }
 
   GetpropertyType(){

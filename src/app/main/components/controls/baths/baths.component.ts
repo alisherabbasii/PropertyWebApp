@@ -28,12 +28,12 @@ export class BathsComponent implements OnInit {
     
     
       this.setuinvestRangeDropDownListArea(
-        $('.bedRange .min_value'),
-        $('.bedRange .max_value'),
-        $('.bedRange .freeformPrice .min_input'),
-        $('.bedRange .freeformPrice .max_input'),
-        $('.bedRange .btnClear'),
-        $('.bedRange .dropdown-toggle'));
+        $('.bathRange .min_value'),
+        $('.bathRange .max_value'),
+        $('.bathRange .freeformPriceBath .min_input'),
+        $('.bathRange .freeformPriceBath .max_input'),
+        $('.bathRange .btnClear'),
+        $('.bathRange .dropdown-toggle'));
 
         
   }
@@ -45,7 +45,7 @@ export class BathsComponent implements OnInit {
       $(this).css('background-color', '#007bff');
       $(this).css('color', 'white');
       min_input.val(minValue);
-      document.getElementById('selectedBeds').innerHTML = minValue;
+      document.getElementById('selectedBaths').innerHTML = minValue;
   
      this.disableDropDownRangeOptionsArea(max_values, minValue);
   

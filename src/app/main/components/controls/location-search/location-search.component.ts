@@ -57,8 +57,9 @@ export class LocationSearchComponent implements OnInit {
 
   SelectLocation() {
     debugger
-    console.log(this.selectedLocatedCountires)
+    console.log("alisherabbasi",this.selectedLocatedCountires)
     this.selectedLocationOutput.emit(this.selectedLocatedCountires);
+    localStorage.setItem("locationVal", JSON.stringify(this.selectedLocatedCountires));
   }
 
 
