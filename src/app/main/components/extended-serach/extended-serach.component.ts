@@ -14,7 +14,8 @@ export class ExtendedSerachComponent implements OnInit {
   GetAllLLCustomer:any
   ngOnInit(): void {
     debugger
-    this.GetpropertyType()
+    this.GetpropertyType();
+    document.getElementById('priceRange').innerHTML = localStorage.getItem('priceRange');
   }
   find(){
     
