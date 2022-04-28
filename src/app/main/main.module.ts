@@ -33,10 +33,13 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {GalleriaModule} from 'primeng/galleria';
 import { BathsComponent } from './components/controls/baths/baths.component';
 import { PurposeComponent } from './components/controls/purpose/purpose.component';
+import { GalleryComponent } from './components/controls/gallery/gallery.component';
+import { PhotoService } from '../services/PhotoService';
 
 @NgModule({
     declarations: [
         HomeComponent,
+        GalleryComponent,
         HeaderComponent,
         BodyComponent,
         ControlsComponent,
@@ -52,7 +55,8 @@ import { PurposeComponent } from './components/controls/purpose/purpose.componen
         AreaRangeComponent,
         SearchDetailsComponent,
         BathsComponent,
-        PurposeComponent
+        PurposeComponent,
+        GalleryComponent
     ],
   imports: [
     MainRoutingModule,
@@ -71,7 +75,7 @@ import { PurposeComponent } from './components/controls/purpose/purpose.componen
     RadioButtonModule,
     CheckboxModule
   ],
-    providers: [ProductService,],
+    providers: [ProductService,PhotoService],
     exports: [
         FooterComponent
     ]
