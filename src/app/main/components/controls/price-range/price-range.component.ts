@@ -13,6 +13,10 @@ export class PriceRangeComponent implements OnInit {
   showBedDropDown:boolean=true;
   ngOnInit(): void {
 
+    document.getElementById('min_price_val').innerHTML = localStorage.getItem('priceRangeMin');
+    document.getElementById('max_price_val').innerHTML = localStorage.getItem('priceRangeMax');
+
+
     $('.dropdown-menu.ddRange')
       .click(function (e) {
         e.stopPropagation();
@@ -62,7 +66,7 @@ export class PriceRangeComponent implements OnInit {
       min_input.val(minValue);
       document.getElementById('min_price_val').innerHTML = minValue;
 
-
+      localStorage.setItem('priceRangeMin',minValue);
       this.disableDropDownRangeOptionsArea(max_values, minValue);
 
       validateDropDownInputs();
@@ -80,7 +84,7 @@ export class PriceRangeComponent implements OnInit {
 
       max_input.val(maxValue);
       document.getElementById('max_price_val').innerHTML = maxValue;
-
+      localStorage.setItem('priceRangeMax',maxValue);
       toggleDropDown();
     });
 

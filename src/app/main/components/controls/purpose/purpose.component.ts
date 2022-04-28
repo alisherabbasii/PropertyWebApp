@@ -28,12 +28,12 @@ export class PurposeComponent implements OnInit {
     
     
       this.setuinvestRangeDropDownListArea(
-        $('.bedRange .min_value'),
-        $('.bedRange .max_value'),
-        $('.bedRange .freeformPrice .min_input'),
-        $('.bedRange .freeformPrice .max_input'),
-        $('.bedRange .btnClear'),
-        $('.bedRange .dropdown-toggle'));
+        $('.purposeDd .min_value'),
+        $('.purposeDd .max_value'),
+        $('.purposeDd .freeformPrice .min_input'),
+        $('.purposeDd .freeformPrice .max_input'),
+        $('.purposeDd .btnClear'),
+        $('.purposeDd .dropdown-toggle'));
 
         
   }
@@ -45,7 +45,7 @@ export class PurposeComponent implements OnInit {
       $(this).css('background-color', '#007bff');
       $(this).css('color', 'white');
       min_input.val(minValue);
-      document.getElementById('selectedBeds').innerHTML = minValue;
+      document.getElementById('selectedPurpose').innerHTML = minValue;
   
      this.disableDropDownRangeOptionsArea(max_values, minValue);
   

@@ -20,6 +20,12 @@ export class BedsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+    document.getElementById('selectedBeds').innerHTML = localStorage.getItem('bedsRange');
+
+
+
     $('.dropdown-menu.ddRange')
     .click(function(e) {
       e.stopPropagation();
@@ -48,7 +54,8 @@ export class BedsComponent implements OnInit {
       $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('selectedBeds').innerHTML = minValue;
-  
+      localStorage.setItem('bedsRange',minValue);
+
      this.disableDropDownRangeOptionsArea(max_values, minValue);
   
       validateDropDownInputs();
