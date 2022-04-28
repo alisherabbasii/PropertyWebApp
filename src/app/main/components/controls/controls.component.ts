@@ -191,7 +191,7 @@ export class ControlsComponent implements OnInit {
       $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('price_range1').innerHTML = minValue;
-
+      localStorage.setItem('priceRange',minValue);
       this.disableDropDownRangeOptions(max_val_marla, minValue);
 
       validateDropDownInputs();

@@ -19,6 +19,7 @@ export class LocationSearchComponent implements OnInit {
   constructor(private service:DataService) { }
 
   ngOnInit(): void {
+    
   }
   tr:boolean = true;
   maxLen:number = 10;
@@ -56,8 +57,9 @@ export class LocationSearchComponent implements OnInit {
 
   SelectLocation() {
     debugger
-    console.log(this.selectedLocatedCountires)
+    console.log("alisherabbasi",this.selectedLocatedCountires)
     this.selectedLocationOutput.emit(this.selectedLocatedCountires);
+    localStorage.setItem("locationVal", JSON.stringify(this.selectedLocatedCountires));
   }
 
 

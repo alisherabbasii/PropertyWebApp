@@ -20,6 +20,7 @@ export class PropertyTypeComponent implements OnInit {
   homeList:any=''
   ngOnInit(): void {
     this.GetpropertyType();
+    this.homeList = localStorage.getItem('propertyType');
  
   }
 
@@ -32,7 +33,7 @@ export class PropertyTypeComponent implements OnInit {
   
   changeSpan(val:any){
   
-      this.homeList=val;
+     // this.homeList=val;
    
     this.onDropDownChange.emit(val);
     this.selectedSpan = this.PropertyType.filter(x=>x.AdClassName == val);
@@ -55,6 +56,9 @@ export class PropertyTypeComponent implements OnInit {
 
   onHomeClick(val:any){
     this.homeList = val;
+    localStorage.setItem("propertyType",val);
   }
+
+
 
 }
