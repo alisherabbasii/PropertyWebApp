@@ -19,6 +19,7 @@ export class LocationSearchComponent implements OnInit {
   constructor(private service:DataService) { }
 
   ngOnInit(): void {
+    
   }
   tr:boolean = true;
   maxLen:number = 10;
