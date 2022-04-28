@@ -427,23 +427,11 @@
                 <section class="">
                     <div class="d-flex container py-2 row">
                         <div class="d-flex flex-column col-lg-8">
-                            <div class="flex-grow-1">
+                
 
-                                <p-carousel [value]="products" [showIndicators]="false" [numScroll]="1" [numVisible]="1"
-                                    [circular]="true" [responsiveOptions]="responsiveOptions">
+                                <app-gallery></app-gallery>
 
-                                    <ng-template let-product pTemplate="item">
-                                        <div class="product-item">
-                                            <div>
-                                                <div class="mb-3">
-                                                    <img src="{{product.image}}" alt="sample" class="product-image1" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ng-template>
-                                </p-carousel>
 
-                            </div>
                             <div>
                                 <!-- icons -->
 
