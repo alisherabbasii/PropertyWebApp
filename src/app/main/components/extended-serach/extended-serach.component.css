@@ -5,19 +5,55 @@
     padding-bottom: 0px;
 
 }
+.col-lg-3{
+    padding-left: 0.4rem;
+    padding-right: 0rem;
+    }
+
+.col-sm-2{
+    padding-left: 0.5rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    padding-right: 0rem ;
+}
+
+.col-lg-6{
+    padding-left: 0.5rem;
+    padding-right: 0rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
 
 
 :host::ng-deep button{
-    width: 13rem !important;
+    width: 14rem !important;
 }
 
 
 :host::ng-deep .pi-angle-down{
-    padding-left: 6rem;
+    padding-left: 7rem;
+}
+:host::ng-deep .p-autocomplete .p-autocomplete-multiple-container {
+    
+    border-radius: 2.5px;
 }
 
+
+
+/* :host::ng-deep .container{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+} */
+
 .keyword{
-    width: 13rem !important;
+    width: 14rem !important;
+    border-radius: 2.5px;
+    height: 49px;
+    background: #f8f9fb !important;
+
 }
 
 
@@ -26,15 +62,7 @@
    width: 100%;
 }
 
-.col-sm-2{
-    padding-left: 0.2rem;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-right: 0px;
-}
-.col-lg-3{
-padding-left: 0.2rem;
-}
+
 
 ::placeholder {
     padding-top: 0px !important;
