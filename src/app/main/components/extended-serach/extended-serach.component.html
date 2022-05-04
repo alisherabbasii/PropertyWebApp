@@ -2,54 +2,70 @@
 <app-header-with-logo></app-header-with-logo>
 
 <section id="" style="background: rgba(18, 18, 18, 1);width: 100%;z-index: 99;" class="pt-3 pb-3">
-<div class="row">
-  <div class="col-lg-3 d-flex justify-content-end">
-    <app-purpose></app-purpose>
+  <div class="row mx-5">
+    <div class="col-lg-2 d-flex justify-content-end">
+      <app-purpose></app-purpose>
+    </div>
+    <div class="col">
+      <app-city (selectedCityOutput)="GetCity($event)"></app-city>
+    </div>
+    <div class="col-lg-6 ">
+      <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
+    </div>
+    <div class="col-lg-2 d-flex justify-content-start">
+      <app-property-type (onDropDownChange)="showHideDropDown($event)"></app-property-type>
+
+    </div>
   </div>
-  <div class="col-lg-6 ">
-    <app-location-search></app-location-search>
+
+  <!-- second row -->
+  <div class="row mt-2 mx-5">
+    <div class="col-lg-2 d-flex justify-content-end">
+      <app-area-range></app-area-range>
+    </div>
+    <div class="col-sm-2 ">
+      <app-price-range></app-price-range>
+    </div>
+    <div class="col-lg-2">
+      <app-beds></app-beds>
+
+    </div>
+    <div class="col-lg-2 d-flex justify-content-end">
+      <app-baths></app-baths>
+      </div>
+    <div class="col-lg-2 d-flex justify-content-end">
+      <input type="text" class="keyword" placeholder="Keyword"
+      pInputText />
+
+      </div>
+    <div class="col-lg-2 d-flex justify-content-start">
+      <app-more-options></app-more-options>
+    </div>
   </div>
-  <div class="col-lg-3 d-flex justify-content-start">
-    <app-beds></app-beds>
-  </div>
-</div>
-<div class="row mt-2 d-flex justify-content-center">
-  <div class="col-sm-2 d-flex justify-content-end">
-    <app-area-range></app-area-range>
-  </div>
-  <div class="col-sm-2 center-controls">
-    <app-price-range></app-price-range>
-  </div>
-  <div class="col-sm-2 center-controls">
-    <app-property-type></app-property-type>
-  </div>
-  <div class="col-sm-2 center-controls d-flex justify-content-end">
-    <input type="text" class="keyword" placeholder="Keyword" pInputText />
-  </div>
-  <div class="col-sm-2 ">
-    <app-baths></app-baths>
-  </div>
-</div>
 </section>
 
+<div class="d-flex float-end pt-4 card-body">
+  <div class="mr-3 cursor-pointer" (click)="changeView('list')">
+    <i class="pi pi-list" [ngClass]="[dataView=='list' ? 'text-black-50' : 'text-black']" style="font-size: 2rem"></i>
+  </div>
+  <div (click)="changeView('grid')" class="cursor-pointer">
+    <i class="pi pi-align-justify" [ngClass]="[dataView=='grid' ? 'text-black-50' : 'text-black']"
+      style="font-size: 2rem"></i>
+  </div>
+</div>
+
+<!-- List View -->
 
 
-
-
-
-
-
-
-
-
-<section style="background-color: #eee" style="padding-top:10rem">
-  <div class="container py-5" >
+<section *ngIf="dataView=='list'" style="background-color: #eee" class="extended-search">
+  <div class="container py-5">
     <div class="row mb-3 justify-content-center mb-3" *ngFor="let s of GetAllLLCustomer">
-      <div class="col-md-12 col-xl-10" (click)="moveToDetails()">
+      <div class="col-md-12 ">
         <div class="card shadow-0 border rounded-3">
           <div class="card-body">
             <div class="row mb-3">
-              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+<!--              (click)="moveToDetails()"-->
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 cursor-pointer" [routerLink]="['/searchDetails',s.AdId]">
                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
                   <img
                     src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
@@ -103,9 +119,11 @@
                 </div>
                 <h6 class="text-success">Discounted Offer</h6>
                 <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-success btn-sm" type="button">
-                    Reserve
-                  </button>
+                  <div class="text-start mt-2">
+                    <p-checkbox [(ngModel)]="s.isInBasket" label="Email Basket" [binary]="true"
+                      (onChange)="emailBasketClick($event, s.AdId)"></p-checkbox>
+                  </div>
+
                   <button class="btn btn-outline-success btn-sm mt-2" type="button">
                     Call
                   </button>
@@ -122,10 +140,138 @@
       </div>
     </div>
 
- 
+
+
+
   </div>
 </section>
 
+
+
+<!-- Grid View -->
+
+<section *ngIf="dataView=='grid'" style="background-color: #eee" class="extended-search">
+  <div class="row mr-5 py-5 offset-2">
+    <div class="mb-3 col-lg-4 pt-5 col-sm-5" *ngFor="let s of GetAllLLCustomer; let i=index">
+      <div class="mr-5">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body d-flex flex-column">
+
+            <!-- Image Div -->
+
+<!--            (click)="moveToDetails()"-->
+            <div class="cursor-pointer" [routerLink]="['/searchDetails',s.AdId]">
+              <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                <img
+                  src="https://www.propertypriceadvice.co.uk/wp-content/uploads/2019/02/house-red-features-home-insurance.jpg"
+                  class="w-100" />
+                <a href="#!">
+                  <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(253, 253, 253, 0.15)"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Time till Now div -->
+            <div class="my-3">
+              <small class="text-black-50"> Added 16 mins ago </small>
+            </div>
+
+            <!-- price div -->
+            <div>
+              <span>PKR <b> {{s.AdPropertyPrice}}</b></span>
+            </div>
+            <!-- discription Area div -->
+            <div>
+              <p class="line-break">
+                Behria Town Phase 4, Behria Town Rawalpindi {{s.AdPropertyArea}}
+              </p>
+            </div>
+
+            <!-- Icons with house information -->
+            <div class="d-flex">
+              <div class="col-sm-2">
+                <span class="text-secondary">
+                  <i class="fa-solid fa fa-bed"></i>
+                </span>
+                <span>2</span>
+              </div>
+              <div class="col-sm-2">
+                <span class="text-secondary">
+                  <i class="fa-solid fa fa-bath"></i>
+                </span>
+                <span>2</span>
+              </div>
+              <div class="col-sm-3">
+                <span class="text-secondary">
+                  <i class="fa-solid fa fa-home"></i>
+                </span>
+                <span>5</span>
+              </div>
+            </div>
+
+            <!-- button div -->
+            <div class="d-flex justify-content-between mt-2">
+              <button class="btn btn-outline-success btn-sm  mr-5" type="button">
+                Call
+              </button>
+              <button class="btn btn-outline-success btn-sm" type="button">
+                Email
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Email Bucket Code -->
+
+
+<div class="email-bucket">
+  <p-dialog [(visible)]="displayBasic" [style]="{width: '25vw'}" [baseZIndex]="10000">
+    <ng-template pTemplate="header">
+      Email Basket ({{totalProperties === 1 ? (totalProperties + ' Property') : (totalProperties + ' Properties')}})
+      <span class="icon-minimize">
+        <i *ngIf="!minimizePopup" class="pi pi-window-minimize" (click)="togglePopup()"></i>
+        <i *ngIf="minimizePopup" class="pi pi-window-maximize" (click)="togglePopup()"></i>
+      </span>
+    </ng-template>
+    <ng-template pTemplate="content" style="padding-top: 5px; padding-bottom: 0px;">
+      <div class="row" style="border-bottom: 5px solid #e3e3e3; padding: 5px 0 8px;" *ngFor="let basket of emailBasketList">
+        <div class="col-4 col-sm-4" style="padding: 5px;">
+          <img style="height: 80px; width: -webkit-fill-available;" src="assets/img/register-bg.jpg">
+        </div>
+        <div class="col-8 col-sm-8" style="padding: 2px;">
+          <div class="d-flex">
+            <span style="font-size: 10px; font-weight: 700; margin-top: 6px;">PKR</span>
+            <span style="margin-left: 5px; font-weight: 700; color: black;">{{basket.Ad.AdPropertyPrice}} Lacs</span>
+          </div>
+          <span class="doted-text" style="display: block">{{basket.Ad.AdName}}</span>
+<!--          <span class="doted-text" style="display: block">Bahria Paradise - Precinct 49, Bahria Paradise</span>-->
+          <span class="doted-text" style="display: block; color: #0792ea">250 Square Yards Plot Best For Investment Is
+            Now Available On Very Low Price In Bahria Town Karachi</span>
+          <span style="display: block">{{basket.Ad.AdPropertyArea ? basket.Ad.AdPropertyArea : 0}} Marla</span>
+          <span style="display: block" class="remove-text" (click)="removeFromBsket(basket.Ad.AdId)">Remove</span>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="justify-content-center" style="padding: 0 1rem; width: -webkit-fill-available; display: inline-flex;">
+        <div class="btn-remove">
+          <span>Remove All</span>
+        </div>
+        <div class="btn-email" (click)="sendBasketEmail()">
+          <span>Email</span>
+        </div>
+      </div>
+
+      <!--      <p-button icon="pi pi-check" (click)="displayBasic=false" label="Remove All" styleClass="p-button-text"></p-button>-->
+      <!--      <p-button icon="pi pi-times" (click)="displayBasic=false" label="Email"></p-button>-->
+    </ng-template>
+  </p-dialog>
+</div>
 
 
 

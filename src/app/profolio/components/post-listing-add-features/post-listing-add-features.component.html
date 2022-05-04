@@ -1,0 +1,582 @@
+<div style="background-color: #fa0c19; padding: 3px;"></div>
+<div>
+  <div class="d-flex" style="padding: 6px 5px; font-size: 17px; font-weight: 600; -webkit-box-shadow: 0 0.3rem 0.6rem 0 rgb(0 0 0 / 8%);
+   box-shadow: 0 0.3rem 0.6rem 0 rgb(0 0 0 / 8%); background: bottom;">
+    <div style="width: 95%; text-align: center;">
+      <span>Property Features</span>
+    </div>
+    <div style="width: 5%; text-align: right;">
+      <i class="pi pi-times-circle cursor-pointer cls-btn" (click)="onClose()"></i>
+    </div>
+  </div>
+
+  <div>
+    <div class="row mt-3 mb-3 features-form" style="width: 100%;">
+        <div class="col-6" style="margin-left: 5px; width: 48% !important;">
+
+          <span style="font-size: 14px; font-weight: 600;">Main Features</span>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Built in year </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="number" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">View </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Parking Spaces </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Double Glazed Windows </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Central Air Conditioning </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Central Heating </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Flooring </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-dropdown [options]="flooring" [(ngModel)]="selectedFlooring" optionLabel="CityName" [filter]="true" filterBy="CityName"
+                          placeholder="Select" [style]="{'minWidth':'75%', 'width': '75%'}">
+                <ng-template pTemplate="selectedItem">
+                  <div class="country-item country-item-value" *ngIf="selectedFlooring">
+                    <div>{{selectedFlooring.CityName}}</div>
+                  </div>
+                </ng-template>
+                <ng-template let-city pTemplate="item">
+                  <div class="country-item">
+                    <div>{{selectedFlooring.CityName}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Electricity Backup </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-dropdown [options]="electricityBackup" [(ngModel)]="selectedElectricityBackup" optionLabel="CityName" [filter]="true" filterBy="CityName"
+                          placeholder="Select" [style]="{'minWidth':'75%', 'width': '75%'}">
+                <ng-template pTemplate="selectedItem">
+                  <div class="country-item country-item-value" *ngIf="selectedElectricityBackup">
+                    <div>{{selectedElectricityBackup.CityName}}</div>
+                  </div>
+                </ng-template>
+                <ng-template let-city pTemplate="item">
+                  <div class="country-item">
+                    <div>{{selectedElectricityBackup.CityName}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Waste Disposal </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Main Features </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Furnished </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+    <!--   Business and Communication-->
+          <div class="mt-5">
+            <span  style="font-size: 14px; font-weight: 600;">Business and Communication</span>
+          </div>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Broadband Internet Access </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Satellite or Cable TV Ready </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Intercom </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Business and Communication Facilities </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <!--   Healthcare Recreational  -->
+          <div class="mt-5">
+            <span style="font-size: 14px; font-weight: 600;">Healthcare Recreational</span>
+          </div>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Lawn or Garden </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Swimming Pool </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Sauna </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Jacuzzi </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Healthcare and Recreation Facilities </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <!--   Nearby Locations and Other Facilities  -->
+          <div class="mt-4">
+            <span style="font-size: 14px; font-weight: 600;">Nearby Locations and Other Facilities</span>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Nearby Schools </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Nearby Hospitals </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Nearby Shopping Malls </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Nearby Restaurants </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Distance From Airport (kms) </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Nearby Public Transport Service </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Nearby Places </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6" style="margin-left: 5px; width: 48% !important;">
+
+          <span style="font-size: 14px; font-weight: 600;">Rooms</span>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Bedrooms </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="number" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Bathrooms </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Servant Quarters </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Drawing Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Dining Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Kitchens </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Study Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Prayer Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Powder Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Gym </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Store Rooms </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Steam Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Lounge or Sitting Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Laundry Room </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Rooms </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input type="text" pInputText />
+            </div>
+          </div>
+
+
+          <!--   Community Features  -->
+          <div class="mt-4">
+            <span style="font-size: 14px; font-weight: 600;">Community Features</span>
+          </div>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Community Lawn or Garden </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Community Swimming Pool </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Community Gym </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">First Aid or Medical Centre </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Day Care Centre </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Kids Play Area </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Barbeque Area </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Mosque </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Community Centre </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Community Facilities </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+          <!--   Other Facilities  -->
+          <div class="mt-5">
+            <span style="font-size: 14px; font-weight: 600;">Other Facilities</span>
+          </div>
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Maintenance Staff </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Security Staff </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Facilities for Disabled </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <p-checkbox [binary]="true"></p-checkbox>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="div-label justify-content-start d-flex flex-nowrap">
+              <label class="label m-label">Other Facilities </label>
+            </div>
+            <div class="div-field justify-content-start d-flex flex-nowrap">
+              <input class="mt-2" type="text" pInputText />
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="row mt-3 mb-3 justify-content-center d-flex flex-nowrap" style="width: 100%;">
+        <div class="btn btn-login justify-content-center mt-4">
+          <span class="btn-login-text text-cap">Save & Continue</span>
+        </div>
+      </div>
+  </div>
+</div>

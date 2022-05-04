@@ -1,7 +1,7 @@
-<nav class="navbar navbar-light direction-change-screen">
+<nav class="navbar navbar-light direction-change-screen" #headerElement>
     <div class="d-flex w-100 justify-content-between">
     <div class="d-flex">
-    <a class="navbar-brand" routerLink="">
+    <a class="navbar-brand" routerLink="/home">
         <i class="pi pi-home" style="font-size: 1.5rem; color: white;"></i>
     </a>
      <a class="navbar-brand font-15" routerLink=" ">
@@ -55,10 +55,10 @@
     <a class="navbar-brand" href="#">
         <i class="pi pi-flag-fill" style="font-size: 1rem; color: white;"></i>
     </a>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
         <i class="pi pi-cog" style="font-size: 1rem; color: white;"></i>
     </a>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand cursor-pointer" (click)="login()">
         <i class="pi pi-user" style="font-size: 1rem; color: white;"></i>
     </a>
     </div>

@@ -1,0 +1,61 @@
+<div style="background-color: #fa0c19; padding: 3px;"></div>
+<div class="p-2 login-form">
+  <div class="text-right">
+    <i class="pi pi-times-circle cursor-pointer cls-btn" (click)="onClose()"></i>
+  </div>
+
+  <div class="p-2">
+    <div class="d-flex btn fb-btn-bg justify-content-center">
+      <img class="fb-icon" src="assets/img/facebook.png">
+      <span class="btn-text">CONTINUE WITH FACEBOOK</span>
+    </div>
+
+    <div class="d-flex btn gmail-btn justify-content-center mt-2">
+      <img class="fb-icon" src="assets/img/google.png">
+      <span class="btn-text-gmail">CONTINUE WITH GOOGLE</span>
+    </div>
+
+    <span class="btn-login-text mt-2" style="display: block; text-align: center;">OR</span>
+
+    <div class="justify-content-center error-div mt-2" *ngIf="showErrorEmail">
+      <span>Please enter your e-mail address.</span>
+    </div>
+
+    <div class="justify-content-center input-div mt-2">
+      <input class="input-field" pInputText placeholder="E-mail*" #email [(ngModel)]="signInObj.Email"
+             [ngClass]="{'ng-invalid ng-dirty' : showErrorEmail}" (input)="onEmailInput()">
+    </div>
+
+    <div class="justify-content-center error-div mt-2" *ngIf="showErrorPassword">
+      <span>Password is required.</span>
+    </div>
+
+    <div class="justify-content-center input-div mt-2">
+<!--      <input class="input-field" pInputText type="password" placeholder="Password*" #password [(ngModel)]="signInObj.Password"-->
+<!--             [ngClass]="{'ng-invalid ng-dirty' : showErrorPassword}" (input)="onPasswordInput()">-->
+
+      <p-password placeholder="Password*" #password placeholder="Password*"
+                  [(ngModel)]="signInObj.Password" [ngClass]="{'ng-invalid ng-dirty' : showErrorPassword}" (input)="onPasswordInput()"
+                  [toggleMask]="true" [feedback]="false"></p-password>
+    </div>
+
+    <div class="d-flex btn btn-login justify-content-center mt-2" (click)="onClickLogin()">
+      <span class="btn-login-text text-cap">Login</span>
+    </div>
+
+    <div class="d-flex justify-content-center input-div mt-2">
+      <div style="width: 60%">
+        <p-checkbox [(ngModel)]="rememberMe"  label="Remember Me" [binary]="true" (onChange)="onChangeRemeber()"></p-checkbox>
+      </div>
+      <div style="width: 40%; margin-top: 3px;">
+        <span class="forget-text text-fl-cap cursor-pointer" (click)="forgotPassowrd()">Forgot Password?</span>
+      </div>
+    </div>
+
+    <div class="d-flex btn btn-signup justify-content-center mt-2 cursor-pointer" (click)="onClose()" routerLink="signup">
+      <span class="btn-login-text">BECOME A FREE MEMBER</span>
+    </div>
+  </div>
+
+</div>
+

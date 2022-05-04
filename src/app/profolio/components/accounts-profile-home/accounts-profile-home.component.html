@@ -1,0 +1,39 @@
+<section class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xxl-3">
+      <div class="mt-2">
+        <div class="side-table-head">
+          <span>Profiles</span>
+        </div>
+        <div class="side-table-text" *ngFor="let menu of menuList" (click)="onChangeRoute(menu.label)" [routerLink]="[menu.url]"
+             [routerLinkActive]="['nav-active']">
+          <span>
+            {{menu.label}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 col-lg-9 col-md-9 col-sm-9 col-xl-9 col-xxl-9">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light bbtm-profolio btn-header-padding">
+        <div class="d-flex">
+          <span class="clr-theme font-10 font-weight-700">My Account & Profiles</span>
+          <i class="fa fa-angle-double-right p-3px font-12" aria-hidden="true"></i>
+          <span class="font-10 font-weight-700">{{selectedRoute}}</span>
+        </div>
+        <div class="header d-flex" style="top: 0.5rem;">
+          <div>
+            <label class="font-12">Edit Property: </label>
+            <input type="text" class="input-search" placeholder="Enter ID">
+          </div>
+
+          <div class="cursor-pointer btn-go bg-icon-btn mr-5px">
+            <span class="clr-white">Go</span>
+          </div>
+        </div>
+      </nav>
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

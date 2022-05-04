@@ -1,7 +1,9 @@
 export const environment = {
   production: true,
-  servicingUrl: 'https://erpsystems.app:8096/',
-  documentsUrl: 'http://115.186.131.157:6060/',
-  profolioServicingUrl: 'http://52.220.211.58:8092/',
+  servicingUrl: 'http://erpsystems.ddns.net:8091/',
+  loginSignupUrl: 'http://erpsystems.ddns.net:8091/',
+  profolioServicingUrl: 'http://erpsystems.ddns.net:8091/',
+  // documentsUrl: 'http://115.186.131.157:6060/',
+  documentsUrl: 'http://erpsystems.ddns.net:8091/',
 
 };

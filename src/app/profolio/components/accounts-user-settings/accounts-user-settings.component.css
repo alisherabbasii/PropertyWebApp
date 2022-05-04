@@ -1,0 +1,68 @@
+.div-head-label{
+  border: 1px solid #fa0c19;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #fa0c19;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 5px;
+  width: 100px;
+}
+
+.div-head-sublabel{
+  border: 1px solid #fa0c19;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #fa0c19;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 5px;
+  width: -webkit-fill-available;
+}
+
+.div-form-profile{
+  border: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.div-label{
+  width: 25%;
+  padding-right: 0;
+}
+
+.div-field{
+  width: 75%;
+}
+
+.label{
+  font-size: 13px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.m-label{
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.btn{
+  width: 140px;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: -webkit-center;
+}
+
+
+.btn-login{
+  background-color: #fa0c19;
+  color: white;
+}
+
+
+.btn-login-text{
+  font-size: 13px;
+  font-weight: 700;
+}

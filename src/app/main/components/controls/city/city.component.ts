@@ -35,20 +35,28 @@ export class CityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.GetAllCities()
+    this.GetAllCities();
+    this.selectedCountry.CityName="Islamabad";
+    this.selectedCountry.CityCode='1';
+
   }
 
   SelectCity() {
+    debugger;
     console.log(this.selectedCountry)
     this.selectedCityOutput.emit(this.selectedCountry);
   }
-
+  defaultValue(countryOptions:any){
+    this.selectedCountry = countryOptions.find(country => country.CityName === 'Islamabad');
+  }
   GetAllCities(){
     let obj = {
       CityIsActive:1
     }
     this.service.post(`${ApiURL}` + 'api/City/GetAll',obj).subscribe((res:any)=>{
-      this.countries = res.result
+      
+      this.countries = res.result;
+      this.defaultValue(res.result);
     })
   }
 

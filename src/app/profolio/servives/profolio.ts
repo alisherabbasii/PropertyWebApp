@@ -57,6 +57,7 @@ export interface ISavePostListing {
   AdValidityPeriod: number;
   AdValidityPeriodUnit: number;
   Description: string;
+  AdImages: any;
 }
 
 export interface ILanguageTranslate {

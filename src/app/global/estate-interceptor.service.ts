@@ -33,10 +33,17 @@ export class EstateInterceptorService implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    this.busy();
-    if (request.url.includes('https://exchangerate-api.p.rapidapi.com/')){
+
+    if(request.url.includes('api/AdClass/GetAll') || request.url.includes('api/City/GetAll'))
+    {
+
+    }
+    else {
+      this.busy();
+    }
+    if (request.url.includes('https://country-info.p.rapidapi.com/')){
       request = request.clone({
-          headers: request.headers.set('X-RapidAPI-Host', 'exchangerate-api.p.rapidapi.com')
+          headers: request.headers.set('X-RapidAPI-Host', 'country-info.p.rapidapi.com')
         },
       );
       request = request.clone({
@@ -81,6 +88,20 @@ export class EstateInterceptorService implements HttpInterceptor {
                 } else {
                   err.error.debugMessage ? this.toastr.error(err.error.debugMessage, 'Failure') : this.toastr.error(err.error.message, err.error.status);
                 }
+              }
+            }
+            else {
+              if (err.error.status.code === 1){
+                if (err.error.status.message.toLowerCase().trim() !== 'success') {
+                  this.toastr.error(err.error.status.message, "Error");
+                }
+                else {
+                  this.toastr.success(err.error.status.message, "Success");
+                }
+
+              }
+              else{
+                this.toastr.error(err.error.status.message, "Error");
               }
             }
           } else if (err.status === 401) {

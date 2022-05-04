@@ -1,0 +1,39 @@
+.cls-btn{
+  font-size: 1.5rem;
+  color: #fa0c19;
+}
+
+.btn{
+  width: 20%;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: -webkit-center;
+}
+
+.btn-login{
+  background-color: #fa0c19;
+  color: white;
+  font-weight: 700;
+}
+
+.features-form{
+  .div-label{
+    width: 50%;
+    padding-left: 2px;
+    padding-right: 0;
+  }
+
+  .div-field{
+    width: 50%;
+  }
+  .p-inputtext {
+    padding: 2px !important;
+    height: fit-content;
+  }
+  .label {
+    font-size: 13px;
+    font-weight: 400;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}

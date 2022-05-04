@@ -1,0 +1,228 @@
+<div class="mt-2" >
+  <div class="div-head-label">
+    <span>My Profile</span>
+  </div>
+  <div class="div-form-profile">
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">E-mail: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input [(ngModel)]="email" class="input-field-gen" type="text" placeholder="E-mail" pInputText disabled/>
+        <i class="pi pi-question-circle ml-15px cursor-pointer"  pTooltip="Please contact to administrator to edit your email address.
+        Your email address represnts your unique and remains locked for security reason. " tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Name: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" type="text" placeholder="Name" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"  pTooltip="Please enter your first and last name respectively." tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Phone: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" style="width: 75px; margin-right: 15px;" type="number" pInputText />
+        <input class="input-field-gen" style="width: 75px; margin-right: 15px;" type="number" pInputText />
+        <input class="input-field-gen" type="number" placeholder="Phone" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="Enter your phone (landline or fixed phone) along with area and international dialing code (+92-51-1234567)" tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Cell: </label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" style="width: 75px; margin-right: 15px;" type="number" pInputText />
+        <input class="input-field-gen" type="number" placeholder="Phone" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="Enter your mobile number along with international dialing code (+92-3001234567)" tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Fax:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" style="width: 75px; margin-right: 15px;" type="number" pInputText />
+        <input class="input-field-gen" style="width: 75px; margin-right: 15px;" type="number" pInputText />
+        <input class="input-field-gen" type="number" placeholder="Phone" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="Enter your fax number along with area and international dialing code (+92-51-1234567)" tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Address:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <textarea class="input-field-gen" [rows]="5" pInputTextarea></textarea>
+        <i class="pi pi-question-circle ml-15px cursor-pointer" style="position: absolute;"
+           pTooltip="Please enter your street address" tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Zip Code:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" type="text" placeholder="Zip Code" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="Please enter your area zip or postal code." tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Country: <span class="clr-red font-14">*</span></label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+          <p-dropdown [options]="countryList" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name"
+                      placeholder="Country" [style]="{'minWidth':'300px', 'width': '300px'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="selectedCountry">
+                <div>{{selectedCountry.name}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+              <div class="country-item">
+                <div>{{country.name}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="Please select your country of residence from the given list." tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Community Nick:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <input class="input-field-gen" type="text" placeholder="Community Nick" pInputText />
+        <i class="pi pi-question-circle ml-15px cursor-pointer"
+           pTooltip="This is your nick which is generally short form of your name which you would like to use to
+           show your in the community. you have the option to keep this name similar to your fast and last name." tooltipPosition="top"></i>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">About Yourself:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <textarea class="input-field-gen" [rows]="5" pInputTextarea></textarea>
+        <i class="pi pi-question-circle ml-15px cursor-pointer" style="position: absolute;"
+           pTooltip="Please provide information about yourself. you could tell us about your work, your interests, lifestyle
+            nature and other related information about your personality." tooltipPosition="top"></i>
+      </div>
+    </div>
+
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Picture:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <p-image src="assets/img/register-bg.jpg" alt="Image" width="200" [preview]="true"></p-image>
+      </div>
+    </div>
+
+
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Upload Image:</label>
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <p-fileUpload  name="demo[]" (onUpload)="onUpload($event)"
+                       [multiple]="false" chooseLabel="Upload Profile" [showUploadButton] = 'false' accept="image/*" [maxFileSize]="1000000">
+          <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+              <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+      </div>
+      <div class="div-field justify-content-start flex-nowrap">
+        <p-checkbox [(ngModel)]="listingDetails"  label="Update details in all property listings" [binary]="true"></p-checkbox>
+      </div>
+    </div>
+
+    <div class="row mt-5" *ngIf="listingDetails">
+      <div style="padding: 0px 5rem;">
+        <label style="font-weight: 700;">Update All Property Listings</label>
+        <p>Please tick the relevant boxes for which you wish to update your properties details</p>
+      </div>
+
+      <div class="row mt-2">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+          <label class="label m-label">Contact Person:</label>
+        </div>
+        <div class="div-field justify-content-start flex-nowrap">
+          <input class="input-field-gen" type="text" placeholder="Contact Person" pInputText />
+          <p-checkbox [style]="{'margin-left':'15px', 'margin-bottom': '5px'}" [(ngModel)]="modifyListName" [binary]="true"></p-checkbox>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+          <label class="label m-label">Phone:</label>
+        </div>
+        <div class="div-field justify-content-start flex-nowrap">
+          <input class="input-field-gen" type="text" placeholder="Phone" pInputText />
+          <p-checkbox [style]="{'margin-left':'15px', 'margin-bottom': '5px'}" [(ngModel)]="modifyListPhone" [binary]="true"></p-checkbox>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+          <label class="label m-label">Cell:</label>
+        </div>
+        <div class="div-field justify-content-start flex-nowrap">
+          <input class="input-field-gen" type="text" placeholder="Cell" pInputText />
+          <p-checkbox [style]="{'margin-left':'15px', 'margin-bottom': '5px'}" [(ngModel)]="modifyListCell" [binary]="true"></p-checkbox>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+          <label class="label m-label">E-mail address:</label>
+        </div>
+        <div class="div-field justify-content-start flex-nowrap">
+          <input class="input-field-gen" type="text" placeholder="Contact Person" pInputText />
+          <p-checkbox [style]="{'margin-left':'15px', 'margin-bottom': '5px'}" [(ngModel)]="modifyListEmail" [binary]="true"></p-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-3">
+        <div class="div-label justify-content-end d-flex flex-nowrap">
+        </div>
+        <div class="div-field justify-content-start flex-nowrap">
+          <div class="d-flex btn btn-login justify-content-center mt-4">
+            <span class="btn-login-text text-cap">Modify</span>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,125 @@
+$theme-color: #fa0c19;
+$theme-hover-color: #ffdcde;
+
+.header{
+  position: absolute;
+  right: 0;
+}
+
+.header-text{
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.btn-header{
+  border: 1px solid #dad8d8;
+  padding: 4px 12px 5px 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-size: 13px;
+  height: 30px;
+}
+
+.icon-btn{
+  margin-right: 5px;
+}
+
+.icon-btn-clr{
+  color: $theme-color;
+}
+
+.bg-icon-btn{
+  background-color: $theme-color;
+}
+
+.head-btn-margin{
+  margin-right: 1rem;
+}
+
+.btn-header-padding {
+  padding: 15px 5px;
+}
+
+.mr-5px{
+  margin-right: 5px;
+}
+
+.side-table-head{
+  border: 1px solid $theme-color;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: $theme-color;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 5px;
+}
+
+.side-table-text{
+  cursor: pointer;
+  border-bottom: 1px solid #ebeaeb;
+  border-right: 1px solid #ebeaeb;
+  border-left: 1px solid #ebeaeb;
+  font-size: 13px;
+  padding: 3px 5px;
+}
+
+.side-table-text:hover{
+  background: $theme-hover-color;
+}
+
+.nav-active{
+  background: $theme-hover-color;
+}
+
+.font-weight-700{
+  font-weight: 700;
+}
+
+.side-table-listing-head-plus{
+  width: -webkit-fill-available;
+  text-align: -webkit-right;
+}
+
+
+.side-table-headers{
+  cursor: pointer;
+  border-bottom: 1px solid #ebeaeb;
+  border-right: 1px solid #ebeaeb;
+  border-left: 1px solid #ebeaeb;
+  font-size: 13px;
+  padding: 3px 5px;
+}
+
+.side-table-subtext{
+  cursor: pointer;
+  font-size: 11px;
+  padding: 3px 15px;
+}
+
+.side-table-subtext:hover{
+  background: $theme-hover-color;
+}
+
+.side-table-subtext-active{
+  background: $theme-hover-color;
+}
+
+.input-search{
+  width: 100px;
+  height: 22px;
+  font-size: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-go {
+  border: 1px solid #dad8d8;
+  padding: 4px 10px 4px 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-size: 12px;
+}

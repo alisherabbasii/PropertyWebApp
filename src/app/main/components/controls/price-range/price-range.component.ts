@@ -10,11 +10,18 @@ export class PriceRangeComponent implements OnInit {
   toggle: Boolean = true;
   selectedButton: any = 'Buy';
   selectedSpan: any = 'Home';
+  localValMin:any = '';
+  localValMax:any = '';
   showBedDropDown:boolean=true;
   ngOnInit(): void {
-
-    document.getElementById('min_price_val').innerHTML = localStorage.getItem('priceRangeMin');
-    document.getElementById('max_price_val').innerHTML = localStorage.getItem('priceRangeMax');
+    this.localValMin = localStorage.getItem('priceRangeMin');
+    this.localValMax = localStorage.getItem('priceRangeMax');
+    if(this.localValMin){
+      document.getElementById('min_price_val').innerHTML = localStorage.getItem('priceRangeMin');
+    }
+    if(this.localValMax){
+      document.getElementById('max_price_val').innerHTML = localStorage.getItem('priceRangeMax');
+    }
 
 
     $('.dropdown-menu.ddRange')
@@ -65,8 +72,9 @@ export class PriceRangeComponent implements OnInit {
 
       min_input.val(minValue);
       document.getElementById('min_price_val').innerHTML = minValue;
-
-      localStorage.setItem('priceRangeMin',minValue);
+      if(!localStorage.getItem('priceRangeMin')){
+        localStorage.setItem('priceRangeMin',minValue);
+      }
       this.disableDropDownRangeOptionsArea(max_values, minValue);
 
       validateDropDownInputs();
@@ -84,7 +92,9 @@ export class PriceRangeComponent implements OnInit {
 
       max_input.val(maxValue);
       document.getElementById('max_price_val').innerHTML = maxValue;
-      localStorage.setItem('priceRangeMax',maxValue);
+      if(!localStorage.getItem('priceRangeMax')){
+        localStorage.setItem('priceRangeMax',maxValue);
+      }
       toggleDropDown();
     });
 

@@ -12,7 +12,7 @@ export class ExtendedSearchService {
 
   getCustomers() {
 
-    return this.http.post('http://erpsystems.ddns.net:8091/api/Ad/GetAllLLCustomer',
+    return this.http.post('http://52.220.211.58:8092/api/Ad/GetAllLLCustomer',
     
     {
         "Where":{

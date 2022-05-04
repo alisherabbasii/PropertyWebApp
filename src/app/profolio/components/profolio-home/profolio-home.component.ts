@@ -25,7 +25,7 @@ export class ProfolioHomeComponent implements OnInit {
       }, {
         id: 4,
         label: 'My Account & Profiles',
-        url: 'account-profile'
+        url: 'account-profile-home'
       }, {
         id: 5,
         label: 'Reports',
