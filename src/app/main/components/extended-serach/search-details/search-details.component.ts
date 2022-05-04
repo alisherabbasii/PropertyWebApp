@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/productservice';
+import {Observable} from "rxjs/internal/Observable";
+import {POST_LISTING_URL} from "../../../../global/api-endpoints";
+import {ToastrService} from "ngx-toastr";
+import {MainService} from "../../../services/main.service";
+import {IAdDetails} from "../../../services/main";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-search-details',
@@ -9,7 +15,8 @@ import { ProductService } from 'src/app/services/productservice';
 })
 export class SearchDetailsComponent implements OnInit {
 
-  constructor(private productService: ProductService) { 
+  adDetails: IAdDetails = {} as IAdDetails;
+  constructor(private toastr: ToastrService,  private mainService: MainService, private activatedroute: ActivatedRoute) {
 		this.responsiveOptions = [
       {
           breakpoint: '500px',
@@ -27,7 +34,9 @@ export class SearchDetailsComponent implements OnInit {
           numScroll: 1
       }
   ];
-
+    this.activatedroute.paramMap.subscribe(params => {
+      this.getAdDetailById(Number(params.get('id')));
+    });
   }
   name:any;
   email:any;
@@ -41,18 +50,37 @@ export class SearchDetailsComponent implements OnInit {
   other:any;
   checked:any;
   ngOnInit(): void {
-    this.productService.getProductsSmall().then(products => {
-			this.products = products;
-		});
 
-
-    
   }
 
   printWindow(){
     window.print();
   }
 
+  getAdDetailById(id: number) {
+    let req = {}
+    if(localStorage.getItem('landlogic-login-response') && localStorage.getItem('landlogic-login-response-token')) {
+      req = {
+        token: localStorage.getItem('landlogic-login-response-token'),
+        AdId: id
+      }
+    }
+    else {
+      req = {
+        AdId: id
+      }
+    }
 
- 
+    this.mainService.getAdDetailById(req).subscribe(res => {
+      if(res.status.code === 0){
+        this.adDetails = res.result[0];
+        console.log(this.adDetails)
+      }
+      else {
+        this.toastr.error(res.status.message, 'Error');
+      }
+    });
+  }
+
+
 }

@@ -1,0 +1,93 @@
+<div >
+    <div class="span2 marlaRange"  style="width:inherit; ">
+      <div class="w-100" style="width: inherit;">
+        <button disabled id="min-max-price-range" style="
+                height: 49px;
+                width: inherit;
+  
+                border-radius: 2.5px !important;
+              " class="form-control selectpicker select-btn  searchParams" (click)="GetpropertyType()" href="#"
+          data-toggle="dropdown" tabindex="6">
+          <div class="defaultDropDownFontColor justify-content-start w-100 d-flex ">
+            <span style="font-size: 12px">{{'More Options' | translate}}</span>
+  
+          </div>
+          <div class="filter-option btn-propertytype-home-popup-align span_price">
+            <span id=""> <i class="pi pi-angle-down"></i></span>
+          </div>
+          <span style="font-size: 12px" class="d-flex align-items-start font-15 ">{{'Working....' | translate}}</span>
+        </button>
+  
+        <div class="dropdown-menu ddRange" role="menu" style="width: 400px !important; padding-top: 12px">
+          <div class="row d-flex justify-content-around ml-2 mb-3">
+            <div class="col-sm-3">
+              <span (click)="changeSpan('Homes')" style="font-size: 13px; cursor: pointer;"
+                [ngClass]="[selectedSpan=='Homes' ? 'horiLine' : '']">
+                {{'HOME' | translate}}
+              </span>
+            </div>
+            <div class="col-sm-3">
+              <span style="font-size: 13px; cursor: pointer;" (click)="changeSpan('Plots')"
+                [ngClass]="[selectedSpan=='Plots' ? 'horiLine' : '']">
+                {{'PLOT' | translate}}
+              </span>
+            </div>
+            <div class="col-sm-6 header-propertytype-home-popup">
+              <span (click)="changeSpan('Commercial')" style="font-size: 13px; cursor: pointer;"
+                [ngClass]="[selectedSpan=='Commercial' ? 'horiLine' : '']">
+                {{'COMMERCIAL' | translate}}
+              </span>
+  
+            </div>
+          </div>
+  
+          <!-- In case of Homes -->
+          <ng-container *ngIf="selectedSpan=='Homes'">
+            <div class="row d-flex justify-content-around align-items-center mx-4 mb-1">
+              <div class="border  rounded col-sm-6 text-propertytype-home-popup" *ngFor="let s of renderProperty; let i = index"
+                (click)="onHomeClick(s.AdClassName)" [ngClass]="[homeList==s.AdClassName ? 'text-white bg-primary' : '']">
+                <span class="basicSpanStyle mr-2">
+                  {{s.AdClassName | translate}}
+                </span>
+              </div>
+            </div>
+          </ng-container>
+  
+          <!-- In case of Commercial -->
+          <ng-container *ngIf="selectedSpan=='Commercial'">
+            <div class="row d-flex justify-content-around align-items-center mx-4 mb-1">
+              <div class="border  rounded col-sm-6 text-propertytype-home-popup" *ngFor="let s of renderProperty; let i = index"
+                (click)="onHomeClick(s.AdClassName)" [ngClass]="[homeList==s.AdClassName ? 'text-white bg-primary' : '']">
+                <span class="basicSpanStyle mr-2">
+                  {{s.AdClassName | translate}}
+                </span>
+              </div>
+            </div>
+          </ng-container>
+  
+          <!-- In case of Plots -->
+          <ng-container *ngIf="selectedSpan=='Plots'">
+            <div class="row d-flex justify-content-around align-items-center mx-4 mb-1">
+              <div class="border  rounded col-sm-6 text-propertytype-home-popup" *ngFor="let s of renderProperty; let i = index"
+                (click)="onHomeClick(s.AdClassName)" [ngClass]="[homeList==s.AdClassName ? 'text-white bg-primary' : '']">
+                <span class="basicSpanStyle mr-2">
+                  {{s.AdClassName | translate}}
+                </span>
+              </div>
+            </div>
+          </ng-container>
+  
+          <div class="d-flex btn-propertytype-home-popup-align btnClear mr-4">
+            <a href="javascript:void(0)"
+              class="mr-3 btn btn-link border-3 border  d-flex align-items-center justify-content-center float-right text-decoration-none bg-white text-black-50 btn-propertytype-home-popup">
+              {{'Reset' | translate}}</a>
+            <a href="javascript:void(0)"
+              class="btn btn-link border-3 border border-dark bg-dark d-flex align-items-center justify-content-center  float-right text-decoration-none text-white btn-propertytype-home-popup">
+              {{'Close' | translate}}</a>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

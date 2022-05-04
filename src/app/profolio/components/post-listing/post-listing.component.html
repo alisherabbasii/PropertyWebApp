@@ -243,6 +243,19 @@
         </ng-template>
       </p-dropdown>
     </div>
+
+    <div class="row mt-2" *ngIf="selectedPropertySubType === 'House' || selectedPropertySubType === 'Flat'
+    || selectedPropertySubType === 'Upper Portion' || selectedPropertySubType === 'Lower Portion' || selectedPropertySubType === 'Farm House'">
+      <div class="div-label justify-content-end d-flex flex-nowrap">
+        <label class="label m-label">Features: </label>
+      </div>
+      <div class="div-field justify-content-start d-flex flex-nowrap">
+        <div class="cursor-pointer btn-images bg-icon-btn mr-5px" (click)="addFeatures()">
+          <span class="clr-white">Add Features</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -443,19 +456,33 @@
   </div>
 </div>
 
-<div class="row mt-4 header-margin">
+<div class="row mt-4 header-margin post-property-images">
   <div class="header-bar mr-12px">
     <span>IMAGES</span>
   </div>
 
   <div class="row mt-2 d-flex">
-    <div class="cursor-pointer btn-images bg-icon-btn mr-5px">
-      <span class="clr-white">Add Images</span>
+<!--    <div class="cursor-pointer btn-images bg-icon-btn mr-5px">-->
+<!--      <span class="clr-white">Add Images</span>-->
+<!--    </div>-->
+
+    <div class="mt-1 p-0">
+      <p-fileUpload  name="uploadedImages[]" (onSelect)="onUploadImages($event)"
+                     [multiple]="true" chooseLabel="Add Images"
+                     [showUploadButton] = 'false' [showCancelButton] = 'false' accept="image/*" [maxFileSize]="1000000">
+        <ng-template pTemplate="content">
+          <ul *ngIf="uploadedImages.length">
+            <li *ngFor="let file of uploadedImages">{{file.name}} - {{file.size}} bytes</li>
+          </ul>
+        </ng-template>
+      </p-fileUpload>
     </div>
+
     <div class="alert-title mt-1">
       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
       <span class="ml-5px">Press CTRL key while selecting images to upload multiple images at once</span>
     </div>
+
   </div>
 </div>
 

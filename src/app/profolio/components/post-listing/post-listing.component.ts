@@ -11,6 +11,8 @@ import {InputNumber} from "primeng/inputnumber";
 import {UtilsService} from "../../../services/utils.service";
 import {ISavePostListing} from "../../servives/profolio";
 import {ProfolioService} from "../../servives/profolio.service";
+import {PostListingAddFeaturesComponent} from "../post-listing-add-features/post-listing-add-features.component";
+import {MatDialog} from "@angular/material/dialog";
 @Component({
   selector: 'app-post-listing',
   templateUrl: './post-listing.component.html',
@@ -123,7 +125,10 @@ export class PostListingComponent implements OnInit {
   ];
   countMobileNumber = 0;
   SavePostListing: ISavePostListing = {} as ISavePostListing;
-  constructor(private toastr: ToastrService, private utilsService: UtilsService, private profolioService: ProfolioService) {
+
+  uploadedImages: any[] = [];
+  constructor(private toastr: ToastrService, private utilsService: UtilsService,
+              private profolioService: ProfolioService, public dialog: MatDialog, ) {
     this.unitList = [
       {name: 'Square Feet', id: 20},
       {name: 'Square Meter', id: 17},
@@ -431,6 +436,7 @@ export class PostListingComponent implements OnInit {
   }
 
   saveListing(){
+    console.log(this.uploadedImages)
     if (this.selectedPropertyType === null){
       this.toastr.error('Please select property type', 'Property Type');
       this.propertyTypeHomeElement.nativeElement.classList.add('error-field');
@@ -542,7 +548,7 @@ export class PostListingComponent implements OnInit {
             this.SavePostListing.AdAdTypeId = 1;
             this.SavePostListing.AdCityId = this.selectedCity.CityId;
             this.SavePostListing.AdAreaId = this.enterSearchLocation.AreaId;
-            this.SavePostListing.Area   = this.selectedLocation.AreaId;
+            this.SavePostListing.Area   = this.selectedLocation ? this.selectedLocation.AreaId : '';
             this.SavePostListing.AdPropertyUOMId  = this.selectedAreaUnit.id;
             this.SavePostListing.AdOccupancyStatusId  = this.selectedOccupancy.id;
             this.SavePostListing.AdValidityPeriodUnit  = this.selectedListingExpiry.name;
@@ -564,12 +570,20 @@ export class PostListingComponent implements OnInit {
        this.SavePostListing.AdDescription  = this.propertyDiscription
        this.SavePostListing.AdContactPersonName  = this.contactPerson
        this.SavePostListing.AdContactPersonEmail  = this.email
+       this.SavePostListing.AdImages  = this.uploadedImages
 
        this.profolioService.savePostListing(this.SavePostListing).subscribe(res => {
-         if(res){
+         if(res.status.code === 0){
            this.toastr.success('Post Saved Successfully', 'Success');
            this.clearFields();
          }
+         else if(res.status.code === 1) {
+           this.toastr.error(res.status.message, 'Error');
+         }
+         // if(res){
+         //   this.toastr.success('Post Saved Successfully', 'Success');
+         //   this.clearFields();
+         // }
        });
 
      }
@@ -592,5 +606,47 @@ export class PostListingComponent implements OnInit {
     this.propertyDiscription = null;
     this.contactPerson = null;
     this.email = null;
+  }
+
+  onUploadImages(event) {
+    debugger
+    // for(let file of event.files) {
+    //   this.uploadedImages.push(file);
+    // }
+
+    for (const file of event.files) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // @ts-ignore
+        file.small = e.target.result;
+        // @ts-ignore
+        file.medium = e.target.result;
+        // @ts-ignore
+        file.big = e.target.result;
+        file.newName = file.name;
+        // @ts-ignore
+        const index = this.uploadedImages.findIndex(obj => obj.name === file.name);
+        if (index === -1) {
+          this.uploadedImages.push(file);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  addFeatures(){
+    const dialog = this.dialog.open(PostListingAddFeaturesComponent, {
+      panelClass: 'tt-dialog',
+      width: '950px',
+      // height: '500px',
+      maxWidth: '950px',
+      maxHeight: '600px',
+      hasBackdrop: true,
+      disableClose: true
+    });
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+
+      }
+    });
   }
 }

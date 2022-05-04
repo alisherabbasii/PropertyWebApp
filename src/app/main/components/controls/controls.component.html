@@ -41,12 +41,12 @@
         <div class="col-lg-3" >
           <app-city (selectedCityOutput)="GetCity($event)"></app-city>
         </div>
-        <div class="col-lg-6 pl-2 pr-2">
+        <div class="col-lg-6 px-3">
           <app-location-search (selectedLocationOutput)="GetLocation($event)"></app-location-search>
         </div>
         <div class="col-lg-3">
           <button pButton pRipple type="button" [style]="{ width: '100%' }" label="{{'Find' | translate}}"
-            class="FindButtonGlobalThemeStyle" (click)="find()" routerLink="expandedSearch"></button>
+            class="FindButtonGlobalThemeStyle" routerLink="/expandedSearch"></button>
         </div>
 
         <div *ngIf="!toggle" class="d-flex pb-2 mt-4">
@@ -63,8 +63,6 @@
             | <span class="bottomRowDiv pr-2">{{'Reset Search' | translate}}</span>
           </span>
         </div>
-
-
       </div>
 
       <div [@slideInOut] *ngIf="toggle" class="row col-lg-8 offset-2 pt-2">

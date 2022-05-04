@@ -1,0 +1,91 @@
+.btn{
+  margin: 0px 15px;
+  width: -webkit-fill-available;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: -webkit-center;
+}
+
+.fb-btn-bg{
+  background: #3c5a97;
+  color: white;
+}
+
+.gmail-btn{
+  border: 1px solid #eeeeee;
+  color: black;
+}
+
+.gmail-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.fb-btn-bg:hover {
+  background-color: #395690;
+}
+.fb-icon{
+  height: 24px;
+}
+
+.btn-text{
+   font-size: 13px;
+   font-weight: 700;
+   margin-left: 1rem;
+}
+
+.btn-text-gmail{
+   font-size: 13px;
+   font-weight: 700;
+   margin-left: 1rem;
+}
+
+.input-div{
+  margin: 0 15px;
+}
+
+.input-field{
+  padding: 6px;
+  width: -webkit-fill-available;
+}
+
+.error-div{
+  margin: 0 15px;
+  display: block;
+  color: #a94442;
+  border: 1px solid #ebcccc;
+  background-color: #f2dede;
+  font-size: 13px;
+  padding: 8px 4px;
+}
+
+.btn-login-text{
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-login{
+  background-color: #fa0c19;
+  color: white;
+}
+
+.rem-text{
+  font-size: 13px;
+}
+
+.forget-text{
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  text-align: right;
+  color: #0792ea;
+}
+
+.btn-signup{
+  border: 1px solid #fa0c19;
+  color: #fa0c19;
+}
+
+.cls-btn{
+  font-size: 1.5rem;
+  color: #fa0c19;
+}

@@ -32,8 +32,8 @@ declare var $: any;
     ])
 
   ]
-  
-  
+
+
 })
 export class ControlsComponent implements OnInit {
 
@@ -43,9 +43,7 @@ export class ControlsComponent implements OnInit {
   showBedDropDown:boolean=true;
 
   ngOnInit(): void {
-    debugger;
-    console.log("Coming from...",this.router);
-
+    // localStorage.clear();
     $('.dropdown-menu.ddRange')
       .click(function (e) {
         e.stopPropagation();
@@ -367,16 +365,12 @@ export class ControlsComponent implements OnInit {
 
   GetCity(data) {
     this.IncommingSelectedCity = data
-    debugger
-    console.log(data);
   }
 
   GetLocation(data) {
     this.IncommingSelectedLocation = data
-    debugger
-    console.log(data);
   }
-  
+
   find() {
     // debugger;
     // console.log(this.IncommingSelectedCity, this.selectedLocation)

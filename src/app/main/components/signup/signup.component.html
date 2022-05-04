@@ -1,0 +1,255 @@
+<section class="row banner">
+  <h1 class="heading">Become A Free Member</h1>
+</section>
+<section class="container registration" [style.min-height]="!agentheight ? '900px' : '1720px'">
+  <div class="left details">
+    <li class="title">Register Now, It’s Free!</li>
+    <li>Post your properties on LandLogic.com and directly expose them to thousands of potential investors, tenants, buyers, agents &amp; brokers and other interested parties.</li>
+    <li>Save your favourite properties in your members panel to view them later at your convenience.</li>
+    <li>Use LandLogic.com's integrated e-mail facility to track your potential buying &amp; rental leads.</li>
+    <li>Set-up property email alerts providing you latest listings of properties instantly as they appear on LandLogic.com.</li>
+    <li>Search the exact kind of property you are looking for, including hundreds of developments, residential &amp; commercial properties, homes, villas, apartments, plots, shops, offices, complete buildings &amp; floors, warehouses, factories and labour camps.</li>
+
+  </div>
+  <div class="reg-form right">
+    <div class="p-2">
+
+      <div class="d-flex btn fb-btn-bg justify-content-center">
+        <img class="fb-icon" src="assets/img/facebook.png">
+        <span class="btn-text">CONTINUE WITH FACEBOOK</span>
+      </div>
+
+      <div class="d-flex btn gmail-btn justify-content-center mt-2">
+        <img class="fb-icon" src="assets/img/google.png">
+        <span class="btn-text-gmail">CONTINUE WITH GOOGLE</span>
+      </div>
+
+      <span class="btn-login-text mt-2" style="display: block; text-align: center;">OR</span>
+
+      <!--    <div class="justify-content-center error-div mt-2">-->
+      <!--      <span>Please enter your e-mail address.</span>-->
+      <!--    </div>-->
+<!--      [ngClass]="showErrorDescription?  'ng-invalid ng-dirty' : ''"-->
+      <div class="justify-content-center mt-2">
+        <input class="input-field" type="text" pInputText placeholder="E-mail*" #email
+               [(ngModel)]="signUpObj.Email" [ngClass]="{'ng-invalid ng-dirty' : showErrorEmail}" (input)="onEmailInput()">
+      </div>
+      <span class="email-bt-text mt-1" style="display: block; text-align: left;">This will be your login/username at LandLogic.com</span>
+
+      <div class="justify-content-center mt-2">
+        <p-password placeholder="Password*" #password autofocus
+                    [(ngModel)]="signUpObj.Password" [ngClass]="{'ng-invalid ng-dirty' : showErrorPassword}" (input)="onPasswordInput()" [toggleMask]="true"></p-password>
+<!--        <input class="input-field" type="text" pInputText placeholder="Password*" #password-->
+<!--               [(ngModel)]="signUpObj.Password" [ngClass]="{'ng-invalid ng-dirty' : showErrorPassword}" (input)="onPasswordInput()">-->
+      </div>
+
+      <div class="justify-content-center mt-2">
+        <p-password placeholder="Confirm Password*"  #repassword autofocus
+                    [(ngModel)]="rePassword" [ngClass]="{'ng-invalid ng-dirty' : showErrorRePassword}" (input)="onRePasswordInput()" [toggleMask]="true"></p-password>
+<!--        <input class="input-field" type="text" pInputText placeholder="Confirm Password*"  #repassword-->
+<!--               [(ngModel)]="rePassword" [ngClass]="{'ng-invalid ng-dirty' : showErrorRePassword}" (input)="onRePasswordInput()">-->
+      </div>
+
+      <div class="justify-content-center mt-2">
+        <input class="input-field" type="text" pInputText placeholder="First Name*" #firstName
+               [(ngModel)]="signUpObj.CustomerFirstName" [ngClass]="{'ng-invalid ng-dirty' : showErrorFName}" (input)="onFNameInput()">
+      </div>
+
+      <div class="justify-content-center mt-2">
+        <input class="input-field" type="text" pInputText placeholder="Last Name*" #lastName
+               [(ngModel)]="signUpObj.CustomerLastName" [ngClass]="{'ng-invalid ng-dirty' : showErrorLName}" (input)="onLNameInput()">
+      </div>
+
+      <div class="div-intl-field justify-content-center d-flex flex-nowrap mt-2">
+        <ngx-intl-tel-input
+          style="width: 100% !important;"
+          [cssClass]="'custom'"
+          [preferredCountries]="preferredCountries"
+          [enableAutoCountrySelect]="true"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+          [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.Pakistan"
+          [maxLength]="15"
+          [phoneValidation]="true"
+          [separateDialCode]="true"
+          [numberFormat]="PhoneNumberFormat.National"
+          customPlaceholder="Mobile*"
+          #phone
+          [(ngModel)]="customerPhoneNumber" [ngClass]="{'ng-invalid ng-dirty' : showErrorPhone}"
+          (input)="onCNumberInput()"
+        >
+        </ngx-intl-tel-input>
+      </div>
+
+      <div class="justify-content-center mt-2">
+        <input class="input-field" pInputText placeholder="Phone">
+      </div>
+
+
+      <div class="justify-content-center mt-2">
+        <p-dropdown [options]="countryList" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name"
+                    placeholder="Country" [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}" (onChange)="selectCountry($event)">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="selectedCountry">
+              <div>{{selectedCountry.name}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-contry pTemplate="item">
+            <div class="country-item">
+<!--              <img src="http://primefaces.org/primeng/assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + contry.code.toLowerCase()" />-->
+              <div>{{contry.name}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div class="justify-content-center mt-2" *ngIf="selectedCountry.name === 'Pakistan'">
+        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="CityName" [filter]="true" filterBy="CityName"
+                    placeholder="City" [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}" (onChange)="onChangeCity($event)">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="selectedCity">
+              <div>{{selectedCity.CityName}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-city pTemplate="item">
+            <div class="country-item">
+              <div>{{city.CityName}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+
+        <div class="justify-content-center mt-2">
+          <p-multiSelect [options]="cities" [(ngModel)]="selectedMultipleCity"
+                         [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}"
+                         optionLabel="CityName"></p-multiSelect>
+        </div>
+      </div>
+
+      <div class="text-start mt-2">
+        <p-checkbox [(ngModel)]="agentheight"  label="Are you an agent?" [binary]="true"></p-checkbox>
+      </div>
+
+<!--      Are you an agent?-->
+      <div class="mt-1" *ngIf="agentheight">
+        <div class="justify-content-center mt-2">
+          <p-multiSelect [options]="cities" [(ngModel)]="selectedCityDealIn" placeholder="Select Cities You Deal In"
+                         [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}"
+                         optionLabel="CityName"></p-multiSelect>
+        </div>
+
+        <div class="justify-content-center mt-2">
+          <input class="input-field" pInputText placeholder="Company Name*" #companyName
+                 [(ngModel)]="signUpObj.CustomerCompanyName" [ngClass]="{'ng-invalid ng-dirty' : showErrorCompanyName}" (input)="onCompanyNameInput()">
+        </div>
+
+        <div class="justify-content-center mt-2">
+          <textarea pTooltip="Services Description" placeholder="Services Description"
+                    tooltipPosition="top" [rows]="3" pInputTextarea
+                    [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}"></textarea>
+        </div>
+
+        <div class="justify-content-center mt-2">
+          <input class="input-field" pInputText placeholder="Company Phone*" #companyPhone
+                 [(ngModel)]="signUpObj.CustomerCompanyContactNos" [ngClass]="{'ng-invalid ng-dirty' : showErrorCompanyPhone}"
+                 (input)="onCompanyPhoneInput()">
+        </div>
+        <span class="email-bt-text mt-1" style="display: block; text-align: left;">
+          Enter the phone number with Area Code, Example: +92-42-12345678</span>
+
+        <div class="div-intl-field justify-content-center d-flex flex-nowrap mt-2">
+          <ngx-intl-tel-input
+            style="width: 100% !important;"
+            [cssClass]="'custom'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Pakistan"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="true"
+            [numberFormat]="PhoneNumberFormat.National"
+            customPlaceholder="Mobile*"
+            [(ngModel)]="comapnyMobileNumber" [ngClass]="{'ng-invalid ng-dirty' : showErrorComapnyMobile}"
+            (input)="onComapnyMobileInput()"
+          >
+          </ngx-intl-tel-input>
+        </div>
+        <span class="email-bt-text mt-1" style="display: block; text-align: left;">
+          Enter the Mobile number with Area Code, Example: +92-333-1234567</span>
+
+        <div class="justify-content-center mt-2">
+          <input class="input-field" pInputText placeholder="Company Fax*" #companyFax
+                 [(ngModel)]="signUpObj.CustomerCompanyFaxNos" [ngClass]="{'ng-invalid ng-dirty' : showErrorCompanyFax}"
+                 (input)="onCompanyPhoneFax()">
+        </div>
+        <span class="email-bt-text mt-1" style="display: block; text-align: left;">
+          Enter the Company fax with Area Code, Example: +92-42-12345678</span>
+
+        <div class="justify-content-center mt-2">
+          <textarea pTooltip="Company Address" placeholder="Company Address"
+                    tooltipPosition="top" [rows]="3" pInputTextarea
+                    [style]="{'minWidth':'-webkit-fill-available', 'width': '-webkit-fill-available'}"></textarea>
+        </div>
+
+        <div class="justify-content-center mt-2">
+          <input class="input-field" pInputText placeholder="Company Email*" #companyEmail
+                 [(ngModel)]="signUpObj.CustomerCompanyEmail1" [ngClass]="{'ng-invalid ng-dirty' : showErrorCompanyEmail}"
+                 (input)="onCompanyEmailInput()">
+        </div>
+
+        <div class="justify-content-center mt-2 card">
+          <p-fileUpload  name="demo[]" (onUpload)="onUpload($event)"
+                        [multiple]="false" chooseLabel="Upload Logo" [showUploadButton] = 'false' accept="image/*" [maxFileSize]="1000000">
+            <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+              </ul>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+
+      </div>
+
+<!--      Security Code Confirmation-->
+      <div class="mt-2 d-flex">
+        <div class="mt-2" style="width: 50%">
+          <input class="input-field" pInputText placeholder="Security code" [(ngModel)]="securityCode" #SecurityCode
+                 [ngClass]="{'ng-invalid ng-dirty' : showErrorSecurityCode}"
+                 (input)="onSecurityCodeInput()">
+        </div>
+
+        <div style="width: 50%; text-align: end; padding: 6px;">
+          <span style="color: #fa0c19; font-weight: 800; font-style: italic;font-size: 30px;">{{genSecurityCode}}</span>
+          <i class="pi pi-sync ml-12px cursor-pointer" style="font-size: 2rem; color: #fa0c19; font-weight: 800; font-style: italic;" (click)="makeSecurityCode(4)"></i>
+        </div>
+      </div>
+
+      <div class="text-start mt-2">
+        <p-checkbox [(ngModel)]="termsCondition"
+                    label="I have read and I agree to the LandLogic.com Terms and Conditions"
+                    [binary]="true"></p-checkbox>
+      </div>
+
+      <div class="text-start mt-2">
+        <p-checkbox [(ngModel)]="notifications"
+                    label="I would like to receive notifications about promotions, newsletters and updates."
+                    [binary]="true"></p-checkbox>
+      </div>
+
+      <div class="d-flex btn btn-login justify-content-center mt-4" (click)="signUp()">
+        <span class="btn-login-text text-cap">REGISTER</span>
+      </div>
+
+      <div class="d-flex btn btn-signup justify-content-center mt-4 cursor-pointer"
+           (click)="onclickLogin()" style="border-radius: 0">
+        <span class="btn-login-text text-cap">Already a member?</span>
+      </div>
+
+    </div>
+  </div>
+</section>

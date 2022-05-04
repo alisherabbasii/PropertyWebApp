@@ -1,0 +1,172 @@
+.banner {
+  background: rgba(0, 0, 0, 0) url(../../../../assets/img/register-bg.jpg) no-repeat scroll 0 80%;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/register-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/register-bg.jpg',sizingMethod='scale')";
+  background-size: 100% auto;
+  height: 590px;
+  color: #ffffff;
+}
+.heading {
+  position: relative;
+  top: 80px;
+  line-height: 40px;
+  color: #ffffff;
+}
+.heading {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+  text-align: center;
+}
+
+.registration {
+  margin-top: -435px;
+}
+
+.details {
+  width: -webkit-calc(100% - 520px);
+  width: -moz-calc(100% - 520px);
+  width: calc(100% - 520px);
+  margin-top: 375px;
+  text-align: justify;
+}
+.left {
+  float: left;
+}
+
+.reg-form {
+  position: relative;
+  z-index: 1;
+  width: 440px;
+  padding: 20px;
+  padding-top: 40px;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 5px solid #fa0c19;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+.right {
+  float: right;
+}
+
+.title{
+  margin-top: 100px;
+  font-size: 24px;
+}
+
+li {
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+.btn{
+  width: -webkit-fill-available;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: -webkit-center;
+}
+
+.fb-btn-bg{
+  background: #3c5a97;
+  color: white;
+}
+
+.gmail-btn{
+  border: 1px solid #eeeeee;
+  color: black;
+}
+
+.gmail-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.fb-btn-bg:hover {
+  background-color: #395690;
+}
+.fb-icon{
+  height: 24px;
+}
+
+.btn-text{
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.btn-text-gmail{
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.input-field{
+  padding: 6px;
+  width: -webkit-fill-available;
+}
+
+.error-div{
+  margin: 0 15px;
+  display: block;
+  color: #a94442;
+  border: 1px solid #ebcccc;
+  background-color: #f2dede;
+  font-size: 13px;
+  padding: 8px 4px;
+}
+
+.btn-login-text{
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-login{
+  background-color: #fa0c19;
+  color: white;
+}
+
+.rem-text{
+  font-size: 13px;
+}
+
+.forget-text{
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  text-align: right;
+  color: #0792ea;
+}
+
+.btn-signup{
+  border: 1px solid #fa0c19;
+  color: #fa0c19;
+}
+
+.cls-btn{
+  font-size: 1.5rem;
+  color: #fa0c19;
+}
+
+.email-bt-text{
+  font-size: 12px;
+  color: #888888;
+}
+
+.div-intl-field{
+  width: 100%;
+}
+.iti {
+  width: -webkit-fill-available;
+}
+.iti input, .iti input[type=text], .iti input[type=tel] {
+  width: -webkit-fill-available;
+}
+.iti .search-container input {
+  width: -webkit-fill-available;
+}
+
+
+

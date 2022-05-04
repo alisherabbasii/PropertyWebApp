@@ -7,6 +7,12 @@ import {
   PropertyManagementSubmenuDetailsComponent
 } from "./components/property-management-submenu-details/property-management-submenu-details.component";
 import {PostListingComponent} from "./components/post-listing/post-listing.component";
+import {AccountsProfileHomeComponent} from "./components/accounts-profile-home/accounts-profile-home.component";
+import {AccountsUserProfileComponent} from "./components/accounts-user-profile/accounts-user-profile.component";
+import {AccountsUserSettingsComponent} from "./components/accounts-user-settings/accounts-user-settings.component";
+import {
+  AccountsChangePasswordComponent
+} from "./components/accounts-change-password/accounts-change-password.component";
 
 const routes: Routes = [
   {
@@ -39,7 +45,30 @@ const routes: Routes = [
             path: 'post-listing',
             component: PostListingComponent
           }
-      ]
+        ]
+      },
+      {
+        path: 'account-profile-home',
+        component: AccountsProfileHomeComponent,
+        children: [
+          {
+            path:'',
+            redirectTo: 'user-profile',
+            pathMatch: 'full'
+          },
+          {
+            path: 'user-profile',
+            component: AccountsUserProfileComponent
+          },
+          {
+            path: 'user-setting',
+            component: AccountsUserSettingsComponent
+          },
+          {
+            path: 'user-password',
+            component: AccountsChangePasswordComponent
+          }
+        ]
       }
     ]
   }

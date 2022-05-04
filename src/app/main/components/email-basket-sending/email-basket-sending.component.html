@@ -1,0 +1,91 @@
+<div style="background-color: #fa0c19; padding: 3px;"></div>
+<div>
+  <div class="d-flex" style="padding: 10px 5px; font-size: 17px; font-weight: 600; -webkit-box-shadow: 0 0.3rem 0.6rem 0 rgb(0 0 0 / 8%);
+   box-shadow: 0 0.3rem 0.6rem 0 rgb(0 0 0 / 8%);">
+    <div style="width: 95%; text-align: center;">
+      <span>Email Basket</span>
+    </div>
+    <div style="width: 5%; text-align: center;">
+      <i class="pi pi-times-circle cursor-pointer cls-btn" (click)="onClose(true)"></i>
+    </div>
+  </div>
+
+  <div class="row mt-4 mb-1 emailBucketSendForm">
+    <div class="col-6 text-center">
+      <div class="justify-content-center mt-2">
+        <input class="input-field" type="text" pInputText placeholder="Name*" #name
+               [(ngModel)]="emailBucketSend.name" [ngClass]="{'ng-invalid ng-dirty' : showErrorName}" (input)="onNameInput()">
+      </div>
+      <div class="justify-content-center mt-2">
+        <input class="input-field" type="text" pInputText placeholder="Email*" #email
+               [(ngModel)]="emailBucketSend.email" [ngClass]="{'ng-invalid ng-dirty' : showErrorEmail}" (input)="onEmailInput()">
+      </div>
+
+
+      <div class="div-intl-field justify-content-center d-flex flex-nowrap mt-2">
+        <ngx-intl-tel-input
+          style="width: 80% !important;"
+          [cssClass]="'custom'"
+          [preferredCountries]="preferredCountries"
+          [enableAutoCountrySelect]="true"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+          [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.Pakistan"
+          [maxLength]="15"
+          [phoneValidation]="true"
+          [separateDialCode]="true"
+          [numberFormat]="PhoneNumberFormat.National"
+          customPlaceholder="Mobile*"
+          #phone
+          [(ngModel)]="phoneNumber" [ngClass]="{'ng-invalid ng-dirty' : showErrorPhone}"
+          (input)="onNumberInput()"
+        >
+        </ngx-intl-tel-input>
+      </div>
+
+      <div class="justify-content-center mt-2">
+        <textarea class="input-field" #descriptionElement [ngClass]="showErrorMessage?  'ng-invalid ng-dirty' : ''" pTooltip="Message*" tooltipPosition="top"
+                  [rows]="5" [cols]="30" pInputTextarea placeholder="Message*"
+                  [(ngModel)]="emailBucketSend.message" (input)="onChangeMessage()"></textarea>
+      </div>
+
+      <div class="btn btn-login justify-content-center mt-4">
+        <span class="btn-login-text text-cap">SEND EMAIL</span>
+      </div>
+
+      <div class="email-bt-text mt-1" style="width: 98%; text-align: center;">By submitting this form, I agree to
+        <span class="terms">Terms of Use</span>
+      </div>
+
+
+    </div>
+    <div class="col-6">
+      <div style="height: 291px; overflow: overlay;">
+        <div class="row" style="border-bottom: 5px solid #e3e3e3; padding: 5px 0 8px; width: 100%;" *ngFor="let basket of emailBasketList">
+          <div class="col-4 col-sm-4" style="padding: 5px;">
+            <img style="height: 80px; width: -webkit-fill-available;" src="assets/img/register-bg.jpg">
+          </div>
+          <div class="col-7 col-sm-7" style="padding: 2px;">
+            <div class="d-flex">
+              <span style="font-size: 10px; font-weight: 700; margin-top: 6px;">PKR</span>
+              <span style="margin-left: 5px; font-weight: 700; color: black;">{{basket.Ad.AdPropertyPrice}} Lacs</span>
+            </div>
+            <span class="doted-text" style="display: block">{{basket.Ad.AdName}}</span>
+            <!--          <span class="doted-text" style="display: block">Bahria Paradise - Precinct 49, Bahria Paradise</span>-->
+            <span class="doted-text" style="display: block; color: #0792ea">250 Square Yards Plot Best For Investment Is
+            Now Available On Very Low Price In Bahria Town Karachi</span>
+            <span style="display: block">{{basket.Ad.AdPropertyArea ? basket.Ad.AdPropertyArea : 0}} Marla</span>
+            <span style="display: block" class="remove-all-text" (click)="removeFromBsket(basket.Ad.AdId)">Remove</span>
+          </div>
+        </div>
+      </div>
+      <div style="width: 100%; text-align: center;">
+        <div class="btn btn-remove-all justify-content-center mt-4">
+          <span class="btn-login-text text-cap">Remove all</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

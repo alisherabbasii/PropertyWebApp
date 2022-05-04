@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {BlogHomeComponent} from "../blogs/components/blog-home/blog-home.component";
-import { ControlsComponent } from './components/controls/controls.component';
 import { ExtendedSerachComponent } from './components/extended-serach/extended-serach.component';
 import { SearchDetailsComponent } from './components/extended-serach/search-details/search-details.component';
 import {HomeComponent} from "./components/home/home.component";
+import {HomeBodyControlsComponent} from "./components/home-body-controls/home-body-controls.component";
+import {SignupComponent} from "./components/signup/signup.component";
 const routes: Routes = [
   {
-
-    path: '',
-    component: HomeComponent,
+    path:'',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
-
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeBodyControlsComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      }]
+  },
+  {
     path: 'plots',
     component: HomeComponent,
   },
@@ -39,10 +51,10 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'searchDetails',
+    path: 'searchDetails/:id',
     component: SearchDetailsComponent,
   }
-  
+
 ];
 
 @NgModule({

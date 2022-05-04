@@ -10,7 +10,7 @@ import * as $ from 'jquery';
 export class BedsComponent implements OnInit {
 
   items:any;
-
+  localVal:any = '';
   
   constructor() { 
     this.items = [];
@@ -21,8 +21,11 @@ export class BedsComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    document.getElementById('selectedBeds').innerHTML = localStorage.getItem('bedsRange');
+    this.localVal = localStorage.getItem('bedsRange');
+    if(this.localVal){
+      document.getElementById('selectedBeds').innerHTML = localStorage.getItem('bedsRange');
+    }
+   
 
 
 
@@ -54,7 +57,10 @@ export class BedsComponent implements OnInit {
       $(this).css('color', 'white');
       min_input.val(minValue);
       document.getElementById('selectedBeds').innerHTML = minValue;
-      localStorage.setItem('bedsRange',minValue);
+      if(!localStorage.getItem('bedsRange')){
+        localStorage.setItem('bedsRange',minValue);
+      }
+      
 
      this.disableDropDownRangeOptionsArea(max_values, minValue);
   
