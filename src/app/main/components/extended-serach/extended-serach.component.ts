@@ -48,30 +48,45 @@ export class ExtendedSerachComponent implements OnInit {
     this.router.navigateByUrl('/searchDetails');
   }
   GetpropertyType(){
+    let adTypeId;
+    let adType = localStorage.getItem('AdAdTypeIds');
+    let areaMin = localStorage.getItem('areaRangeMin');
+    let areaMax = localStorage.getItem('areaRangeMax');
+    let priceMin = localStorage.getItem('priceRangeMin');
+    let priceMax =  localStorage.getItem('priceRangeMax');
+    let cityId = localStorage.getItem('cityId');
+    if(adType==null || adType=='Buy'){
+      adTypeId = 2
+    }else if(adType=='Rent'){
+      adTypeId=1
+    }else if(adType=='Project'){
+      adTypeId=3
+    }
+    debugger;
     let obj ={}
     if(localStorage.getItem('landlogic-login-response') && localStorage.getItem('landlogic-login-response-token')) {
       obj = {
-        AdAdTypeIds: [1,2],
+        AdAdTypeIds: [adTypeId],
         AdAreaIds: [1,5,28],
         AdAdClassIds: [51,50],
-        AdCityIds: [1],
-        AreaMin: 0,
-        AreaMax: 999,
-        PropertyPriceMin: 0,
-        PropertyPriceMax: 99999999,
+        AdCityIds: [cityId],
+        AreaMin: areaMin,
+        AreaMax: areaMax,
+        PropertyPriceMin: priceMin,
+        PropertyPriceMax: priceMax,
         token: localStorage.getItem('landlogic-login-response-token')
       }
     }
     else {
       obj = {
-        AdAdTypeIds: [1,2],
+        AdAdTypeIds: [adTypeId],
         AdAreaIds: [1,5,28],
         AdAdClassIds: [51,50],
-        AdCityIds: [1],
-        AreaMin: 0,
-        AreaMax: 999,
-        PropertyPriceMin: 0,
-        PropertyPriceMax: 99999999
+        AdCityIds: [cityId],
+        AreaMin: areaMin,
+        AreaMax: areaMax,
+        PropertyPriceMin: priceMin,
+        PropertyPriceMax: priceMax,
       }
     }
     this.service.post(`${ApiURL}` + 'api/Ad/GetAllLLCustomer',obj).subscribe((res:any)=>{
