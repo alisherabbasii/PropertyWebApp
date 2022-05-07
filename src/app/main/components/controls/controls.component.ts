@@ -44,6 +44,8 @@ export class ControlsComponent implements OnInit {
 
   ngOnInit(): void {
     // localStorage.clear();
+    this.clearControls();
+
     $('.dropdown-menu.ddRange')
       .click(function (e) {
         e.stopPropagation();
@@ -88,6 +90,8 @@ export class ControlsComponent implements OnInit {
   IncommingSelectedCity: any
   IncommingSelectedLocation:any
   // toggle:Boolean= true;
+
+
   constructor(private router:Router,private srv:UtilsService) {
 
     this.srv.rentReplaySubject.subscribe(val => {
@@ -131,11 +135,9 @@ export class ControlsComponent implements OnInit {
         ]
       }
     ];
-
-
   }
   changeBtn(val: any) {
-
+    localStorage.setItem('AdAdTypeIds',val);
     this.selectedButton = val;
 
 
@@ -364,7 +366,8 @@ export class ControlsComponent implements OnInit {
   }
 
   GetCity(data) {
-    this.IncommingSelectedCity = data
+    this.IncommingSelectedCity = data;
+    localStorage.setItem('cityId',data.CityId);
   }
 
   GetLocation(data) {
@@ -391,6 +394,13 @@ export class ControlsComponent implements OnInit {
 
 
 
-
+  clearControls(){
+    localStorage.removeItem('propertyType');
+    localStorage.removeItem('priceRangeMin');
+    localStorage.removeItem('priceRangeMax');
+    localStorage.removeItem('areaRangeMin');
+    localStorage.removeItem('areaRangeMax');
+    localStorage.removeItem('bedsRange');
+  }
 
 }

@@ -39,8 +39,11 @@
 
       </div>
     <div class="col-lg-2 d-flex justify-content-start">
-      <app-more-options></app-more-options>
+      <!-- <app-more-options></app-more-options> -->
+      <button pButton pRipple type="button" [style]="{ width: '100%' }" label="{{'Find' | translate}}"
+        class="FindButtonGlobalThemeStyle" (click)="GetpropertyType()"></button>
     </div>
+
   </div>
 </section>
 
